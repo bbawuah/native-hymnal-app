@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "preserveSymlinks": true,
+    "lib": ["es6", "es2017"],
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "noImplicitAny": true,
+    "target": "esnext"
+  },
+  "exclude": ["./node_modules/*", "node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
+}
