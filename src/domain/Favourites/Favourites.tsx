@@ -2,7 +2,7 @@ import React from 'react'
 import { RouteProp } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { StackNavigationProp } from '@react-navigation/stack'
-import { RootStackParamList } from '../Core/components/MainNavigator/MainNavigator'
+import { RootStackParamList } from '../MainNavigator/MainNavigator'
 import { Menu } from '../Core/components/Menu/Menu'
 import { FavouritesPage } from './FavouritesPage'
 

@@ -9,7 +9,7 @@
 import React from 'react'
 import 'react-native-gesture-handler'
 import { NavigationContainer } from '@react-navigation/native'
-import { MainNavigator } from './src/domain/Core/components/MainNavigator/MainNavigator'
+import { MainNavigator } from './src/domain/MainNavigator/MainNavigator'
 
 const App: React.FC = () => {
     return (

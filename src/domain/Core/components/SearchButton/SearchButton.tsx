@@ -1,22 +1,21 @@
 import React from 'react'
-import { TouchableWithoutFeedback, Alert, StyleSheet } from 'react-native'
+import { TouchableWithoutFeedback, StyleSheet, StyleProp, ViewStyle } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-export const SearchButton: React.FC = () => {
+interface Prop {
+    style?: StyleProp<ViewStyle>
+}
+
+export const SearchButton: React.FC<Prop> = ({ style }) => {
     return (
-        <TouchableWithoutFeedback
-            onPress={() =>
-                Alert.alert('Alert title', 'You pressed on the go back button', [
-                    {
-                        text: 'Ok',
-                        onPress: () => console.log('Pressed'),
-                    },
-                ])
-            }
-        >
-            <Icon name="search" size={25} style={styles.icon} />
+        <TouchableWithoutFeedback>
+            <Icon name="search" size={25} style={getStyles()} />
         </TouchableWithoutFeedback>
     )
+
+    function getStyles(): StyleProp<ViewStyle> {
+        return [styles.icon, style]
+    }
 }
 
 const styles = StyleSheet.create({

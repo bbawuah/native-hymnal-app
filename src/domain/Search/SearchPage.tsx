@@ -1,10 +1,15 @@
 import React from 'react'
-import { StyleSheet, SafeAreaView, Text } from 'react-native'
+import { StyleSheet, SafeAreaView, View } from 'react-native'
+import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
+import { SearchInput } from '../Core/components/SearchInput/SearchInput'
 
 export const SearchPage: React.FC = () => {
     return (
         <SafeAreaView style={styles.root}>
-            <Text>Search</Text>
+            <LightStatusBar />
+            <View style={styles.container}>
+                <SearchInput />
+            </View>
         </SafeAreaView>
     )
 }
@@ -15,22 +20,8 @@ const styles = StyleSheet.create({
     root: {
         height: '100%',
         backgroundColor: '#f8f8f8',
-        justifyContent: 'center',
-        alignItems: 'center',
     },
-    buttons: {
-        flexDirection: 'row',
-        minHeight: 70,
-        alignItems: 'stretch',
-        alignSelf: 'center',
-        borderWidth: 5,
-    },
-    button: {
-        flex: 1,
-        paddingVertical: 0,
-    },
-    greeting: {
-        color: '#999',
-        fontWeight: 'bold',
+    container: {
+        marginTop: 10,
     },
 })
