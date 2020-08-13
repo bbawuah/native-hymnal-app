@@ -6,24 +6,17 @@ import { FavouriteButton } from '../FavoriteButton/FavouriteButton'
 interface Song {
     number: number
     title: string
+    heart: string
+    onPress?: () => void
 }
 
-export const Song: React.FC<Song> = ({ number, title }) => {
+export const Song: React.FC<Song> = ({ number, title, heart, onPress }) => {
     return (
-        <TouchableOpacity
-            onPress={() =>
-                Alert.alert('Clicked', `You pressed song title ${title}`, [
-                    {
-                        text: 'Clicked a song',
-                        onPress: () => console.log(`You pressed song title ${title}`),
-                    },
-                ])
-            }
-        >
+        <TouchableOpacity onPress={onPress}>
             <View style={styles.song}>
-                <Text>{number}</Text>
-                <Text>{title}</Text>
-                <FavouriteButton />
+                <Text style={styles.text}>{number}</Text>
+                <Text style={styles.text}>{title}</Text>
+                <FavouriteButton heart={heart} />
             </View>
         </TouchableOpacity>
     )
@@ -48,5 +41,9 @@ const styles = StyleSheet.create({
         shadowRadius: 12,
         elevation: 1,
         borderWidth: 0,
+    },
+    text: {
+        color: '#555',
+        fontSize: 17,
     },
 })

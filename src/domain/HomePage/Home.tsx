@@ -1,22 +1,12 @@
 import React from 'react'
-import { RouteProp } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { StackNavigationProp } from '@react-navigation/stack'
-import { RootStackParamList } from '../MainNavigator/MainNavigator'
 import { HomeScreen } from './HomeScreen'
 import { Menu } from '../Core/components/Menu/Menu'
-
-type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>
-type HomeScreenRouteProp = RouteProp<RootStackParamList, 'Home'>
-
-type Props = {
-    navigation?: HomeScreenNavigationProp
-    route: HomeScreenRouteProp
-}
+import { SongPage } from '../SongPage/SongPage'
 
 const Stack = createStackNavigator()
 
-export const Home: React.FC<Props> = () => {
+export const Home: React.FC = () => {
     return (
         <Stack.Navigator
             screenOptions={{
@@ -28,6 +18,7 @@ export const Home: React.FC<Props> = () => {
             }}
         >
             <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Song" component={SongPage} />
         </Stack.Navigator>
     )
 }

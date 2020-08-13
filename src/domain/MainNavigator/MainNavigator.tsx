@@ -41,7 +41,7 @@ export const MainNavigator: React.FC = () => {
                 name="Favourites"
                 component={Favourites}
                 options={{
-                    tabBarIcon: () => <FavouriteButton />,
+                    tabBarIcon: () => <FavouriteButton heart="heart" />,
                 }}
             />
             <Tab.Screen

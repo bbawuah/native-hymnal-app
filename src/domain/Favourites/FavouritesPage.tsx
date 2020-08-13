@@ -1,22 +1,10 @@
 import React from 'react'
 import { StyleSheet, SafeAreaView, Text, FlatList, View } from 'react-native'
-import { createStackNavigator } from '@react-navigation/stack'
-import { StackNavigationProp } from '@react-navigation/stack'
-import { RootStackParamList } from '../MainNavigator/MainNavigator'
-import { RouteProp } from '@react-navigation/native'
 import { Song } from '../Core/components/Song/Song'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
+import { FavouriteNavProps } from './FavouritesParamList'
 
-type ProfileScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Favourites'>
-type ProfileScreenRouteProp = RouteProp<RootStackParamList, 'Favourites'>
-
-type Props = {
-    navigation?: ProfileScreenNavigationProp
-    route: ProfileScreenRouteProp
-}
-
-const Stack = createStackNavigator()
-export const FavouritesPage: React.FC = () => {
+export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = ({ navigation }) => {
     const songs = [
         { title: 'Song #1', number: 23 },
         { title: 'Song #2', number: 23 },
@@ -31,7 +19,14 @@ export const FavouritesPage: React.FC = () => {
                     keyExtractor={song => song.title}
                     data={songs}
                     renderItem={({ item }) => {
-                        return <Song title={item.title} number={item.number} />
+                        return (
+                            <Song
+                                title={item.title}
+                                number={item.number}
+                                heart="heart"
+                                onPress={() => navigation?.navigate('Song')}
+                            />
+                        )
                     }}
                 />
             </View>

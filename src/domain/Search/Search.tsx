@@ -1,22 +1,11 @@
 import React from 'react'
-import { RouteProp } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { StackNavigationProp } from '@react-navigation/stack'
-import { RootStackParamList } from '../MainNavigator/MainNavigator'
 import { Menu } from '../Core/components/Menu/Menu'
 import { SearchPage } from './SearchPage'
 
-type SearchScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Search'>
-type SearchScreenRouteProp = RouteProp<RootStackParamList, 'Search'>
-
-type Props = {
-    navigation?: SearchScreenNavigationProp
-    route: SearchScreenRouteProp
-}
-
 const Stack = createStackNavigator()
 
-export const Search: React.FC<Props> = () => {
+export const Search: React.FC = () => {
     return (
         <Stack.Navigator
             screenOptions={{

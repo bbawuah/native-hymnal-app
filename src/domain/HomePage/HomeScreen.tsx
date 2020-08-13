@@ -2,8 +2,9 @@ import React from 'react'
 import { StyleSheet, SafeAreaView, FlatList, View, Platform, StatusBar } from 'react-native'
 import { Song } from '../Core/components/Song/Song'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
+import { HomeNavProps } from './HomeParamList'
 
-export const HomeScreen: React.FC = () => {
+export const HomeScreen: React.FC<HomeNavProps<'Home'>> = ({ navigation }) => {
     const songs = [
         { title: 'Song #1', number: 23 },
         { title: 'Song #2', number: 23 },
@@ -28,7 +29,14 @@ export const HomeScreen: React.FC = () => {
                     keyExtractor={song => song.title}
                     data={songs}
                     renderItem={({ item }) => {
-                        return <Song title={item.title} number={item.number} />
+                        return (
+                            <Song
+                                title={item.title}
+                                number={item.number}
+                                heart="heart-o"
+                                onPress={() => navigation?.navigate('Song')}
+                            />
+                        )
                     }}
                 />
             </View>
@@ -45,5 +53,6 @@ const styles = StyleSheet.create({
     },
     container: {
         marginTop: 10,
+        marginBottom: 35,
     },
 })

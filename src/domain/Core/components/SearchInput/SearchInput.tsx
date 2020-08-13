@@ -1,15 +1,17 @@
-import { StyleSheet, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React, { useState } from 'react'
 import { TextInput } from 'react-native-gesture-handler'
 import { SearchButton } from '../SearchButton/SearchButton'
+import { CloseButton } from '../CloseButton/CloseButton'
 
 export const SearchInput: React.FC = () => {
     const [value, setValue] = useState('Enter a search term')
     return (
-        <TouchableOpacity style={styles.container}>
+        <View style={styles.container}>
             <SearchButton style={styles.search} />
             <TextInput onChangeText={text => setValue(text)} value={value} style={styles.input} />
-        </TouchableOpacity>
+            <CloseButton style={styles.close} />
+        </View>
     )
 }
 
@@ -35,5 +37,12 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: '25%',
         marginLeft: 5,
+    },
+    close: {
+        zIndex: 1,
+        position: 'absolute',
+        top: '25%',
+        right: 0,
+        marginRight: 5,
     },
 })

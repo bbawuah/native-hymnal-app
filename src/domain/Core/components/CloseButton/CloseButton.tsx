@@ -6,10 +6,10 @@ interface Prop {
     style?: StyleProp<ViewStyle>
 }
 
-export const SearchButton: React.FC<Prop> = ({ style }) => {
+export const CloseButton: React.FC<Prop> = ({ style }) => {
     return (
         <TouchableWithoutFeedback>
-            <Icon name="search" size={25} style={getStyles()} />
+            <Icon name="close" size={25} style={getStyles()} />
         </TouchableWithoutFeedback>
     )
 
@@ -21,6 +21,6 @@ export const SearchButton: React.FC<Prop> = ({ style }) => {
 const styles = StyleSheet.create({
     icon: {
         marginRight: 0,
-        color: '#757575',
+        color: '#A9A9A9',
     },
 })
