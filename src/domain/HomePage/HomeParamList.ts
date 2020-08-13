@@ -3,7 +3,9 @@ import { RouteProp } from '@react-navigation/native'
 
 export type HomeStackParamList = {
     Home: undefined
-    Song: undefined
+    Song: {
+        title: string
+    }
 }
 
 export type HomeNavProps<T extends keyof HomeStackParamList> = {

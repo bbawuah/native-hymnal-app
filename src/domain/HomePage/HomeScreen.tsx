@@ -1,10 +1,11 @@
 import React from 'react'
-import { StyleSheet, SafeAreaView, FlatList, View, Platform, StatusBar } from 'react-native'
+import { StyleSheet, SafeAreaView, FlatList, View } from 'react-native'
 import { Song } from '../Core/components/Song/Song'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
 import { HomeNavProps } from './HomeParamList'
 
 export const HomeScreen: React.FC<HomeNavProps<'Home'>> = ({ navigation }) => {
+    // Here we would like to have an async lifeCycleMethod which renders all the songs
     const songs = [
         { title: 'Song #1', number: 23 },
         { title: 'Song #2', number: 23 },
@@ -34,7 +35,11 @@ export const HomeScreen: React.FC<HomeNavProps<'Home'>> = ({ navigation }) => {
                                 title={item.title}
                                 number={item.number}
                                 heart="heart-o"
-                                onPress={() => navigation?.navigate('Song')}
+                                onPress={() =>
+                                    navigation?.navigate('Song', {
+                                        title: item.title,
+                                    })
+                                }
                             />
                         )
                     }}

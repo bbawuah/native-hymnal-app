@@ -1,13 +1,12 @@
 import React from 'react'
 import { StyleSheet, SafeAreaView, View, Text } from 'react-native'
-import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
+import { HomeNavProps } from '../HomePage/HomeParamList'
 
-export const SongPage: React.FC = () => {
+export const SongPage: React.FC<HomeNavProps<'Song'>> = ({ route }) => {
     return (
         <SafeAreaView style={styles.root}>
-            <LightStatusBar />
             <View style={styles.container}>
-                <Text>Song</Text>
+                <Text>{route.params.title}</Text>
             </View>
         </SafeAreaView>
     )

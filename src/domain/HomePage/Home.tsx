@@ -3,8 +3,9 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { HomeScreen } from './HomeScreen'
 import { Menu } from '../Core/components/Menu/Menu'
 import { SongPage } from '../SongPage/SongPage'
+import { HomeStackParamList } from './HomeParamList'
 
-const Stack = createStackNavigator()
+const Stack = createStackNavigator<HomeStackParamList>()
 
 export const Home: React.FC = () => {
     return (

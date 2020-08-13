@@ -3,7 +3,9 @@ import { RouteProp } from '@react-navigation/native'
 
 export type FavouritesParamList = {
     Favourites: undefined
-    Song: undefined
+    Song: {
+        title: string
+    }
 }
 
 export type FavouriteNavProps<T extends keyof FavouritesParamList> = {
