@@ -1,29 +1,30 @@
 import React from 'react'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { View, Text, StyleSheet } from 'react-native'
-import { FavouriteButton } from '../FavoriteButton/FavouriteButton'
+import { IconButton } from '../IconButton/IconButton'
 
-interface Song {
-    number: number
+interface Container {
+    number?: number
+    settingsIcon?: string
     title: string
-    heart: string
+    icon: string
     onPress?: () => void
 }
 
-export const Song: React.FC<Song> = ({ number, title, heart, onPress }) => {
+export const Container: React.FC<Container> = ({ number, settingsIcon, title, icon, onPress }) => {
     return (
         <TouchableOpacity onPress={onPress}>
-            <View style={styles.song}>
-                <Text style={styles.text}>{number}</Text>
+            <View style={styles.container}>
+                {number ? <Text style={styles.text}>{number}</Text> : <IconButton icon={settingsIcon} />}
                 <Text style={styles.text}>{title}</Text>
-                <FavouriteButton heart={heart} />
+                <IconButton icon={icon} />
             </View>
         </TouchableOpacity>
     )
 }
 
 const styles = StyleSheet.create({
-    song: {
+    container: {
         width: '90%',
         height: 75,
         borderRadius: 10,

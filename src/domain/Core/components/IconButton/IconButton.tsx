@@ -3,13 +3,14 @@ import { TouchableWithoutFeedback } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 interface Prop {
-    heart: string
+    icon?: string
 }
 
-export const FavouriteButton: React.FC<Prop> = ({ heart }) => {
+export const IconButton: React.FC<Prop> = ({ icon }) => {
+    const iconName = icon ? icon : 'heart-o'
     return (
         <TouchableWithoutFeedback>
-            <Icon name={heart} size={25} color="#757575" />
+            <Icon name={iconName} size={25} color="#757575" />
         </TouchableWithoutFeedback>
     )
 }

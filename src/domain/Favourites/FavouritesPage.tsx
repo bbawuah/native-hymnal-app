@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, SafeAreaView, FlatList, View } from 'react-native'
-import { Song } from '../Core/components/Song/Song'
+import { Container } from '../Core/components/Container/Container'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
 import { FavouriteNavProps } from './FavouritesParamList'
 
@@ -20,10 +20,10 @@ export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = ({ navi
                     data={songs}
                     renderItem={({ item }) => {
                         return (
-                            <Song
+                            <Container
                                 title={item.title}
                                 number={item.number}
-                                heart="heart"
+                                icon="heart"
                                 onPress={() =>
                                     navigation?.navigate('Song', {
                                         title: item.title,

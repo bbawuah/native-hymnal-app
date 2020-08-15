@@ -4,6 +4,7 @@ import { Home } from '../HomePage/Home'
 import { Favourites } from '../Favourites/Favourites'
 import { Search } from '../Search/Search'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import { MenuStackList } from '../MenuPage/MenuStackList'
 
 const Tab = createBottomTabNavigator()
 
@@ -49,6 +50,13 @@ export const MainNavigator: React.FC = () => {
                 component={Search}
                 options={{
                     tabBarIcon: ({ color, size }) => <Icon name="search" size={size} color={color} />,
+                }}
+            />
+            <Tab.Screen
+                name="Menu"
+                component={MenuStackList}
+                options={{
+                    tabBarIcon: ({ color, size }) => <Icon name="navicon" size={size} color={color} />,
                 }}
             />
         </Tab.Navigator>
