@@ -2,8 +2,9 @@ import React from 'react'
 import { StyleSheet, SafeAreaView, View } from 'react-native'
 import { SearchInput } from '../Core/components/SearchInput/SearchInput'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
+import { SearchNavProps } from './SearchParamList'
 
-export const SearchPage: React.FC = () => {
+export const SearchPage: React.FC<SearchNavProps<'Search'>> = () => {
     return (
         <SafeAreaView style={styles.root}>
             <LightStatusBar />

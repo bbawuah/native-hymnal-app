@@ -1,6 +1,5 @@
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, TextInput, TouchableWithoutFeedback } from 'react-native'
 import React, { useState } from 'react'
-import { TextInput } from 'react-native-gesture-handler'
 import { SearchButton } from '../SearchButton/SearchButton'
 import { CloseButton } from '../CloseButton/CloseButton'
 
@@ -10,7 +9,11 @@ export const SearchInput: React.FC = () => {
         <View style={styles.container}>
             <SearchButton style={styles.search} />
             <TextInput onChangeText={text => setValue(text)} value={value} style={styles.input} />
-            <CloseButton style={styles.close} />
+            <View style={styles.close}>
+                <TouchableWithoutFeedback onPress={() => console.log('test')}>
+                    <CloseButton />
+                </TouchableWithoutFeedback>
+            </View>
         </View>
     )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableWithoutFeedback, StyleSheet, StyleProp, ViewStyle } from 'react-native'
+import { StyleSheet, StyleProp, ViewStyle } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 interface Prop {
@@ -7,11 +7,7 @@ interface Prop {
 }
 
 export const CloseButton: React.FC<Prop> = ({ style }) => {
-    return (
-        <TouchableWithoutFeedback>
-            <Icon name="close" size={25} style={getStyles()} />
-        </TouchableWithoutFeedback>
-    )
+    return <Icon name="close" size={25} style={getStyles()} />
 
     function getStyles(): StyleProp<ViewStyle> {
         return [styles.icon, style]
