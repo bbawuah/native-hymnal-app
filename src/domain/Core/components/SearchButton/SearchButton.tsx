@@ -3,7 +3,7 @@ import { TouchableWithoutFeedback, StyleSheet, StyleProp, ViewStyle } from 'reac
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 interface Prop {
-    style?: StyleProp<ViewStyle>
+    style?: StyleProp<any>
 }
 
 export const SearchButton: React.FC<Prop> = ({ style }) => {

@@ -1,21 +1,36 @@
-import { StyleSheet, View, TextInput, TouchableWithoutFeedback } from 'react-native'
+import { StyleSheet, View, TextInput, TouchableWithoutFeedback, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { SearchButton } from '../SearchButton/SearchButton'
 import { CloseButton } from '../CloseButton/CloseButton'
 
 export const SearchInput: React.FC = () => {
     const [value, setValue] = useState('Enter a search term')
+
     return (
         <View style={styles.container}>
-            <SearchButton style={styles.search} />
+            <View style={styles.search}>
+                <TouchableOpacity>
+                    <SearchButton style={getSearchStyles()} />
+                </TouchableOpacity>
+            </View>
             <TextInput onChangeText={text => setValue(text)} value={value} style={styles.input} />
             <View style={styles.close}>
-                <TouchableWithoutFeedback onPress={() => console.log('test')}>
-                    <CloseButton />
-                </TouchableWithoutFeedback>
+                <TouchableOpacity onPress={() => setValue('')}>
+                    <CloseButton style={closeButtonStyles()} />
+                </TouchableOpacity>
             </View>
         </View>
     )
+
+    function closeButtonStyles() {
+        const color = value === '' ? '#A9A9A9' : '#FC8181'
+        return { color }
+    }
+
+    function getSearchStyles() {
+        const color = value === '' ? '#A9A9A9' : '#555'
+        return { color }
+    }
 }
 
 const styles = StyleSheet.create({

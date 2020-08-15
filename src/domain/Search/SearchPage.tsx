@@ -8,7 +8,6 @@ export const SearchPage: React.FC<SearchNavProps<'Search'>> = () => {
     return (
         <SafeAreaView style={styles.root}>
             <LightStatusBar />
-
             <View style={styles.container}>
                 <SearchInput />
             </View>

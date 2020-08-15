@@ -3,7 +3,7 @@ import { StyleSheet, StyleProp, ViewStyle } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 interface Prop {
-    style?: StyleProp<ViewStyle>
+    style?: StyleProp<any>
 }
 
 export const CloseButton: React.FC<Prop> = ({ style }) => {
@@ -17,6 +17,5 @@ export const CloseButton: React.FC<Prop> = ({ style }) => {
 const styles = StyleSheet.create({
     icon: {
         marginRight: 0,
-        color: '#A9A9A9',
     },
 })
