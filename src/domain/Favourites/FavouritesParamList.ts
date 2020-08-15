@@ -6,6 +6,7 @@ export type FavouritesParamList = {
     Song: {
         title: string
     }
+    Menu: undefined
 }
 
 export type FavouriteNavProps<T extends keyof FavouritesParamList> = {

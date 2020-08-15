@@ -1,15 +1,11 @@
 import React from 'react'
-import { StyleSheet, SafeAreaView, View } from 'react-native'
-import { SearchInput } from '../Core/components/SearchInput/SearchInput'
-import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
+import { Text, SafeAreaView, View, StyleSheet } from 'react-native'
 
-export const SearchPage: React.FC = () => {
+export const MenuPage: React.FC = () => {
     return (
         <SafeAreaView style={styles.root}>
-            <LightStatusBar />
-
             <View style={styles.container}>
-                <SearchInput />
+                <Text>Menu</Text>
             </View>
         </SafeAreaView>
     )

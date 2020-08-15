@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableWithoutFeedback, Alert } from 'react-native'
+import { TouchableWithoutFeedback } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 interface Prop {
