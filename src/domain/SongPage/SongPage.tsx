@@ -4,10 +4,10 @@ import { HomeNavProps } from '../HomePage/HomeParamList'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
 
 export const SongPage: React.FC<HomeNavProps<'Song'>> = ({ route }) => {
+    // Need to fetch song here in useEffect
     return (
         <SafeAreaView style={styles.root}>
             <LightStatusBar />
-
             <View style={styles.container}>
                 <Text style={styles.title}>{route.params.title}</Text>
             </View>
