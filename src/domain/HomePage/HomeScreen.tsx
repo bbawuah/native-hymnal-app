@@ -6,6 +6,7 @@ import { HomeNavProps } from './HomeParamList'
 
 export const HomeScreen: React.FC<HomeNavProps<'Home'>> = ({ navigation }) => {
     // Here we would like to have an async lifeCycleMethod which renders all the songs
+    // REG 38: Voor elk liedje moeten we checken of hij in de favorite list staat. Zo niet? renderen we 'heart-o'
     const songs = [
         { title: 'Song #1', number: 23 },
         { title: 'Song #2', number: 23 },

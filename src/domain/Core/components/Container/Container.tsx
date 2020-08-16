@@ -1,6 +1,5 @@
 import React from 'react'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { IconButton } from '../IconButton/IconButton'
 
 interface Container {
