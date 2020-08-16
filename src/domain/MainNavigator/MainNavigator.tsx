@@ -2,7 +2,6 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Home } from '../HomePage/Home'
 import { Favourites } from '../Favourites/Favourites'
-import { Search } from '../Search/Search'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { MenuStackList } from '../MenuPage/MenuStackList'
 
@@ -43,13 +42,6 @@ export const MainNavigator: React.FC = () => {
                 options={{
                     tabBarLabel: 'Favourites',
                     tabBarIcon: ({ color, size }) => <Icon name="heart" size={size} color={color} />,
-                }}
-            />
-            <Tab.Screen
-                name="Search"
-                component={Search}
-                options={{
-                    tabBarIcon: ({ color, size }) => <Icon name="search" size={size} color={color} />,
                 }}
             />
             <Tab.Screen

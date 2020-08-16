@@ -5,6 +5,7 @@ export type HomeStackParamList = {
     Home: undefined
     Song: {
         title: string
+        number: string
     }
     Menu: undefined
 }

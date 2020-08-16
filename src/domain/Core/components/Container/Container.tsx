@@ -1,9 +1,10 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { IconButton } from '../IconButton/IconButton'
+import { FavoriteState } from '../../../../store/store'
 
 interface Container {
-    number?: number
+    number?: string
     settingsIcon?: string
     title: string
     icon: string
@@ -15,8 +16,10 @@ export const Container: React.FC<Container> = ({ number, settingsIcon, title, ic
         <TouchableOpacity onPress={onPress}>
             <View style={styles.container}>
                 {number ? <Text style={styles.text}>{number}</Text> : <IconButton icon={settingsIcon} />}
-                <Text style={styles.text}>{title}</Text>
-                <IconButton icon={icon} />
+                <View style={styles.textContainer}>
+                    <Text style={styles.text}>{title}</Text>
+                </View>
+                <IconButton icon={icon} number={number} favoriteState={new FavoriteState()} />
             </View>
         </TouchableOpacity>
     )
@@ -42,8 +45,14 @@ const styles = StyleSheet.create({
         elevation: 1,
         borderWidth: 0,
     },
+    textContainer: {
+        width: 250,
+    },
     text: {
         color: '#555',
         fontSize: 17,
+    },
+    favoriteButton: {
+        zIndex: 99999,
     },
 })

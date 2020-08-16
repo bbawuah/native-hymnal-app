@@ -6,9 +6,9 @@ import { FavouriteNavProps } from './FavouritesParamList'
 
 export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = ({ navigation }) => {
     const songs = [
-        { title: 'Song #1', number: 23 },
-        { title: 'Song #2', number: 23 },
-        { title: 'Song #3', number: 23 },
+        { title: 'Song #1', number: '23' },
+        { title: 'Song #2', number: '23' },
+        { title: 'Song #3', number: '23' },
     ]
 
     return (
