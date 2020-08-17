@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { TouchableWithoutFeedback } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import data from '../../../../data/hymns.json'
 import { observer } from 'mobx-react'
-import { FavoriteState } from '../../../../store/store'
 import { Song } from '../../../../models/Song'
+import State from '../../../../store/store'
 
 interface Prop {
     icon?: string
     number?: string
-    favoriteState?: FavoriteState
 }
 
-export const IconButton: React.FC<Prop> = observer(({ icon = 'test', number, favoriteState }) => {
+export const IconButton: React.FC<Prop> = observer(({ icon = 'test', number }) => {
     const [iconName, setIconName] = useState(icon)
+    const state = useContext(State)
 
     return (
         <TouchableWithoutFeedback onPress={() => handleIconName()}>
@@ -25,13 +25,12 @@ export const IconButton: React.FC<Prop> = observer(({ icon = 'test', number, fav
         // Plaats een liejde in favorieten
         if (iconName === 'heart-o') {
             setIconName('heart')
-            favoriteState?.addSong(getSong(number))
-            console.log(favoriteState?.favoriteList())
+            state.addSong(getSong(number))
+            console.log(state.favoriteList.length)
         } else if (iconName === 'heart') {
             // Verwijder een liedje uit favorierten
-            favoriteState?.removeSong(getSong(number))
-            console.log(favoriteState?.favoriteList())
-
+            state.removeSong(getSong(number))
+            console.log(state.favoriteList.length)
             setIconName('heart-o')
         }
     }

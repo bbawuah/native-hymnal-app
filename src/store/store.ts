@@ -1,10 +1,18 @@
-import { observable, action } from 'mobx'
+import { observable, action, computed, reaction } from 'mobx'
 import { Song } from '../models/Song'
+import { createContext } from 'react'
 
-export class FavoriteState {
+class FavoriteState {
     @observable private list: Song[] = []
 
-    @action public favoriteList(): Song[] {
+    public constructor() {
+        reaction(
+            () => this.list,
+            _ => console.log(this.list.length)
+        )
+    }
+
+    @computed public get favoriteList(): Song[] {
         return this.list
     }
 
@@ -14,9 +22,11 @@ export class FavoriteState {
 
     @action public removeSong(song: Song): void {
         const index = this.list.indexOf(song)
-
+        console.log(this.list)
         if (index > -1) {
             this.list.splice(index, 1)
         }
     }
 }
+
+export default createContext(new FavoriteState())

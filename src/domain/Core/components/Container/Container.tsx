@@ -1,28 +1,32 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, StyleProp } from 'react-native'
 import { IconButton } from '../IconButton/IconButton'
-import { FavoriteState } from '../../../../store/store'
 
 interface Container {
     number?: string
     settingsIcon?: string
     title: string
     icon: string
+    style?: StyleProp<any>
     onPress?: () => void
 }
 
-export const Container: React.FC<Container> = ({ number, settingsIcon, title, icon, onPress }) => {
+export const Container: React.FC<Container> = ({ number, settingsIcon, title, icon, onPress, style }) => {
     return (
         <TouchableOpacity onPress={onPress}>
-            <View style={styles.container}>
+            <View style={getStyles()}>
                 {number ? <Text style={styles.text}>{number}</Text> : <IconButton icon={settingsIcon} />}
                 <View style={styles.textContainer}>
                     <Text style={styles.text}>{title}</Text>
                 </View>
-                <IconButton icon={icon} number={number} favoriteState={new FavoriteState()} />
+                <IconButton icon={icon} number={number} />
             </View>
         </TouchableOpacity>
     )
+
+    function getStyles() {
+        return [styles.container, style]
+    }
 }
 
 const styles = StyleSheet.create({

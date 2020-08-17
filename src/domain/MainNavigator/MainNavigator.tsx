@@ -44,6 +44,7 @@ export const MainNavigator: React.FC = () => {
                     tabBarIcon: ({ color, size }) => <Icon name="heart" size={size} color={color} />,
                 }}
             />
+
             <Tab.Screen
                 name="Menu"
                 component={MenuStackList}

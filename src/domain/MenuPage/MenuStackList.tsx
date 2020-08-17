@@ -1,6 +1,5 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { Menu } from '../Core/components/Menu/Menu'
 import { MenuNavProps, MenuParamList } from './MenuParamList'
 import { AboutUs } from './Settings/AboutUs/AboutUs'
 import { PrivacyPolicy } from './Settings/PrivacyPolicy/PrivacyPolicy'
@@ -11,7 +10,7 @@ import { Settings } from './Settings/Settings/Settings'
 
 const Stack = createStackNavigator<MenuParamList>()
 
-export const MenuStackList: React.FC<MenuNavProps<'Menu'>> = ({ navigation }) => {
+export const MenuStackList: React.FC<MenuNavProps<'Menu'>> = () => {
     return (
         <Stack.Navigator
             screenOptions={{
