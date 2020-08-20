@@ -1,23 +1,23 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { StyleSheet, SafeAreaView, FlatList, View } from 'react-native'
 import { Container } from '../Core/components/Container/Container'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
 import { FavouriteNavProps } from './FavouritesParamList'
-import State from '../../store/store'
+import { Song } from '../../models/Song'
 
 export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = ({ navigation }) => {
-    const state = useContext(State)
+    const [songs, setSongs] = useState<Song[]>()
 
     useEffect(() => {
-        console.log(state)
-    }, [state])
+        getSongs()
+    })
     return (
         <SafeAreaView style={styles.root}>
             <LightStatusBar />
             <View style={styles.container}>
                 <FlatList
                     keyExtractor={song => song.title}
-                    data={state.favoriteList}
+                    data={songs}
                     renderItem={({ item }) => {
                         return (
                             <Container
@@ -36,6 +36,16 @@ export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = ({ navi
             </View>
         </SafeAreaView>
     )
+
+    async function getSongs() {
+        try {
+            const songs = await fetch('http://localhost:8000/songs?favorite=true')
+            const response = await songs.json()
+            setSongs(response)
+        } catch (e) {
+            console.log(e)
+        }
+    }
 }
 
 // styles

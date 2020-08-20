@@ -2,11 +2,11 @@ import { StyleSheet, View, TextInput, TouchableOpacity, FlatList } from 'react-n
 import React, { useState, useEffect } from 'react'
 import { SearchButton } from '../SearchButton/SearchButton'
 import { CloseButton } from '../CloseButton/CloseButton'
-import Data from '../../../../data/hymns.json'
 import { Song } from '../../../../models/Song'
 import { Container } from '../Container/Container'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { HomeStackParamList } from '../../../HomePage/HomeParamList'
+import { LightStatusBar } from '../LightStatusBar/LightStatusBar'
 
 interface Props {
     navigation?: StackNavigationProp<HomeStackParamList, 'Home'>
@@ -17,11 +17,12 @@ export const SearchInput: React.FC<Props> = ({ navigation }) => {
     const [songs, setSongs] = useState<Song[]>()
 
     useEffect(() => {
-        setSongs(searchHymnals(value))
+        getSongs()
     }, [value])
 
     return (
         <View style={styles.container}>
+            <LightStatusBar />
             <View>
                 <TouchableOpacity style={styles.search}>
                     <SearchButton style={getSearchStyles()} />
@@ -34,12 +35,13 @@ export const SearchInput: React.FC<Props> = ({ navigation }) => {
             </View>
             <View>
                 <FlatList
+                    style={styles.test}
                     keyExtractor={song => song.number}
                     data={songs}
                     renderItem={({ item }) => {
                         return (
                             <Container
-                                title={item.title}
+                                title={item.title.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ').replace(/\n/g, ' - ')}
                                 number={item.number}
                                 icon="heart-o"
                                 style={{ width: '100%' }}
@@ -60,18 +62,28 @@ export const SearchInput: React.FC<Props> = ({ navigation }) => {
         </View>
     )
 
-    function searchHymnals(searchTerm: string) {
-        const matches = Data.filter(hymn => {
-            const regex = new RegExp(searchTerm, 'gi')
-            return hymn.number.match(regex) || hymn.title.match(regex)
-        })
-
-        if (matches.length === 0) {
-            return []
+    async function getSongs() {
+        try {
+            const songs = await fetch('http://localhost:8000/songs')
+            const response = await songs.json()
+            setSongs(response)
+        } catch (e) {
+            console.log(e)
         }
-
-        return matches
     }
+
+    // function searchHymnals(searchTerm: string) {
+    //     const matches = songs?.filter(hymn => {
+    //         const regex = new RegExp(searchTerm, 'gi')
+    //         return hymn.number.match(regex) || hymn.title.match(regex)
+    //     })
+
+    //     if (matches?.length === 0) {
+    //         return []
+    //     }
+
+    //     return matches
+    // }
 
     function closeButtonStyles() {
         const color = value === '' ? '#A9A9A9' : '#FC8181'
@@ -101,6 +113,9 @@ const styles = StyleSheet.create({
         fontSize: 17,
         paddingLeft: 45,
         zIndex: -1,
+    },
+    test: {
+        marginTop: 10,
     },
     search: {
         zIndex: 1,
