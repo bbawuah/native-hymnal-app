@@ -10,7 +10,25 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = ({ route }) => {
     const [song, setSong] = useState<Song>()
 
     useEffect(() => {
-        setSong(getSong(route.params.number))
+        ;(async () => {
+            try {
+                const songs = await fetch('http://localhost:8000/song', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        number: route.params.number,
+                    }),
+                })
+                const response = await songs.json()
+                setSong(response)
+            } catch (e) {
+                console.log(e)
+            }
+            return
+        })()
     }, [route.params.number])
 
     return (
@@ -21,7 +39,7 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = ({ route }) => {
                     <Text style={styles.title}>{route.params.title}</Text>
                     <Text style={styles.filter}>Hier komt filter</Text>
                 </View>
-                <Text style={styles.song}>{song?.songEN.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ')}</Text>
+                <Text style={styles.song}>{song?.english?.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ')}</Text>
             </View>
         </SafeAreaView>
     )

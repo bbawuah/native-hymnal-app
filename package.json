@@ -12,6 +12,7 @@
     "start-typescript": "npm run watch:lint"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.12.0",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-native-firebase/app": "^8.3.1",
     "@react-navigation/bottom-tabs": "^5.7.3",

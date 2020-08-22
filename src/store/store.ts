@@ -3,7 +3,7 @@ import { Song } from '../models/Song'
 import { createContext } from 'react'
 
 class FavoriteState {
-    @observable private list: Song[] = []
+    @observable private list: string[] = []
 
     public constructor() {
         reaction(
@@ -12,15 +12,15 @@ class FavoriteState {
         )
     }
 
-    @computed public get favoriteList(): Song[] {
+    @computed public get favoriteList(): string[] {
         return this.list
     }
 
-    @action public addSong(song: Song): void {
+    @action public addSong(song: string): void {
         this.list.push(song)
     }
 
-    @action public removeSong(song: Song): void {
+    @action public removeSong(song: string): void {
         const index = this.list.indexOf(song)
         console.log(this.list)
         if (index > -1) {

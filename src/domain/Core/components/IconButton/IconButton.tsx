@@ -1,15 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { TouchableWithoutFeedback } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { observer } from 'mobx-react'
+import State from '../../../../store/store'
 
 interface Prop {
     icon?: string
     number?: string
 }
 
+interface HandleList {
+    action: boolean
+    list: string[]
+}
+
 export const IconButton: React.FC<Prop> = observer(({ icon = 'test', number }) => {
     const [iconName, setIconName] = useState(icon)
+    const state = useContext(State)
 
     return (
         <TouchableWithoutFeedback onPress={() => favoriteSong()}>
@@ -18,33 +26,39 @@ export const IconButton: React.FC<Prop> = observer(({ icon = 'test', number }) =
     )
 
     async function favoriteSong() {
-        // Plaats een liejde in favorieten
+        // Plaats een liejde in state
+
         if (iconName === 'heart-o') {
-            await fetch('http://localhost:8000/song:id', {
-                method: 'PATCH',
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    number: number,
-                    favorite: true,
-                }),
-            })
+            if (number) {
+                console.log('song is added')
+                state.addSong(number)
+            }
+
+            try {
+                await AsyncStorage.setItem('number', JSON.stringify(state.favoriteList))
+            } catch (e) {
+                console.log(e)
+            }
             setIconName('heart')
         } else if (iconName === 'heart') {
             // Verwijder een liedje uit favorierten
-            await fetch('http://localhost:8000/song:id', {
-                method: 'PATCH',
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    number: number,
-                    favorite: false,
-                }),
-            })
+            const oldFavorites = await AsyncStorage.getItem('number')
+
+            if (number) {
+                state.removeSong(number)
+            }
+
+            if (oldFavorites) {
+                const oldFavoriteListArray = Array.from(JSON.parse(oldFavorites))
+                for (let i = 0; i < oldFavoriteListArray.length; i++) {
+                    if (oldFavoriteListArray[i] === number) {
+                        const newFavoriteList = oldFavoriteListArray.filter(num => num !== number)
+                        console.log(`removed song`)
+                        await AsyncStorage.setItem('number', JSON.stringify(newFavoriteList))
+                    }
+                }
+            }
+
             setIconName('heart-o')
         }
     }

@@ -5,6 +5,7 @@ export type FavouritesParamList = {
     Favourites: undefined
     Song: {
         title: string
+        number: string
     }
     Menu: undefined
 }

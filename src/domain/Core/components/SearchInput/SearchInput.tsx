@@ -17,7 +17,7 @@ export const SearchInput: React.FC<Props> = ({ navigation }) => {
     const [songs, setSongs] = useState<Song[]>()
 
     useEffect(() => {
-        getSongs()
+        searchHymnals(value)
     }, [value])
 
     return (
@@ -62,28 +62,15 @@ export const SearchInput: React.FC<Props> = ({ navigation }) => {
         </View>
     )
 
-    async function getSongs() {
+    async function searchHymnals(searchTerm: string) {
         try {
-            const songs = await fetch('http://localhost:8000/songs')
+            const songs = await fetch(`http://localhost:8000/search:${searchTerm}`)
             const response = await songs.json()
             setSongs(response)
         } catch (e) {
             console.log(e)
         }
     }
-
-    // function searchHymnals(searchTerm: string) {
-    //     const matches = songs?.filter(hymn => {
-    //         const regex = new RegExp(searchTerm, 'gi')
-    //         return hymn.number.match(regex) || hymn.title.match(regex)
-    //     })
-
-    //     if (matches?.length === 0) {
-    //         return []
-    //     }
-
-    //     return matches
-    // }
 
     function closeButtonStyles() {
         const color = value === '' ? '#A9A9A9' : '#FC8181'
