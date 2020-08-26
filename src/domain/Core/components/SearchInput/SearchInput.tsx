@@ -1,4 +1,12 @@
-import { StyleSheet, View, TextInput, TouchableOpacity, FlatList } from 'react-native'
+import {
+    StyleSheet,
+    View,
+    TextInput,
+    TouchableOpacity,
+    FlatList,
+    RefreshControl,
+    ActivityIndicator,
+} from 'react-native'
 import React, { useState, useEffect, useContext } from 'react'
 import { SearchButton } from '../SearchButton/SearchButton'
 import { CloseButton } from '../CloseButton/CloseButton'
@@ -15,15 +23,24 @@ interface Props {
 }
 
 export const SearchInput: React.FC<Props> = ({ navigation }) => {
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState<string>('')
     const [songs, setSongs] = useState<Song[]>()
+    const [refreshing, setRefreshing] = useState<boolean>(false)
     const state = useContext(State)
 
     useEffect(() => {
         searchHymnals(value)
         setState()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [value])
+    }, [value, state.favoriteList])
+
+    const onRefresh = React.useCallback(() => {
+        setRefreshing(true)
+        setSongs(undefined)
+        searchHymnals(value)
+        setRefreshing(false)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [value, refreshing])
 
     return (
         <View style={styles.container}>
@@ -39,34 +56,38 @@ export const SearchInput: React.FC<Props> = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
             <View>
-                <FlatList
-                    style={styles.test}
-                    keyExtractor={song => song.number}
-                    data={songs}
-                    renderItem={({ item }) => {
-                        return (
-                            <Container
-                                title={item.title.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ').replace(/\n/g, ' - ')}
-                                number={item.number}
-                                icon={getIcon(item.number)}
-                                style={{ width: '100%' }}
-                                onPress={() =>
-                                    navigation?.navigate('Song', {
-                                        title: item.title
-                                            .replace(/q|Q/g, 'ε')
-                                            .replace(/x|X/g, 'ɔ')
-                                            .replace(/\n/g, ' - '),
-                                        number: item.number,
-                                    })
-                                }
-                            />
-                        )
-                    }}
-                />
+                {!songs ? (
+                    <ActivityIndicator style={styles.activityIndicator} />
+                ) : (
+                    <FlatList
+                        style={styles.test}
+                        keyExtractor={song => song.number}
+                        data={songs}
+                        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+                        renderItem={({ item }) => {
+                            return (
+                                <Container
+                                    title={item.title.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ').replace(/\n/g, ' - ')}
+                                    number={item.number}
+                                    icon={getIcon(item.number)}
+                                    style={{ width: '100%' }}
+                                    onPress={() =>
+                                        navigation?.navigate('Song', {
+                                            title: item.title
+                                                .replace(/q|Q/g, 'ε')
+                                                .replace(/x|X/g, 'ɔ')
+                                                .replace(/\n/g, ' - '),
+                                            number: item.number,
+                                        })
+                                    }
+                                />
+                            )
+                        }}
+                    />
+                )}
             </View>
         </View>
     )
-
     async function searchHymnals(searchTerm: string) {
         try {
             const songs = await fetch(`http://localhost:8000/search:${searchTerm}`)
@@ -92,8 +113,9 @@ export const SearchInput: React.FC<Props> = ({ navigation }) => {
         if (favorites) {
             const arrayOfFavoritesList = Array.from(JSON.parse(favorites))
             state.replaceList(arrayOfFavoritesList)
+        } else {
+            return
         }
-        return
     }
 
     function getIcon(songRef: string) {
@@ -137,5 +159,8 @@ const styles = StyleSheet.create({
         top: '25%',
         right: 0,
         marginRight: 5,
+    },
+    activityIndicator: {
+        marginTop: 20,
     },
 })

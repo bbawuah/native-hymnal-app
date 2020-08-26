@@ -26,7 +26,6 @@ export const IconButton: React.FC<Prop> = observer(({ icon = 'test', number }) =
     )
 
     async function favoriteSong() {
-        // Plaats een liejde in state
         const oldFavorites = await AsyncStorage.getItem('number')
 
         if (iconName === 'heart-o') {
@@ -45,8 +44,6 @@ export const IconButton: React.FC<Prop> = observer(({ icon = 'test', number }) =
             }
             setIconName('heart')
         } else if (iconName === 'heart') {
-            // Verwijder een liedje uit favorierten
-
             if (number) {
                 state.removeSong(number)
             }
