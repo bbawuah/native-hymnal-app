@@ -1,5 +1,5 @@
 import { StyleSheet, View, TextInput, TouchableOpacity, FlatList } from 'react-native'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { SearchButton } from '../SearchButton/SearchButton'
 import { CloseButton } from '../CloseButton/CloseButton'
 import { Song } from '../../../../models/Song'
@@ -7,6 +7,8 @@ import { Container } from '../Container/Container'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { HomeStackParamList } from '../../../HomePage/HomeParamList'
 import { LightStatusBar } from '../LightStatusBar/LightStatusBar'
+import State from '../../../../store/store'
+import AsyncStorage from '@react-native-community/async-storage'
 
 interface Props {
     navigation?: StackNavigationProp<HomeStackParamList, 'Home'>
@@ -15,9 +17,12 @@ interface Props {
 export const SearchInput: React.FC<Props> = ({ navigation }) => {
     const [value, setValue] = useState('')
     const [songs, setSongs] = useState<Song[]>()
+    const state = useContext(State)
 
     useEffect(() => {
         searchHymnals(value)
+        setState()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
     return (
@@ -43,7 +48,7 @@ export const SearchInput: React.FC<Props> = ({ navigation }) => {
                             <Container
                                 title={item.title.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ').replace(/\n/g, ' - ')}
                                 number={item.number}
-                                icon="heart-o"
+                                icon={getIcon(item.number)}
                                 style={{ width: '100%' }}
                                 onPress={() =>
                                     navigation?.navigate('Song', {
@@ -80,6 +85,22 @@ export const SearchInput: React.FC<Props> = ({ navigation }) => {
     function getSearchStyles() {
         const color = value === '' ? '#A9A9A9' : '#555'
         return { color }
+    }
+
+    async function setState() {
+        const favorites = await AsyncStorage.getItem('number')
+        if (favorites) {
+            const arrayOfFavoritesList = Array.from(JSON.parse(favorites))
+            state.replaceList(arrayOfFavoritesList)
+        }
+        return
+    }
+
+    function getIcon(songRef: string) {
+        if (state.favoriteList.includes(songRef)) {
+            return 'heart'
+        }
+        return 'heart-o'
     }
 }
 

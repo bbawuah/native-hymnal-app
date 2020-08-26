@@ -1,5 +1,4 @@
 import { observable, action, computed, reaction } from 'mobx'
-import { Song } from '../models/Song'
 import { createContext } from 'react'
 
 class FavoriteState {
@@ -8,7 +7,7 @@ class FavoriteState {
     public constructor() {
         reaction(
             () => this.list,
-            _ => console.log(this.list.length)
+            _ => null
         )
     }
 
@@ -18,6 +17,10 @@ class FavoriteState {
 
     @action public addSong(song: string): void {
         this.list.push(song)
+    }
+
+    @action public replaceList(songs: any[]): void {
+        this.list = songs
     }
 
     @action public removeSong(song: string): void {

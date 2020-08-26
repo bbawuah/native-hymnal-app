@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { TouchableWithoutFeedback } from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -27,22 +27,25 @@ export const IconButton: React.FC<Prop> = observer(({ icon = 'test', number }) =
 
     async function favoriteSong() {
         // Plaats een liejde in state
+        const oldFavorites = await AsyncStorage.getItem('number')
 
         if (iconName === 'heart-o') {
             if (number) {
-                console.log('song is added')
                 state.addSong(number)
             }
-
-            try {
-                await AsyncStorage.setItem('number', JSON.stringify(state.favoriteList))
-            } catch (e) {
-                console.log(e)
+            if (oldFavorites) {
+                const oldFavoriteListArray = Array.from(JSON.parse(oldFavorites))
+                const updatedArray = Array.from(new Set(oldFavoriteListArray.concat(state.favoriteList)))
+                try {
+                    await AsyncStorage.setItem('number', JSON.stringify(updatedArray))
+                    state.replaceList(updatedArray)
+                } catch (e) {
+                    console.log(e)
+                }
             }
             setIconName('heart')
         } else if (iconName === 'heart') {
             // Verwijder een liedje uit favorierten
-            const oldFavorites = await AsyncStorage.getItem('number')
 
             if (number) {
                 state.removeSong(number)
@@ -50,10 +53,11 @@ export const IconButton: React.FC<Prop> = observer(({ icon = 'test', number }) =
 
             if (oldFavorites) {
                 const oldFavoriteListArray = Array.from(JSON.parse(oldFavorites))
-                for (let i = 0; i < oldFavoriteListArray.length; i++) {
-                    if (oldFavoriteListArray[i] === number) {
-                        const newFavoriteList = oldFavoriteListArray.filter(num => num !== number)
-                        console.log(`removed song`)
+                const updatedArray = Array.from(new Set(oldFavoriteListArray.concat(state.favoriteList)))
+                for (let i = 0; i < updatedArray.length; i++) {
+                    if (updatedArray[i] === number) {
+                        const newFavoriteList = updatedArray.filter(num => num !== number)
+                        state.replaceList(newFavoriteList)
                         await AsyncStorage.setItem('number', JSON.stringify(newFavoriteList))
                     }
                 }
