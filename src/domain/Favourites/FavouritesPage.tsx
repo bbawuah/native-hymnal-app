@@ -1,14 +1,15 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { StyleSheet, SafeAreaView, FlatList, View, ActivityIndicator } from 'react-native'
+import { StyleSheet, SafeAreaView, FlatList, View, ActivityIndicator, Text } from 'react-native'
 import { Container } from '../Core/components/Container/Container'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
 import { FavouriteNavProps } from './FavouritesParamList'
 import State from '../../store/store'
 import { observer } from 'mobx-react'
+import { Song } from '../../models/Song'
 
 export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = observer(({ navigation }) => {
     const state = useContext(State)
-    const [songs, setSongs] = useState<any>()
+    const [songs, setSongs] = useState<Song[]>()
 
     useEffect(() => {
         // State keeps rendering
@@ -20,8 +21,10 @@ export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = observe
         <SafeAreaView style={styles.root}>
             <LightStatusBar />
             <View style={styles.container}>
-                {!songs ? (
-                    <ActivityIndicator />
+                {songs?.length === 0 ? (
+                    <View style={styles.emptyState}>
+                        <Text>Your favorites list is empty</Text>
+                    </View>
                 ) : (
                     <FlatList
                         keyExtractor={song => song.title}
@@ -47,7 +50,7 @@ export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = observe
         </SafeAreaView>
     )
 
-    async function getSongs(refs: any) {
+    async function getSongs(refs: string[]) {
         try {
             const songs = await fetch('http://localhost:8000/favorites', {
                 method: 'POST',
@@ -59,7 +62,7 @@ export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = observe
                     list: refs,
                 }),
             })
-            const response = await songs.json()
+            const response: Song[] = await songs.json()
 
             setSongs(response)
         } catch (error) {
@@ -77,5 +80,9 @@ const styles = StyleSheet.create({
     },
     container: {
         marginTop: 10,
+    },
+    emptyState: {
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 })

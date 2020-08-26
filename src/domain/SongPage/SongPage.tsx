@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, SafeAreaView, View, Text } from 'react-native'
+import { StyleSheet, SafeAreaView, View, Text, ScrollView, Button, ActivityIndicator } from 'react-native'
 import { HomeNavProps } from '../HomePage/HomeParamList'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
 import { Song } from '../../models/Song'
+import { Picker } from '@react-native-community/picker'
+import { PickerButton } from '../Core/PickerButton/PickerButton'
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 
 export const SongPage: React.FC<HomeNavProps<'Song'>> = ({ route }) => {
     // Need to fetch song here in useEffect
     const [song, setSong] = useState<Song>()
+    const [language, setLanguage] = useState<React.ReactText>('english')
+    const [showPicker, setShowPicker] = useState<boolean>(false)
 
     useEffect(() => {
         ;(async () => {
@@ -33,15 +38,51 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = ({ route }) => {
     return (
         <SafeAreaView style={styles.root}>
             <LightStatusBar />
-            <View style={styles.container}>
+            <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
                 <View>
                     <Text style={styles.title}>{route.params.title}</Text>
-                    <Text style={styles.filter}>Options menu</Text>
+                    <TouchableWithoutFeedback onPress={() => setShowPicker(true)} disabled={!song ? true : false}>
+                        <PickerButton style={getPickerStyles()} />
+                    </TouchableWithoutFeedback>
                 </View>
-                <Text style={styles.song}>{song?.english?.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ')}</Text>
-            </View>
+                {!song ? <ActivityIndicator /> : <Text style={styles.song}>{getSongLanguage(language)}</Text>}
+            </ScrollView>
+            {showPicker && (
+                <View>
+                    <View style={styles.pickerMenuContainer}>
+                        <Button title={'Cancel'} onPress={() => setShowPicker(false)} />
+                        <Button
+                            title={'Done'}
+                            onPress={() => {
+                                setShowPicker(false)
+                            }}
+                        />
+                    </View>
+                    <Picker
+                        selectedValue={language}
+                        style={styles.picker}
+                        onValueChange={value => setLanguage(value)}
+                        mode="dropdown"
+                    >
+                        <Picker.Item label="English" value="english" />
+                        <Picker.Item label="Twi" value="twi" />
+                    </Picker>
+                </View>
+            )}
         </SafeAreaView>
     )
+
+    function getSongLanguage(language: React.ReactText) {
+        if (language === 'english') {
+            return song?.english?.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ')
+        }
+        return song?.twi?.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ')
+    }
+
+    function getPickerStyles() {
+        const color = showPicker ? '#A9A9A9' : '#555'
+        return [styles.filter, { color }]
+    }
 }
 
 // styles
@@ -66,5 +107,12 @@ const styles = StyleSheet.create({
     song: {
         marginTop: 20,
         fontSize: 18,
+    },
+    picker: {
+        width: '100%',
+    },
+    pickerMenuContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     },
 })
