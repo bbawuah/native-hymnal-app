@@ -32,7 +32,7 @@ export const SearchInput: React.FC<Props> = ({ navigation }) => {
         searchHymnals(value)
         setState()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [value, state.favoriteList])
+    }, [value])
 
     const onRefresh = React.useCallback(() => {
         setRefreshing(true)
@@ -70,7 +70,7 @@ export const SearchInput: React.FC<Props> = ({ navigation }) => {
                                     title={item.title.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ').replace(/\n/g, ' - ')}
                                     number={item.number}
                                     icon={getIcon(item.number)}
-                                    style={{ width: '100%' }}
+                                    style={styles.songContainer}
                                     onPress={() =>
                                         navigation?.navigate('Song', {
                                             title: item.title
@@ -91,7 +91,7 @@ export const SearchInput: React.FC<Props> = ({ navigation }) => {
     async function searchHymnals(searchTerm: string) {
         try {
             const songs = await fetch(`http://localhost:8000/search:${searchTerm}`)
-            const response = await songs.json()
+            const response: Song[] = await songs.json()
             setSongs(response)
         } catch (e) {
             console.log(e)
@@ -162,5 +162,8 @@ const styles = StyleSheet.create({
     },
     activityIndicator: {
         marginTop: 20,
+    },
+    songContainer: {
+        width: '100%',
     },
 })

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { StyleSheet, SafeAreaView, FlatList, View, ActivityIndicator, Text } from 'react-native'
+import { StyleSheet, SafeAreaView, FlatList, View, Text } from 'react-native'
 import { Container } from '../Core/components/Container/Container'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
 import { FavouriteNavProps } from './FavouritesParamList'

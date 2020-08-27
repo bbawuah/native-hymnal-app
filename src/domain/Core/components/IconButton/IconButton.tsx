@@ -1,13 +1,15 @@
 import React, { useState, useContext } from 'react'
-import { TouchableWithoutFeedback } from 'react-native'
+import { TouchableWithoutFeedback, StyleProp, View } from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { observer } from 'mobx-react'
 import State from '../../../../store/store'
 
 interface Prop {
-    icon?: string
+    icon?: string | undefined
     number?: string
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    style?: StyleProp<{}>
 }
 
 interface HandleList {
@@ -15,15 +17,23 @@ interface HandleList {
     list: string[]
 }
 
-export const IconButton: React.FC<Prop> = observer(({ icon = 'test', number }) => {
+export const IconButton: React.FC<Prop> = observer(({ icon = 'test', number, style }) => {
     const [iconName, setIconName] = useState(icon)
     const state = useContext(State)
 
     return (
         <TouchableWithoutFeedback onPress={() => favoriteSong()}>
-            <Icon name={iconName} size={25} color="#757575" />
+            <View style={style}>
+                <Icon name={iconName} size={25} color={getIconStyles(iconName)} />
+            </View>
         </TouchableWithoutFeedback>
     )
+
+    function getIconStyles(ref: string) {
+        const color = ref === 'heart' ? '#FC8181' : '#757575'
+
+        return color
+    }
 
     async function favoriteSong() {
         const oldFavorites = await AsyncStorage.getItem('number')

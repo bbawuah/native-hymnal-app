@@ -1,17 +1,33 @@
-import React, { useState, useEffect } from 'react'
-import { StyleSheet, SafeAreaView, View, Text, ScrollView, Button, ActivityIndicator } from 'react-native'
+import React, { useState, useEffect, useContext } from 'react'
+import { StyleSheet, SafeAreaView, View, Text, ScrollView, Button, ActivityIndicator, Modal } from 'react-native'
 import { HomeNavProps } from '../HomePage/HomeParamList'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
 import { Song } from '../../models/Song'
 import { Picker } from '@react-native-community/picker'
 import { PickerButton } from '../Core/PickerButton/PickerButton'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import { IconButton } from '../Core/components/IconButton/IconButton'
+import State from '../../store/store'
 
-export const SongPage: React.FC<HomeNavProps<'Song'>> = ({ route }) => {
+export const SongPage: React.FC<HomeNavProps<'Song'>> = ({ route, navigation }) => {
     // Need to fetch song here in useEffect
     const [song, setSong] = useState<Song>()
     const [language, setLanguage] = useState<React.ReactText>('english')
     const [showPicker, setShowPicker] = useState<boolean>(false)
+    const state = useContext(State)
+
+    React.useLayoutEffect(() => {
+        navigation?.setOptions({
+            headerRight: () => (
+                <IconButton
+                    icon={state.favoriteList.includes(route.params.number) ? 'heart' : 'heart-o'}
+                    number={song?.number}
+                    style={styles.headerButton}
+                />
+            ),
+        })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [navigation, song])
 
     useEffect(() => {
         ;(async () => {
@@ -48,26 +64,28 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = ({ route }) => {
                 {!song ? <ActivityIndicator /> : <Text style={styles.song}>{getSongLanguage(language)}</Text>}
             </ScrollView>
             {showPicker && (
-                <View>
-                    <View style={styles.pickerMenuContainer}>
-                        <Button title={'Cancel'} onPress={() => setShowPicker(false)} />
-                        <Button
-                            title={'Done'}
-                            onPress={() => {
-                                setShowPicker(false)
-                            }}
-                        />
+                <Modal visible={showPicker} animationType="slide" transparent={false} presentationStyle="pageSheet">
+                    <View>
+                        <View style={styles.pickerMenuContainer}>
+                            <Button title={'Cancel'} onPress={() => setShowPicker(false)} />
+                            <Button
+                                title={'Done'}
+                                onPress={() => {
+                                    setShowPicker(false)
+                                }}
+                            />
+                        </View>
+                        <Picker
+                            selectedValue={language}
+                            style={styles.picker}
+                            onValueChange={value => setLanguage(value)}
+                            mode="dropdown"
+                        >
+                            <Picker.Item label="English" value="english" />
+                            <Picker.Item label="Twi" value="twi" />
+                        </Picker>
                     </View>
-                    <Picker
-                        selectedValue={language}
-                        style={styles.picker}
-                        onValueChange={value => setLanguage(value)}
-                        mode="dropdown"
-                    >
-                        <Picker.Item label="English" value="english" />
-                        <Picker.Item label="Twi" value="twi" />
-                    </Picker>
-                </View>
+                </Modal>
             )}
         </SafeAreaView>
     )
@@ -114,5 +132,9 @@ const styles = StyleSheet.create({
     pickerMenuContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
+        marginTop: 10,
+    },
+    headerButton: {
+        marginRight: 10,
     },
 })
