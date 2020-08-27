@@ -17,7 +17,13 @@ export const Home: React.FC<HomeNavProps<'Home'>> = () => {
                 headerBackTitleVisible: false,
             }}
         >
-            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen
+                name="Home"
+                component={HomeScreen}
+                options={{
+                    title: 'SDA Hymnal',
+                }}
+            />
             <Stack.Screen name="Song" component={SongPage} />
         </Stack.Navigator>
     )

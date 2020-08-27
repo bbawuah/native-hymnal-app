@@ -25,7 +25,6 @@ class FavoriteState {
 
     @action public removeSong(song: string): void {
         const index = this.list.indexOf(song)
-        console.log(this.list)
         if (index > -1) {
             this.list.splice(index, 1)
         }

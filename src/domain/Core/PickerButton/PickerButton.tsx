@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableWithoutFeedback, StyleSheet, StyleProp, ViewStyle } from 'react-native'
+import { StyleSheet, StyleProp, ViewStyle } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 interface Prop {
