@@ -23,10 +23,10 @@ interface Props {
 }
 
 export const SearchInput: React.FC<Props> = ({ navigation }) => {
+    const state = useContext(State)
     const [value, setValue] = useState<string>('')
     const [songs, setSongs] = useState<Song[]>()
     const [refreshing, setRefreshing] = useState<boolean>(false)
-    const state = useContext(State)
 
     useEffect(() => {
         searchHymnals(value)
@@ -99,7 +99,7 @@ export const SearchInput: React.FC<Props> = ({ navigation }) => {
     }
 
     function closeButtonStyles() {
-        const color = value === '' ? '#A9A9A9' : '#FC8181'
+        const color = value === '' ? '#A9A9A9' : '#2F557F'
         return { color }
     }
 

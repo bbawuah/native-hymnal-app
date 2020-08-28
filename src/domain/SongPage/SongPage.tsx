@@ -44,6 +44,7 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = ({ route, navigation }) 
                 })
                 const response = await songs.json()
                 setSong(response)
+                setLanguage(!response?.english ? 'twi' : 'english')
             } catch (e) {
                 console.log(e)
             }
@@ -62,6 +63,7 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = ({ route, navigation }) 
                     </TouchableWithoutFeedback>
                 </View>
                 {!song ? <ActivityIndicator /> : <Text style={styles.song}>{getSongLanguage(language)}</Text>}
+                {!song?.english && language === 'english' && <Text>This song is not available in English..</Text>}
             </ScrollView>
             {showPicker && (
                 <Modal visible={showPicker} animationType="slide" transparent={false} presentationStyle="pageSheet">

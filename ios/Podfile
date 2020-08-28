@@ -21,6 +21,8 @@ pod 'Firebase/Analytics'
 
   pod 'RNCPicker', :path => '../node_modules/@react-native-community/picker'
 
+  pod 'RNShare', :path => '../node_modules/react-native-share'
+
   target 'myAwesomeProjectTests' do
     inherit! :complete
     # Pods for testing
