@@ -32,7 +32,7 @@ export const Container: React.FC<Container> = ({ number, settingsIcon, title, ic
 const styles = StyleSheet.create({
     container: {
         width: '90%',
-        height: 75,
+        height: 85,
         borderRadius: 10,
         backgroundColor: '#fff',
         marginTop: 15,

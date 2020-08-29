@@ -1,8 +1,9 @@
 import { observable, action, computed, reaction } from 'mobx'
 import { createContext } from 'react'
 
-class FavoriteState {
+class AppState {
     @observable private list: string[] = []
+    @observable private fontSize: number = 18
 
     public constructor() {
         reaction(
@@ -13,6 +14,10 @@ class FavoriteState {
 
     @computed public get favoriteList(): string[] {
         return this.list
+    }
+
+    @computed public get getFontSize(): number {
+        return this.fontSize
     }
 
     @action public addSong(song: string): void {
@@ -29,6 +34,10 @@ class FavoriteState {
             this.list.splice(index, 1)
         }
     }
+
+    @action public editFontSize(fontSize: number): void {
+        this.fontSize = fontSize
+    }
 }
 
-export default createContext(new FavoriteState())
+export default createContext(new AppState())

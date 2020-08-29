@@ -3,13 +3,13 @@ import { SafeAreaView, View, StyleSheet, Platform } from 'react-native'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
 import { Container } from '../Core/components/Container/Container'
 import { MenuNavProps } from './MenuParamList'
-import Share from 'react-native-share'
+import Share, { Options } from 'react-native-share'
 
 const url = 'https://awesome.contents.com/'
-const title = 'Awesome Contents'
-const message = 'Please check this out.'
+const title = 'SDA Hymnal App'
+const message = 'I want to enlighten you with app..'
 const icon = 'data:<data_type>/<file_extension>;base64,<base64_data>'
-const options: any = Platform.select({
+const options: Options = Platform.select({
     ios: {
         activityItemSources: [
             {
@@ -38,8 +38,8 @@ const options: any = Platform.select({
             {
                 // For using custom icon instead of default text icon at share preview when sharing with message.
                 placeholderItem: {
-                    type: 'url',
                     content: icon,
+                    type: 'text',
                 },
                 item: {
                     default: {

@@ -51,6 +51,15 @@ export const IconButton: React.FC<Prop> = observer(({ icon = 'test', number, sty
                 } catch (e) {
                     console.log(e)
                 }
+            } else {
+                if (number) {
+                    const song: string[] = [number]
+                    try {
+                        await AsyncStorage.setItem('number', JSON.stringify(song))
+                    } catch (e) {
+                        console.log(e)
+                    }
+                }
             }
             setIconName('heart')
         } else if (iconName === 'heart') {

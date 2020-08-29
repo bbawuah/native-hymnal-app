@@ -1,5 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { StyleSheet, SafeAreaView, View, Text, ScrollView, Button, ActivityIndicator, Modal } from 'react-native'
+import {
+    StyleSheet,
+    SafeAreaView,
+    View,
+    Text,
+    ScrollView,
+    Button,
+    ActivityIndicator,
+    Modal,
+    StyleProp,
+    TextStyle,
+} from 'react-native'
 import { HomeNavProps } from '../HomePage/HomeParamList'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
 import { Song } from '../../models/Song'
@@ -8,13 +19,15 @@ import { PickerButton } from '../Core/PickerButton/PickerButton'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import { IconButton } from '../Core/components/IconButton/IconButton'
 import State from '../../store/store'
+import { observer } from 'mobx-react'
 
-export const SongPage: React.FC<HomeNavProps<'Song'>> = ({ route, navigation }) => {
+export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navigation }) => {
     // Need to fetch song here in useEffect
+    const state = useContext(State)
     const [song, setSong] = useState<Song>()
     const [language, setLanguage] = useState<React.ReactText>('english')
     const [showPicker, setShowPicker] = useState<boolean>(false)
-    const state = useContext(State)
+    const [fontSize, setFontSize] = useState<number>()
 
     React.useLayoutEffect(() => {
         navigation?.setOptions({
@@ -50,19 +63,21 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = ({ route, navigation }) 
             }
             return
         })()
-    }, [route.params.number])
+
+        setFontSize(state.getFontSize)
+    }, [route.params.number, state.getFontSize])
 
     return (
         <SafeAreaView style={styles.root}>
             <LightStatusBar />
             <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
                 <View>
-                    <Text style={styles.title}>{route.params.title}</Text>
+                    <Text style={styles.title}>{`${route.params.number} - ${route.params.title}`}</Text>
                     <TouchableWithoutFeedback onPress={() => setShowPicker(true)} disabled={!song ? true : false}>
                         <PickerButton style={getPickerStyles()} />
                     </TouchableWithoutFeedback>
                 </View>
-                {!song ? <ActivityIndicator /> : <Text style={styles.song}>{getSongLanguage(language)}</Text>}
+                {!song ? <ActivityIndicator /> : <Text style={getFontSize()}>{getSongLanguage(language)}</Text>}
                 {!song?.english && language === 'english' && <Text>This song is not available in English..</Text>}
             </ScrollView>
             {showPicker && (
@@ -103,7 +118,12 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = ({ route, navigation }) 
         const color = showPicker ? '#A9A9A9' : '#555'
         return [styles.filter, { color }]
     }
-}
+
+    function getFontSize(): StyleProp<TextStyle> {
+        const style = { fontSize: fontSize }
+        return [styles.song, style]
+    }
+})
 
 // styles
 
@@ -126,7 +146,6 @@ const styles = StyleSheet.create({
     },
     song: {
         marginTop: 20,
-        fontSize: 18,
     },
     picker: {
         width: '100%',

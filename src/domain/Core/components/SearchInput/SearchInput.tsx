@@ -17,12 +17,13 @@ import { HomeStackParamList } from '../../../HomePage/HomeParamList'
 import { LightStatusBar } from '../LightStatusBar/LightStatusBar'
 import State from '../../../../store/store'
 import AsyncStorage from '@react-native-community/async-storage'
+import { observer } from 'mobx-react'
 
 interface Props {
     navigation?: StackNavigationProp<HomeStackParamList, 'Home'>
 }
 
-export const SearchInput: React.FC<Props> = ({ navigation }) => {
+export const SearchInput: React.FC<Props> = observer(({ navigation }) => {
     const state = useContext(State)
     const [value, setValue] = useState<string>('')
     const [songs, setSongs] = useState<Song[]>()
@@ -31,12 +32,13 @@ export const SearchInput: React.FC<Props> = ({ navigation }) => {
     useEffect(() => {
         searchHymnals(value)
         setState()
+        setFontSize()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
     const onRefresh = React.useCallback(() => {
         setRefreshing(true)
-        setSongs(undefined)
+        setSongs([])
         searchHymnals(value)
         setRefreshing(false)
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -61,7 +63,7 @@ export const SearchInput: React.FC<Props> = ({ navigation }) => {
                 ) : (
                     <FlatList
                         style={styles.test}
-                        keyExtractor={song => song.number}
+                        keyExtractor={song => song._id}
                         data={songs}
                         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
                         renderItem={({ item }) => {
@@ -118,17 +120,28 @@ export const SearchInput: React.FC<Props> = ({ navigation }) => {
         }
     }
 
+    async function setFontSize() {
+        const storage = await AsyncStorage.getItem('fontSize')
+        if (storage) {
+            const fontSize = Math.floor(Number(storage))
+            state.editFontSize(fontSize)
+        } else {
+            return
+        }
+    }
+
     function getIcon(songRef: string) {
         if (state.favoriteList.includes(songRef)) {
             return 'heart'
         }
         return 'heart-o'
     }
-}
+})
 
 const styles = StyleSheet.create({
     container: {
         marginTop: 10,
+        marginBottom: 20,
         width: '90%',
         alignSelf: 'center',
         justifyContent: 'space-between',
@@ -146,6 +159,7 @@ const styles = StyleSheet.create({
     },
     test: {
         marginTop: 10,
+        marginBottom: 150,
     },
     search: {
         zIndex: 1,
