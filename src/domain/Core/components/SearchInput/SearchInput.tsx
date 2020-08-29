@@ -58,7 +58,7 @@ export const SearchInput: React.FC<Props> = observer(({ navigation }) => {
                 </TouchableOpacity>
             </View>
             <View>
-                {!songs ? (
+                {!songs || songs.length === 0 ? (
                     <ActivityIndicator style={styles.activityIndicator} />
                 ) : (
                     <FlatList
@@ -71,7 +71,7 @@ export const SearchInput: React.FC<Props> = observer(({ navigation }) => {
                                 <Container
                                     title={item.title.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ').replace(/\n/g, ' - ')}
                                     number={item.number}
-                                    icon={getIcon(item.number)}
+                                    icon={state.favoriteList.includes(item.number) ? 'heart' : 'heart-o'}
                                     style={styles.songContainer}
                                     onPress={() =>
                                         navigation?.navigate('Song', {

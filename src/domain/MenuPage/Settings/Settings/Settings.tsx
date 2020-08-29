@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     },
     container: {
         width: '90%',
-        marginTop: 10,
+        marginTop: 25,
         borderTopWidth: 0.25,
         borderBottomWidth: 0.25,
         borderBottomColor: '#757575',
