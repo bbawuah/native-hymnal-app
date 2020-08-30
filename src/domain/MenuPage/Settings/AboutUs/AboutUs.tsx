@@ -1,4 +1,4 @@
-import { SafeAreaView, View, Text, StyleSheet } from 'react-native'
+import { SafeAreaView, Text, StyleSheet, ScrollView } from 'react-native'
 import React from 'react'
 import { LightStatusBar } from '../../../Core/components/LightStatusBar/LightStatusBar'
 import { MenuNavProps } from '../../MenuParamList'
@@ -7,7 +7,7 @@ export const AboutUs: React.FC<MenuNavProps<'About'>> = () => {
     return (
         <SafeAreaView style={styles.root}>
             <LightStatusBar />
-            <View style={styles.container}>
+            <ScrollView style={styles.container}>
                 <Text style={styles.textTitle}>About us</Text>
                 <Text style={styles.textContainer}>
                     This application is build by two young men who wanted to find a solution for a problem in their
@@ -34,7 +34,7 @@ export const AboutUs: React.FC<MenuNavProps<'About'>> = () => {
                     If you have any questions, feedback or if you desire that a particular app be developed for your
                     church, please don't hesitate to contact us at: adventhymnal@gmail.com
                 </Text>
-            </View>
+            </ScrollView>
         </SafeAreaView>
     )
 }
