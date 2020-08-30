@@ -33,6 +33,7 @@ export const Settings: React.FC<MenuNavProps<'Settings'>> = () => {
     async function handleFontSize(num: number) {
         try {
             await AsyncStorage.setItem('fontSize', JSON.stringify(num))
+            console.log(num)
             state.editFontSize(num)
         } catch (e) {
             console.log(e)
