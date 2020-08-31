@@ -1,54 +1,17 @@
 import React from 'react'
-import { StyleSheet, SafeAreaView, FlatList, View } from 'react-native'
-import { Song } from '../Core/components/Song/Song'
+import { StyleSheet, SafeAreaView } from 'react-native'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
 import { HomeNavProps } from './HomeParamList'
+import { SearchInput } from '../Core/components/SearchInput/SearchInput'
 
 export const HomeScreen: React.FC<HomeNavProps<'Home'>> = ({ navigation }) => {
-    // Here we would like to have an async lifeCycleMethod which renders all the songs
-    const songs = [
-        { title: 'Song #1', number: 23 },
-        { title: 'Song #2', number: 23 },
-        { title: 'Song #3', number: 23 },
-        { title: 'Song #4', number: 23 },
-        { title: 'Song #5', number: 23 },
-        { title: 'Song #6', number: 23 },
-        { title: 'Song #7', number: 23 },
-        { title: 'Song #8', number: 23 },
-        { title: 'Song #9', number: 23 },
-        { title: 'Song #10', number: 23 },
-        { title: 'Song #11', number: 23 },
-        { title: 'Song #12', number: 23 },
-        { title: 'Song #13', number: 23 },
-        { title: 'Song #14', number: 23 },
-    ]
     return (
         <SafeAreaView style={styles.root}>
             <LightStatusBar />
-            <View style={styles.container}>
-                <FlatList
-                    keyExtractor={song => song.title}
-                    data={songs}
-                    renderItem={({ item }) => {
-                        return (
-                            <Song
-                                title={item.title}
-                                number={item.number}
-                                heart="heart-o"
-                                onPress={() =>
-                                    navigation?.navigate('Song', {
-                                        title: item.title,
-                                    })
-                                }
-                            />
-                        )
-                    }}
-                />
-            </View>
+            <SearchInput navigation={navigation} />
         </SafeAreaView>
     )
 }
-
 // styles
 
 const styles = StyleSheet.create({
@@ -58,6 +21,5 @@ const styles = StyleSheet.create({
     },
     container: {
         marginTop: 10,
-        marginBottom: 35,
     },
 })

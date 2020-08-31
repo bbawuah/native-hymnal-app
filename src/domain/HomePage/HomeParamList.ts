@@ -5,7 +5,9 @@ export type HomeStackParamList = {
     Home: undefined
     Song: {
         title: string
+        number: string
     }
+    Menu: undefined
 }
 
 export type HomeNavProps<T extends keyof HomeStackParamList> = {

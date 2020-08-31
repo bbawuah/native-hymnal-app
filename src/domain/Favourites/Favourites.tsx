@@ -1,13 +1,12 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { Menu } from '../Core/components/Menu/Menu'
 import { FavouritesPage } from './FavouritesPage'
-import { FavouritesParamList } from './FavouritesParamList'
+import { FavouritesParamList, FavouriteNavProps } from './FavouritesParamList'
 import { SongPage } from '../SongPage/SongPage'
 
 const Stack = createStackNavigator<FavouritesParamList>()
 
-export const Favourites: React.FC = () => {
+export const Favourites: React.FC<FavouriteNavProps<'Favourites'>> = () => {
     return (
         <Stack.Navigator
             screenOptions={{
@@ -15,7 +14,7 @@ export const Favourites: React.FC = () => {
                     backgroundColor: '#2F557F',
                 },
                 headerTintColor: '#fff',
-                headerRight: () => <Menu />,
+                headerBackTitleVisible: false,
             }}
         >
             <Stack.Screen name="Favourites" component={FavouritesPage} />

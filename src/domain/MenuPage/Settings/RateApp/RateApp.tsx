@@ -1,12 +1,14 @@
+import { SafeAreaView, View, Text, StyleSheet } from 'react-native'
 import React from 'react'
-import { StyleSheet, SafeAreaView, View } from 'react-native'
-import { SearchInput } from '../Core/components/SearchInput/SearchInput'
+import { LightStatusBar } from '../../../Core/components/LightStatusBar/LightStatusBar'
+import { MenuNavProps } from '../../MenuParamList'
 
-export const SearchPage: React.FC = () => {
+export const RateApp: React.FC<MenuNavProps<'Rate'>> = () => {
     return (
         <SafeAreaView style={styles.root}>
+            <LightStatusBar />
             <View style={styles.container}>
-                <SearchInput />
+                <Text>Rate App</Text>
             </View>
         </SafeAreaView>
     )
