@@ -92,7 +92,7 @@ export const SearchInput: React.FC<Props> = observer(({ navigation }) => {
     )
     async function searchHymnals(searchTerm: string) {
         try {
-            const songs = await fetch(`http://localhost:8000/search:${searchTerm}`)
+            const songs = await fetch(`https://evening-hollows-34967.herokuapp.com/search:${searchTerm}`)
             const response: Song[] = await songs.json()
             setSongs(response)
         } catch (e) {
@@ -128,13 +128,6 @@ export const SearchInput: React.FC<Props> = observer(({ navigation }) => {
         } else {
             return
         }
-    }
-
-    function getIcon(songRef: string) {
-        if (state.favoriteList.includes(songRef)) {
-            return 'heart'
-        }
-        return 'heart-o'
     }
 })
 

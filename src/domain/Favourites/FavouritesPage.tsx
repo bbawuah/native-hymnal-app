@@ -52,7 +52,7 @@ export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = observe
 
     async function getSongs(refs: string[]) {
         try {
-            const songs = await fetch('http://localhost:8000/favorites', {
+            const songs = await fetch('https://evening-hollows-34967.herokuapp.com/favorites', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',

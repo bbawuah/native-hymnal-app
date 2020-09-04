@@ -45,7 +45,7 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
     useEffect(() => {
         ;(async () => {
             try {
-                const songs = await fetch('http://localhost:8000/song', {
+                const songs = await fetch('https://evening-hollows-34967.herokuapp.com/song', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
