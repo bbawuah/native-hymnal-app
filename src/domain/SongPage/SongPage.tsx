@@ -72,7 +72,10 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
             <LightStatusBar />
             <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
                 <View>
-                    <Text style={styles.title}>{`${route.params.number} - ${route.params.title}`}</Text>
+                    <Text style={styles.title}>{`${route.params.number} - ${route.params.title
+                        .replace(/q|Q/g, 'ε')
+                        .replace(/x|X/g, 'ɔ')
+                        .replace(/\n/g, ' - ')}`}</Text>
                     <TouchableWithoutFeedback onPress={() => setShowPicker(true)} disabled={!song ? true : false}>
                         <PickerButton style={getPickerStyles()} />
                     </TouchableWithoutFeedback>

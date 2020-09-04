@@ -32,7 +32,7 @@ export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = observe
                         renderItem={({ item }) => {
                             return (
                                 <Container
-                                    title={item.title}
+                                    title={item.title.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ').replace(/\n/g, ' - ')}
                                     number={item.number}
                                     icon="heart"
                                     onPress={() =>
