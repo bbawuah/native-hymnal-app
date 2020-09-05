@@ -6,7 +6,7 @@ import { MenuNavProps } from './MenuParamList'
 import Share, { Options } from 'react-native-share'
 
 const url = 'https://awesome.contents.com/'
-const title = 'SDA Hymnal App'
+const title = 'Adventist Melodies'
 const message = 'I want to enlighten you with app..'
 const icon = 'data:<data_type>/<file_extension>;base64,<base64_data>'
 const options: Options = Platform.select({
