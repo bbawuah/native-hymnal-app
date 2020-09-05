@@ -21,7 +21,7 @@ export const Home: React.FC<HomeNavProps<'Home'>> = () => {
                 name="Home"
                 component={HomeScreen}
                 options={{
-                    title: 'SDA Hymnal',
+                    title: 'Adventist Melodies',
                 }}
             />
             <Stack.Screen name="Song" component={SongPage} />

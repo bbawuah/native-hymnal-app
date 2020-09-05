@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* myAwesomeProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* myAwesomeProjectTests.m */; };
-		07138B0BC687F0E9B203522C /* libPods-myAwesomeProject-myAwesomeProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C016E85B9EE2A6080498C6 /* libPods-myAwesomeProject-myAwesomeProjectTests.a */; };
+		00E356F31AD99517003FC87E /* AdventistMelodiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AdventistMelodiesTests.m */; };
+		07138B0BC687F0E9B203522C /* libPods-AdventistMelodies-AdventistMelodiesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C016E85B9EE2A6080498C6 /* libPods-AdventistMelodies-AdventistMelodiesTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		19687F71CBFD533D5971AC6F /* libPods-myAwesomeProject-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D67120CE310B84832EA00D /* libPods-myAwesomeProject-tvOSTests.a */; };
+		19687F71CBFD533D5971AC6F /* libPods-AdventistMelodies-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D67120CE310B84832EA00D /* libPods-AdventistMelodies-tvOSTests.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2DCD954D1E0B4F2C00145EB5 /* myAwesomeProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* myAwesomeProjectTests.m */; };
-		5EBB5A795ADAA7DD936CCC90 /* libPods-myAwesomeProject-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57041FD21339363AE3D3E71F /* libPods-myAwesomeProject-tvOS.a */; };
+		2DCD954D1E0B4F2C00145EB5 /* AdventistMelodiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AdventistMelodiesTests.m */; };
+		5EBB5A795ADAA7DD936CCC90 /* libPods-AdventistMelodies-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57041FD21339363AE3D3E71F /* libPods-AdventistMelodies-tvOS.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		BB9E94C877D75A591381B23C /* libPods-myAwesomeProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0A9DD0854619B5A5C93026 /* libPods-myAwesomeProject.a */; };
+		BB9E94C877D75A591381B23C /* libPods-AdventistMelodies.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0A9DD0854619B5A5C93026 /* libPods-AdventistMelodies.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,58 +28,58 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = myAwesomeProject;
+			remoteInfo = AdventistMelodies;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "myAwesomeProject-tvOS";
+			remoteInfo = "AdventistMelodies-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* myAwesomeProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myAwesomeProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* AdventistMelodiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdventistMelodiesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* myAwesomeProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myAwesomeProjectTests.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* AdventistMelodiesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdventistMelodiesTests.m; sourceTree = "<group>"; };
 		0155A3B83BF648AF907244C5 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
-		028CCA4214FAC7A3663C3027 /* Pods-myAwesomeProject-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAwesomeProject-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-myAwesomeProject-tvOSTests/Pods-myAwesomeProject-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		028CCA4214FAC7A3663C3027 /* Pods-AdventistMelodies-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdventistMelodies-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-AdventistMelodies-tvOSTests/Pods-AdventistMelodies-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		03A58E75033F4DAEA989841B /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
-		08453F1E2B35EA4AAB61DB50 /* Pods-myAwesomeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAwesomeProject.release.xcconfig"; path = "Target Support Files/Pods-myAwesomeProject/Pods-myAwesomeProject.release.xcconfig"; sourceTree = "<group>"; };
+		08453F1E2B35EA4AAB61DB50 /* Pods-AdventistMelodies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdventistMelodies.release.xcconfig"; path = "Target Support Files/Pods-AdventistMelodies/Pods-AdventistMelodies.release.xcconfig"; sourceTree = "<group>"; };
 		099956331F8E42658027C2BC /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
-		0C0A9DD0854619B5A5C93026 /* libPods-myAwesomeProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myAwesomeProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		11D67120CE310B84832EA00D /* libPods-myAwesomeProject-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myAwesomeProject-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07F961A680F5B00A75B9A /* myAwesomeProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myAwesomeProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = myAwesomeProject/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = myAwesomeProject/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = myAwesomeProject/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = myAwesomeProject/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = myAwesomeProject/main.m; sourceTree = "<group>"; };
+		0C0A9DD0854619B5A5C93026 /* libPods-AdventistMelodies.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdventistMelodies.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		11D67120CE310B84832EA00D /* libPods-AdventistMelodies-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdventistMelodies-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* Adventist Melodies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Adventist Melodies.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = AdventistMelodies/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = AdventistMelodies/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = AdventistMelodies/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AdventistMelodies/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AdventistMelodies/main.m; sourceTree = "<group>"; };
 		1B45B302D0414804BC7082BE /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		1EB8528345BA4A28A1CA936E /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		22261DC8ABF3494BA0240956 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* myAwesomeProject-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "myAwesomeProject-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* myAwesomeProject-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "myAwesomeProject-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		34FBF6A3BB748C86AD29453F /* Pods-myAwesomeProject-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAwesomeProject-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-myAwesomeProject-tvOS/Pods-myAwesomeProject-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		2D02E47B1E0B4A5D006451C7 /* AdventistMelodies-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AdventistMelodies-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* AdventistMelodies-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AdventistMelodies-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		34FBF6A3BB748C86AD29453F /* Pods-AdventistMelodies-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdventistMelodies-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-AdventistMelodies-tvOS/Pods-AdventistMelodies-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		4A796BB772164982BCFF513C /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
-		4DB319C894CD33FCE94E2DD3 /* Pods-myAwesomeProject-myAwesomeProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAwesomeProject-myAwesomeProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-myAwesomeProject-myAwesomeProjectTests/Pods-myAwesomeProject-myAwesomeProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
-		57041FD21339363AE3D3E71F /* libPods-myAwesomeProject-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myAwesomeProject-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		708D20408CF531C3819BBB35 /* Pods-myAwesomeProject-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAwesomeProject-tvOS.release.xcconfig"; path = "Target Support Files/Pods-myAwesomeProject-tvOS/Pods-myAwesomeProject-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		4DB319C894CD33FCE94E2DD3 /* Pods-AdventistMelodies-AdventistMelodiesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdventistMelodies-AdventistMelodiesTests.debug.xcconfig"; path = "Target Support Files/Pods-AdventistMelodies-AdventistMelodiesTests/Pods-AdventistMelodies-AdventistMelodiesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		57041FD21339363AE3D3E71F /* libPods-AdventistMelodies-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdventistMelodies-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		708D20408CF531C3819BBB35 /* Pods-AdventistMelodies-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdventistMelodies-tvOS.release.xcconfig"; path = "Target Support Files/Pods-AdventistMelodies-tvOS/Pods-AdventistMelodies-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		783DE5BF7391442C859CCD21 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		7B0C139C04C3414E9D18165F /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = myAwesomeProject/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = AdventistMelodies/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83CAE42A01AC47CBA9A4FE03 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		871A3633E70542ABBF709FE4 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
-		8CED686E3BA0856CEC18003C /* Pods-myAwesomeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAwesomeProject.debug.xcconfig"; path = "Target Support Files/Pods-myAwesomeProject/Pods-myAwesomeProject.debug.xcconfig"; sourceTree = "<group>"; };
-		A2A3E576B8719839EE501BDA /* Pods-myAwesomeProject-myAwesomeProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAwesomeProject-myAwesomeProjectTests.release.xcconfig"; path = "Target Support Files/Pods-myAwesomeProject-myAwesomeProjectTests/Pods-myAwesomeProject-myAwesomeProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		8CED686E3BA0856CEC18003C /* Pods-AdventistMelodies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdventistMelodies.debug.xcconfig"; path = "Target Support Files/Pods-AdventistMelodies/Pods-AdventistMelodies.debug.xcconfig"; sourceTree = "<group>"; };
+		A2A3E576B8719839EE501BDA /* Pods-AdventistMelodies-AdventistMelodiesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdventistMelodies-AdventistMelodiesTests.release.xcconfig"; path = "Target Support Files/Pods-AdventistMelodies-AdventistMelodiesTests/Pods-AdventistMelodies-AdventistMelodiesTests.release.xcconfig"; sourceTree = "<group>"; };
 		A94AFD982ACF4134B6426535 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		B399317830FE4DEEB2B65F20 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		C2B2A28BC2324451B662C39F /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
-		D4C016E85B9EE2A6080498C6 /* libPods-myAwesomeProject-myAwesomeProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myAwesomeProject-myAwesomeProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4C016E85B9EE2A6080498C6 /* libPods-AdventistMelodies-AdventistMelodiesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdventistMelodies-AdventistMelodiesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDFF53CD16F4283AD873F40 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
-		EC8995E6E309B55D5617CA4A /* Pods-myAwesomeProject-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAwesomeProject-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-myAwesomeProject-tvOSTests/Pods-myAwesomeProject-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC8995E6E309B55D5617CA4A /* Pods-AdventistMelodies-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdventistMelodies-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-AdventistMelodies-tvOSTests/Pods-AdventistMelodies-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F607BBF116F84F4D8F9B803C /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07138B0BC687F0E9B203522C /* libPods-myAwesomeProject-myAwesomeProjectTests.a in Frameworks */,
+				07138B0BC687F0E9B203522C /* libPods-AdventistMelodies-AdventistMelodiesTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB9E94C877D75A591381B23C /* libPods-myAwesomeProject.a in Frameworks */,
+				BB9E94C877D75A591381B23C /* libPods-AdventistMelodies.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EBB5A795ADAA7DD936CCC90 /* libPods-myAwesomeProject-tvOS.a in Frameworks */,
+				5EBB5A795ADAA7DD936CCC90 /* libPods-AdventistMelodies-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,20 +114,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19687F71CBFD533D5971AC6F /* libPods-myAwesomeProject-tvOSTests.a in Frameworks */,
+				19687F71CBFD533D5971AC6F /* libPods-AdventistMelodies-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* myAwesomeProjectTests */ = {
+		00E356EF1AD99517003FC87E /* AdventistMelodiesTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* myAwesomeProjectTests.m */,
+				00E356F21AD99517003FC87E /* AdventistMelodiesTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = myAwesomeProjectTests;
+			path = AdventistMelodiesTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -138,7 +138,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* myAwesomeProject */ = {
+		13B07FAE1A68108700A75B9A /* AdventistMelodies */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -149,7 +149,7 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = myAwesomeProject;
+			name = AdventistMelodies;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -157,10 +157,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				0C0A9DD0854619B5A5C93026 /* libPods-myAwesomeProject.a */,
-				D4C016E85B9EE2A6080498C6 /* libPods-myAwesomeProject-myAwesomeProjectTests.a */,
-				57041FD21339363AE3D3E71F /* libPods-myAwesomeProject-tvOS.a */,
-				11D67120CE310B84832EA00D /* libPods-myAwesomeProject-tvOSTests.a */,
+				0C0A9DD0854619B5A5C93026 /* libPods-AdventistMelodies.a */,
+				D4C016E85B9EE2A6080498C6 /* libPods-AdventistMelodies-AdventistMelodiesTests.a */,
+				57041FD21339363AE3D3E71F /* libPods-AdventistMelodies-tvOS.a */,
+				11D67120CE310B84832EA00D /* libPods-AdventistMelodies-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -198,9 +198,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* myAwesomeProject */,
+				13B07FAE1A68108700A75B9A /* AdventistMelodies */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* myAwesomeProjectTests */,
+				00E356EF1AD99517003FC87E /* AdventistMelodiesTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				C433D659705A1ED3EB622ECB /* Pods */,
@@ -214,10 +214,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* myAwesomeProject.app */,
-				00E356EE1AD99517003FC87E /* myAwesomeProjectTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* myAwesomeProject-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* myAwesomeProject-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* Adventist Melodies.app */,
+				00E356EE1AD99517003FC87E /* AdventistMelodiesTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* AdventistMelodies-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* AdventistMelodies-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -225,14 +225,14 @@
 		C433D659705A1ED3EB622ECB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8CED686E3BA0856CEC18003C /* Pods-myAwesomeProject.debug.xcconfig */,
-				08453F1E2B35EA4AAB61DB50 /* Pods-myAwesomeProject.release.xcconfig */,
-				4DB319C894CD33FCE94E2DD3 /* Pods-myAwesomeProject-myAwesomeProjectTests.debug.xcconfig */,
-				A2A3E576B8719839EE501BDA /* Pods-myAwesomeProject-myAwesomeProjectTests.release.xcconfig */,
-				34FBF6A3BB748C86AD29453F /* Pods-myAwesomeProject-tvOS.debug.xcconfig */,
-				708D20408CF531C3819BBB35 /* Pods-myAwesomeProject-tvOS.release.xcconfig */,
-				EC8995E6E309B55D5617CA4A /* Pods-myAwesomeProject-tvOSTests.debug.xcconfig */,
-				028CCA4214FAC7A3663C3027 /* Pods-myAwesomeProject-tvOSTests.release.xcconfig */,
+				8CED686E3BA0856CEC18003C /* Pods-AdventistMelodies.debug.xcconfig */,
+				08453F1E2B35EA4AAB61DB50 /* Pods-AdventistMelodies.release.xcconfig */,
+				4DB319C894CD33FCE94E2DD3 /* Pods-AdventistMelodies-AdventistMelodiesTests.debug.xcconfig */,
+				A2A3E576B8719839EE501BDA /* Pods-AdventistMelodies-AdventistMelodiesTests.release.xcconfig */,
+				34FBF6A3BB748C86AD29453F /* Pods-AdventistMelodies-tvOS.debug.xcconfig */,
+				708D20408CF531C3819BBB35 /* Pods-AdventistMelodies-tvOS.release.xcconfig */,
+				EC8995E6E309B55D5617CA4A /* Pods-AdventistMelodies-tvOSTests.debug.xcconfig */,
+				028CCA4214FAC7A3663C3027 /* Pods-AdventistMelodies-tvOSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -240,9 +240,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* myAwesomeProjectTests */ = {
+		00E356ED1AD99517003FC87E /* AdventistMelodiesTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "myAwesomeProjectTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "AdventistMelodiesTests" */;
 			buildPhases = (
 				C525B148C1B74802F3DDB4B6 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -255,14 +255,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = myAwesomeProjectTests;
-			productName = myAwesomeProjectTests;
-			productReference = 00E356EE1AD99517003FC87E /* myAwesomeProjectTests.xctest */;
+			name = AdventistMelodiesTests;
+			productName = AdventistMelodiesTests;
+			productReference = 00E356EE1AD99517003FC87E /* AdventistMelodiesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* myAwesomeProject */ = {
+		13B07F861A680F5B00A75B9A /* AdventistMelodies */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "myAwesomeProject" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "AdventistMelodies" */;
 			buildPhases = (
 				65342405638BDDD9DB0CC318 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -277,14 +277,14 @@
 			);
 			dependencies = (
 			);
-			name = myAwesomeProject;
-			productName = myAwesomeProject;
-			productReference = 13B07F961A680F5B00A75B9A /* myAwesomeProject.app */;
+			name = AdventistMelodies;
+			productName = AdventistMelodies;
+			productReference = 13B07F961A680F5B00A75B9A /* Adventist Melodies.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* myAwesomeProject-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* AdventistMelodies-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "myAwesomeProject-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "AdventistMelodies-tvOS" */;
 			buildPhases = (
 				724078DFE95894ED08E72D20 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
@@ -297,14 +297,14 @@
 			);
 			dependencies = (
 			);
-			name = "myAwesomeProject-tvOS";
-			productName = "myAwesomeProject-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* myAwesomeProject-tvOS.app */;
+			name = "AdventistMelodies-tvOS";
+			productName = "AdventistMelodies-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* AdventistMelodies-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* myAwesomeProject-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* AdventistMelodies-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "myAwesomeProject-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "AdventistMelodies-tvOSTests" */;
 			buildPhases = (
 				B57890AFD777F7C40C68EAB8 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -316,9 +316,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "myAwesomeProject-tvOSTests";
-			productName = "myAwesomeProject-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* myAwesomeProject-tvOSTests.xctest */;
+			name = "AdventistMelodies-tvOSTests";
+			productName = "AdventistMelodies-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* AdventistMelodies-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -352,7 +352,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "myAwesomeProject" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "AdventistMelodies" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -365,10 +365,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* myAwesomeProject */,
-				00E356ED1AD99517003FC87E /* myAwesomeProjectTests */,
-				2D02E47A1E0B4A5D006451C7 /* myAwesomeProject-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* myAwesomeProject-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* AdventistMelodies */,
+				00E356ED1AD99517003FC87E /* AdventistMelodiesTests */,
+				2D02E47A1E0B4A5D006451C7 /* AdventistMelodies-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* AdventistMelodies-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -428,7 +428,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-myAwesomeProject-myAwesomeProjectTests/Pods-myAwesomeProject-myAwesomeProjectTests-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-AdventistMelodies-AdventistMelodiesTests/Pods-AdventistMelodies-AdventistMelodiesTests-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -469,7 +469,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-myAwesomeProject-myAwesomeProjectTests/Pods-myAwesomeProject-myAwesomeProjectTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AdventistMelodies-AdventistMelodiesTests/Pods-AdventistMelodies-AdventistMelodiesTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
@@ -492,7 +492,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-myAwesomeProject/Pods-myAwesomeProject-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-AdventistMelodies/Pods-AdventistMelodies-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -533,7 +533,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-myAwesomeProject/Pods-myAwesomeProject-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AdventistMelodies/Pods-AdventistMelodies-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		65342405638BDDD9DB0CC318 /* [CP] Check Pods Manifest.lock */ = {
@@ -551,7 +551,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-myAwesomeProject-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-AdventistMelodies-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -573,7 +573,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-myAwesomeProject-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-AdventistMelodies-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -595,7 +595,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-myAwesomeProject-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-AdventistMelodies-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -617,7 +617,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-myAwesomeProject-myAwesomeProjectTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-AdventistMelodies-AdventistMelodiesTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -679,7 +679,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* myAwesomeProjectTests.m in Sources */,
+				00E356F31AD99517003FC87E /* AdventistMelodiesTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,7 +705,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* myAwesomeProjectTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* AdventistMelodiesTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,12 +714,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* myAwesomeProject */;
+			target = 13B07F861A680F5B00A75B9A /* AdventistMelodies */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* myAwesomeProject-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* AdventistMelodies-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -727,7 +727,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4DB319C894CD33FCE94E2DD3 /* Pods-myAwesomeProject-myAwesomeProjectTests.debug.xcconfig */;
+			baseConfigurationReference = 4DB319C894CD33FCE94E2DD3 /* Pods-AdventistMelodies-AdventistMelodiesTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 4D75829V82;
@@ -735,7 +735,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = myAwesomeProjectTests/Info.plist;
+				INFOPLIST_FILE = AdventistMelodiesTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -745,18 +745,18 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/myAwesomeProject.app/myAwesomeProject";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdventistMelodies.app/AdventistMelodies";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2A3E576B8719839EE501BDA /* Pods-myAwesomeProject-myAwesomeProjectTests.release.xcconfig */;
+			baseConfigurationReference = A2A3E576B8719839EE501BDA /* Pods-AdventistMelodies-AdventistMelodiesTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 4D75829V82;
-				INFOPLIST_FILE = myAwesomeProjectTests/Info.plist;
+				INFOPLIST_FILE = AdventistMelodiesTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -766,13 +766,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/myAwesomeProject.app/myAwesomeProject";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdventistMelodies.app/AdventistMelodies";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8CED686E3BA0856CEC18003C /* Pods-myAwesomeProject.debug.xcconfig */;
+			baseConfigurationReference = 8CED686E3BA0856CEC18003C /* Pods-AdventistMelodies.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -781,15 +781,15 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4D75829V82;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = myAwesomeProject/Info.plist;
+				INFOPLIST_FILE = AdventistMelodies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.SDAHymnal;
-				PRODUCT_NAME = myAwesomeProject;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.adventistmelodies;
+				PRODUCT_NAME = "Adventist Melodies";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -799,7 +799,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08453F1E2B35EA4AAB61DB50 /* Pods-myAwesomeProject.release.xcconfig */;
+			baseConfigurationReference = 08453F1E2B35EA4AAB61DB50 /* Pods-AdventistMelodies.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -807,15 +807,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4D75829V82;
-				INFOPLIST_FILE = myAwesomeProject/Info.plist;
+				INFOPLIST_FILE = AdventistMelodies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.SDAHymnal;
-				PRODUCT_NAME = myAwesomeProject;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.adventistmelodies;
+				PRODUCT_NAME = "Adventist Melodies";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -824,7 +824,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34FBF6A3BB748C86AD29453F /* Pods-myAwesomeProject-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 34FBF6A3BB748C86AD29453F /* Pods-AdventistMelodies-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -838,7 +838,7 @@
 				DEVELOPMENT_TEAM = 4D75829V82;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "myAwesomeProject-tvOS/Info.plist";
+				INFOPLIST_FILE = "AdventistMelodies-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -856,7 +856,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 708D20408CF531C3819BBB35 /* Pods-myAwesomeProject-tvOS.release.xcconfig */;
+			baseConfigurationReference = 708D20408CF531C3819BBB35 /* Pods-AdventistMelodies-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -870,7 +870,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4D75829V82;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "myAwesomeProject-tvOS/Info.plist";
+				INFOPLIST_FILE = "AdventistMelodies-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -888,7 +888,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC8995E6E309B55D5617CA4A /* Pods-myAwesomeProject-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = EC8995E6E309B55D5617CA4A /* Pods-AdventistMelodies-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -899,24 +899,24 @@
 				DEVELOPMENT_TEAM = 4D75829V82;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "myAwesomeProject-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "AdventistMelodies-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.myAwesomeProject-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.AdventistMelodies-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/myAwesomeProject-tvOS.app/myAwesomeProject-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdventistMelodies-tvOS.app/AdventistMelodies-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 028CCA4214FAC7A3663C3027 /* Pods-myAwesomeProject-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 028CCA4214FAC7A3663C3027 /* Pods-AdventistMelodies-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -927,17 +927,17 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4D75829V82;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "myAwesomeProject-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "AdventistMelodies-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.myAwesomeProject-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.AdventistMelodies-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/myAwesomeProject-tvOS.app/myAwesomeProject-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AdventistMelodies-tvOS.app/AdventistMelodies-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -1058,7 +1058,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "myAwesomeProjectTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "AdventistMelodiesTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -1067,7 +1067,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "myAwesomeProject" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "AdventistMelodies" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1076,7 +1076,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "myAwesomeProject-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "AdventistMelodies-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -1085,7 +1085,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "myAwesomeProject-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "AdventistMelodies-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -1094,7 +1094,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "myAwesomeProject" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "AdventistMelodies" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

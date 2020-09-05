@@ -3,7 +3,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'myAwesomeProject' do
+target 'AdventistMelodies' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
@@ -23,7 +23,7 @@ pod 'Firebase/Analytics'
 
   pod 'RNShare', :path => '../node_modules/react-native-share'
 
-  target 'myAwesomeProjectTests' do
+  target 'AdventistMelodiesTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -38,10 +38,10 @@ pod 'Firebase/Analytics'
   end
 end
 
-target 'myAwesomeProject-tvOS' do
-  # Pods for myAwesomeProject-tvOS
+target 'AdventistMelodies-tvOS' do
+  # Pods for AdventistMelodies-tvOS
 
-  target 'myAwesomeProject-tvOSTests' do
+  target 'AdventistMelodies-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

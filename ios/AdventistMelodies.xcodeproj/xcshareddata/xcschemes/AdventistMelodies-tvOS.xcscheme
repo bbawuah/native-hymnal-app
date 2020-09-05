@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "myAwesomeProject-tvOS.app"
-               BlueprintName = "myAwesomeProject-tvOS"
-               ReferencedContainer = "container:myAwesomeProject.xcodeproj">
+               BuildableName = "AdventistMelodies-tvOS.app"
+               BlueprintName = "AdventistMelodies-tvOS"
+               ReferencedContainer = "container:AdventistMelodies.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "myAwesomeProject-tvOSTests.xctest"
-               BlueprintName = "myAwesomeProject-tvOSTests"
-               ReferencedContainer = "container:myAwesomeProject.xcodeproj">
+               BuildableName = "AdventistMelodies-tvOSTests.xctest"
+               BlueprintName = "AdventistMelodies-tvOSTests"
+               ReferencedContainer = "container:AdventistMelodies.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "myAwesomeProject-tvOS.app"
-            BlueprintName = "myAwesomeProject-tvOS"
-            ReferencedContainer = "container:myAwesomeProject.xcodeproj">
+            BuildableName = "AdventistMelodies-tvOS.app"
+            BlueprintName = "AdventistMelodies-tvOS"
+            ReferencedContainer = "container:AdventistMelodies.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "myAwesomeProject-tvOS.app"
-            BlueprintName = "myAwesomeProject-tvOS"
-            ReferencedContainer = "container:myAwesomeProject.xcodeproj">
+            BuildableName = "AdventistMelodies-tvOS.app"
+            BlueprintName = "AdventistMelodies-tvOS"
+            ReferencedContainer = "container:AdventistMelodies.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
