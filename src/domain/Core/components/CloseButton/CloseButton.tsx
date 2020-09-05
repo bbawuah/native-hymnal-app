@@ -9,7 +9,7 @@ interface Prop {
 export const CloseButton: React.FC<Prop> = ({ style }) => {
     return <Icon name="close" size={25} style={getStyles()} />
 
-    function getStyles(): StyleProp<ViewStyle> {
+    function getStyles() {
         return [styles.icon, style]
     }
 }

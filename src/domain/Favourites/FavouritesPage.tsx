@@ -32,7 +32,7 @@ export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = observe
                         renderItem={({ item }) => {
                             return (
                                 <Container
-                                    title={item.title}
+                                    title={item.title.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ').replace(/\n/g, ' - ')}
                                     number={item.number}
                                     icon="heart"
                                     onPress={() =>
@@ -52,7 +52,7 @@ export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = observe
 
     async function getSongs(refs: string[]) {
         try {
-            const songs = await fetch('http://localhost:8000/favorites', {
+            const songs = await fetch('https://evening-hollows-34967.herokuapp.com/favorites', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',

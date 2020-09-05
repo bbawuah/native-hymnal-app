@@ -45,7 +45,7 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
     useEffect(() => {
         ;(async () => {
             try {
-                const songs = await fetch('http://localhost:8000/song', {
+                const songs = await fetch('https://evening-hollows-34967.herokuapp.com/song', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
@@ -72,7 +72,10 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
             <LightStatusBar />
             <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
                 <View>
-                    <Text style={styles.title}>{`${route.params.number} - ${route.params.title}`}</Text>
+                    <Text style={styles.title}>{`${route.params.number} - ${route.params.title
+                        .replace(/q|Q/g, 'ε')
+                        .replace(/x|X/g, 'ɔ')
+                        .replace(/\n/g, ' - ')}`}</Text>
                     <TouchableWithoutFeedback onPress={() => setShowPicker(true)} disabled={!song ? true : false}>
                         <PickerButton style={getPickerStyles()} />
                     </TouchableWithoutFeedback>
