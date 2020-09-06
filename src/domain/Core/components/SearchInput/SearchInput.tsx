@@ -37,7 +37,7 @@ export const SearchInput: React.FC<Props> = observer(({ navigation }) => {
         setFontSize()
         setTimeout(() => {
             searchHymnals(value)
-        }, 2000)
+        }, 200)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
