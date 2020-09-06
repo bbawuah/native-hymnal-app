@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableWithoutFeedback, StyleSheet, StyleProp } from 'react-native'
+import { StyleSheet, StyleProp } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 interface Prop {
@@ -7,11 +7,7 @@ interface Prop {
 }
 
 export const SearchButton: React.FC<Prop> = ({ style }) => {
-    return (
-        <TouchableWithoutFeedback>
-            <Icon name="search" size={25} style={getStyles()} />
-        </TouchableWithoutFeedback>
-    )
+    return <Icon name="search" size={25} style={getStyles()} />
 
     function getStyles() {
         return [styles.icon, style]

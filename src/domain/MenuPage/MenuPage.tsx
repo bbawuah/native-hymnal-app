@@ -1,40 +1,17 @@
 import React from 'react'
-import { SafeAreaView, View, StyleSheet, Platform } from 'react-native'
+import { SafeAreaView, View, StyleSheet, Platform, Linking } from 'react-native'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
 import { Container } from '../Core/components/Container/Container'
 import { MenuNavProps } from './MenuParamList'
 import Share, { Options } from 'react-native-share'
 
-const url = 'https://awesome.contents.com/'
+const url = Platform.OS !== 'ios' ? 'https://awesome.contents.com/' : 'https://awesome.contents.com/'
 const title = 'Adventist Melodies'
 const message = 'I want to enlighten you with app..'
 const icon = 'data:<data_type>/<file_extension>;base64,<base64_data>'
 const options: Options = Platform.select({
     ios: {
         activityItemSources: [
-            {
-                // For sharing url with custom title.
-                placeholderItem: { type: 'url', content: url },
-                item: {
-                    default: { type: 'url', content: url },
-                },
-                subject: {
-                    default: title,
-                },
-                linkMetadata: { originalUrl: url, url, title },
-            },
-            {
-                // For sharing text.
-                placeholderItem: { type: 'text', content: message },
-                item: {
-                    default: { type: 'text', content: message },
-                    message: null, // Specify no text to share via Messages app.
-                },
-                linkMetadata: {
-                    // For showing app icon on share preview.
-                    title: message,
-                },
-            },
             {
                 // For using custom icon instead of default text icon at share preview when sharing with message.
                 placeholderItem: {
@@ -48,7 +25,7 @@ const options: Options = Platform.select({
                     },
                 },
                 linkMetadata: {
-                    title: message,
+                    title: title,
                     icon: icon,
                 },
             },
@@ -92,12 +69,7 @@ export const MenuPage: React.FC<MenuNavProps<'Menu'>> = ({ navigation }) => {
                     icon="angle-right"
                     settingsIcon="share-alt"
                 />
-                <Container
-                    title="Rate App"
-                    onPress={() => navigation?.navigate('Rate')}
-                    icon="angle-right"
-                    settingsIcon="star"
-                />
+                <Container title="Rate App" onPress={() => handleRateApp()} icon="angle-right" settingsIcon="star" />
                 <Container
                     title="About Us"
                     onPress={() => navigation?.navigate('About')}
@@ -107,6 +79,18 @@ export const MenuPage: React.FC<MenuNavProps<'Menu'>> = ({ navigation }) => {
             </View>
         </SafeAreaView>
     )
+
+    function handleRateApp() {
+        if (Platform.OS !== 'ios') {
+            //To open the Google Play Store
+            console.log('open google playstore')
+            // Linking.openURL(`market://details?`).catch(err => console.log(err))
+        } else {
+            //To open the Apple App Store
+            console.log('open ios app store')
+            // Linking.openURL(`itms://itunes.apple.com/in/app/apple-store`).catch(err => console.log(err))
+        }
+    }
 }
 
 // styles

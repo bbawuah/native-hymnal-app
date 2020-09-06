@@ -5,7 +5,6 @@ export type MenuParamList = {
     Menu: undefined
     Settings: undefined
     Privacy: undefined
-    Rate: undefined
     Invite: undefined
     About: undefined
 }

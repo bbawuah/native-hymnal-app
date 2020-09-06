@@ -20,11 +20,13 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import { IconButton } from '../Core/components/IconButton/IconButton'
 import State from '../../store/store'
 import { observer } from 'mobx-react'
+import data from '../../data/hymns.json'
 
 export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navigation }) => {
     // Need to fetch song here in useEffect
     const state = useContext(State)
     const [song, setSong] = useState<Song>()
+    const [loading, setLoading] = useState<boolean>(false)
     const [language, setLanguage] = useState<React.ReactText>('english')
     const [showPicker, setShowPicker] = useState<boolean>(false)
     const [fontSize, setFontSize] = useState<number>()
@@ -43,21 +45,24 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
     }, [navigation, song])
 
     useEffect(() => {
+        setLoading(true)
         ;(async () => {
             try {
-                const songs = await fetch('https://evening-hollows-34967.herokuapp.com/song', {
-                    method: 'POST',
-                    headers: {
-                        Accept: 'application/json',
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        number: route.params.number,
-                    }),
-                })
-                const response = await songs.json()
-                setSong(response)
-                setLanguage(!response?.english ? 'twi' : 'english')
+                // const songs = await fetch('https://evening-hollows-34967.herokuapp.com/song', {
+                //     method: 'POST',
+                //     headers: {
+                //         Accept: 'application/json',
+                //         'Content-Type': 'application/json',
+                //     },
+                //     body: JSON.stringify({
+                //         number: route.params.number,
+                //     }),
+                // })
+                const songs: Song[] = data
+                const song = songs.filter(hymn => hymn.number === route.params.number)
+                setLoading(false)
+                setSong(song[0])
+                setLanguage(!song[0]?.songTWI ? 'twi' : 'english')
             } catch (e) {
                 console.log(e)
             }
@@ -80,8 +85,14 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
                         <PickerButton style={getPickerStyles()} />
                     </TouchableWithoutFeedback>
                 </View>
-                {!song ? <ActivityIndicator /> : <Text style={getFontSize()}>{getSongLanguage(language)}</Text>}
-                {!song?.english && language === 'english' && <Text>This song is not available in English..</Text>}
+                {!song && loading ? (
+                    <ActivityIndicator />
+                ) : (
+                    <Text style={getFontSize()}>{getSongLanguage(language)}</Text>
+                )}
+                {!song?.songTWI && language === 'english' && !loading && (
+                    <Text>This song is not available in English..</Text>
+                )}
             </ScrollView>
             {showPicker && (
                 <Modal visible={showPicker} animationType="slide" transparent={false} presentationStyle="pageSheet">
@@ -112,9 +123,9 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
 
     function getSongLanguage(language: React.ReactText) {
         if (language === 'english') {
-            return song?.english?.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ')
+            return song?.songTWI?.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ')
         }
-        return song?.twi?.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ')
+        return song?.songEN?.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ')
     }
 
     function getPickerStyles() {

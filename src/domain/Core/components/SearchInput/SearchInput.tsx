@@ -1,6 +1,7 @@
 import {
     StyleSheet,
     View,
+    Text,
     TextInput,
     TouchableOpacity,
     FlatList,
@@ -18,6 +19,7 @@ import { LightStatusBar } from '../LightStatusBar/LightStatusBar'
 import State from '../../../../store/store'
 import AsyncStorage from '@react-native-community/async-storage'
 import { observer } from 'mobx-react'
+import data from '../../../../data/hymns.json'
 
 interface Props {
     navigation?: StackNavigationProp<HomeStackParamList, 'Home'>
@@ -28,18 +30,23 @@ export const SearchInput: React.FC<Props> = observer(({ navigation }) => {
     const [value, setValue] = useState<string>('')
     const [songs, setSongs] = useState<Song[]>()
     const [refreshing, setRefreshing] = useState<boolean>(false)
+    const [error, setError] = useState<boolean>(false)
 
     useEffect(() => {
-        searchHymnals(value)
         setState()
         setFontSize()
+        setTimeout(() => {
+            searchHymnals(value)
+        }, 2000)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
 
     const onRefresh = React.useCallback(() => {
         setRefreshing(true)
         setSongs([])
-        searchHymnals(value)
+        setTimeout(() => {
+            searchHymnals(value)
+        }, 1000)
         setRefreshing(false)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value, refreshing])
@@ -48,7 +55,7 @@ export const SearchInput: React.FC<Props> = observer(({ navigation }) => {
         <View style={styles.container}>
             <LightStatusBar />
             <View>
-                <TouchableOpacity style={styles.search}>
+                <TouchableOpacity style={styles.search} onPress={onRefresh}>
                     <SearchButton style={getSearchStyles()} />
                 </TouchableOpacity>
                 <TextInput onChangeText={text => setValue(text)} value={value} style={styles.input} />
@@ -58,12 +65,13 @@ export const SearchInput: React.FC<Props> = observer(({ navigation }) => {
                 </TouchableOpacity>
             </View>
             <View>
-                {!songs || songs.length === 0 ? (
+                {error && <Text>No songs found..</Text>}
+                {!songs ? (
                     <ActivityIndicator style={styles.activityIndicator} />
                 ) : (
                     <FlatList
                         style={styles.test}
-                        keyExtractor={song => song._id}
+                        keyExtractor={song => song.number}
                         data={songs}
                         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
                         renderItem={({ item }) => {
@@ -90,11 +98,21 @@ export const SearchInput: React.FC<Props> = observer(({ navigation }) => {
             </View>
         </View>
     )
-    async function searchHymnals(searchTerm: string) {
+    function searchHymnals(searchTerm: string) {
+        setError(false)
         try {
-            const songs = await fetch(`https://evening-hollows-34967.herokuapp.com/search:${searchTerm}`)
-            const response: Song[] = await songs.json()
-            setSongs(response)
+            const songs: Song[] = data
+
+            const matches = songs.filter(hymn => {
+                const regex = new RegExp(searchTerm, 'gi')
+                return hymn.number.match(regex) || hymn.title.match(regex)
+            })
+
+            if (matches.length === 0) {
+                setError(true)
+            }
+
+            setSongs(matches)
         } catch (e) {
             console.log(e)
         }

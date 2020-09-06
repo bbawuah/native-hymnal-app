@@ -1,4 +1,4 @@
-import { SafeAreaView, View, Text, StyleSheet, ScrollView } from 'react-native'
+import { SafeAreaView, Text, StyleSheet, ScrollView } from 'react-native'
 import React from 'react'
 import { LightStatusBar } from '../../../Core/components/LightStatusBar/LightStatusBar'
 import { MenuNavProps } from '../../MenuParamList'

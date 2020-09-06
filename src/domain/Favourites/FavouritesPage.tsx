@@ -6,15 +6,16 @@ import { FavouriteNavProps } from './FavouritesParamList'
 import State from '../../store/store'
 import { observer } from 'mobx-react'
 import { Song } from '../../models/Song'
+import data from '../../data/hymns.json'
 
 export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = observer(({ navigation }) => {
     const state = useContext(State)
     const [songs, setSongs] = useState<Song[]>()
-
     useEffect(() => {
-        // State keeps rendering
-
-        getSongs(state.favoriteList)
+        setTimeout(() => {
+            getSongs(state.favoriteList)
+        }, 200)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state.favoriteList])
 
     return (
@@ -50,21 +51,13 @@ export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = observe
         </SafeAreaView>
     )
 
-    async function getSongs(refs: string[]) {
+    function getSongs(refs: string[]) {
+        setSongs(undefined)
         try {
-            const songs = await fetch('https://evening-hollows-34967.herokuapp.com/favorites', {
-                method: 'POST',
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    list: refs,
-                }),
-            })
-            const response: Song[] = await songs.json()
-
-            setSongs(response)
+            const songs: Song[] = data
+            const matches = songs.filter(hymn => refs.includes(hymn.number))
+            setSongs(matches)
+            return
         } catch (error) {
             console.log(error)
         }

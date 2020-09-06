@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>SDA Hymnal Accompanist - Adventist Hymnal, SDA Hymnbook</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv="Content-Type">
+<META name="keywords" content="Adventist hymnal,Hymns,Songs,SDA Hymnal,seventh-day adventist,adventist,hymn,hymns,hymn book,sda hymnal,hymnal,songs,songbook,church hymnal,spiritual hymns,classical hymns,religious songs,bible songs,SDA songs,kids songs,christian hymns,SDA songbook,spiritual hymns,songbook,Bicol songs,Bicol Hymns,Cebuano songs,Cebuano Hymns,Ilocano songs,Ilocano Hymns,Tagalog songs,Tagalog Hymns,instrumental songs,instrumental hymns,Christmas songs,Christmas Hymns,Favorite Songs,Favorite Hymns,MP3 Songs,MP3 Hymns,Tagalog Hymns,Korean Hymnal, Japanese Hymnal, Twi Hymnal,songbook">
+<meta name="description" content="Inspirational collection of Seventh Day Adventist hymnal & Christian music for everyone's listening pleasure and praise. May you'll be blest as you surf and listen to God's message thru hymns" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<STYLE type="text/css">
+A {text-decoration:none; color: #003300;}
+A:Visited {text-decoration:none; color: #6600ff;}
+A:Hover {text-decoration:underline; font-family: Times; color: FF0000;}
+A:Active {text-decoration:none; color: #000000;}
+P {COLOR: #006600; FONT-FAMILY: Verdana; FONT-SIZE: 12px}
+H2 {COLOR: blue; FONT-FAMILY: VERDANA; FONT-SIZE: 30px; weight: medium}
+.ticker {COLOR: #dddddd;FONT-FAMILY: Verdana; FONT-SIZE: 60px; LETTER-SPACING:10px; POSITION: absolute}
+.title  {COLOR: yellow; FONT-FAMILY: Arial; FONT-SIZE: 40px; MARGIN-LEFT: 6px; MARGIN-TOP: 10px;  weight: medium; text-decoration: none }
+.title1 {COLOR: blue;   FONT-FAMILY: Arial; FONT-SIZE: 40px; MARGIN-LEFT: 7px; MARGIN-TOP: -47px; weight: medium; text-decoration: none }
+.title2 {COLOR: white;  FONT-FAMILY: Arial; FONT-SIZE: 40px; MARGIN-LEFT: 8px; MARGIN-TOP: -47px; weight: medium; text-decoration: none }
+.title3 {COLOR: red;    FONT-FAMILY: Arial; FONT-SIZE: 40px; MARGIN-LEFT: 9px; MARGIN-TOP: -47px; weight: medium; text-decoration: none }
+</STYLE>
+<script language="JavaScript1.2">
+/*
+Add-to-favorites Script
+*/
+//configure the two variables below to match yoursite's own info
+var bookmarkurl="http://www.hymnalaccompanist.com"
+var bookmarktitle="Adventist Midi Hymnal"
+
+function addbookmark(){
+if (document.all)
+window.external.AddFavorite(bookmarkurl,bookmarktitle)
+}
+</script></HEAD>
+<BODY BACKGROUND="piano.gif" bgproperties="FIXED" onLoad="document.forms.tagfform.tagname.focus()">
+<a name="#top"></a> 
+<TABLE cellPadding="7" width="100%">
+  <TBODY>
+  <TR>
+    <TD align="center" colSpan="3">
+	<DIV align=center class=title>Multimedia Hymnal Accompanist</DIV>
+	<DIV align=center class=title1>Multimedia Hymnal Accompanist</DIV>
+    <DIV align=center class=title2>Multimedia Hymnal Accompanist</DIV>
+    <DIV align=center class=title3>Multimedia Hymnal Accompanist</DIV>
+	<FONT face=Verdana size=3><b>Let's Praise the Lord by Singing!</b></FONT>
+	</TD></TR></tbody>
+
+<!--   1st (left) Column ---------------------------------------------------------->
+	
+    <TD vAlign=top>
+	    <h1>Complete Seventh Day Adventist Hymnal</h1><font face="Times" size="5">Great! You just entered the pleasure-zone of singing and listening to the <b>Hymnal Accompanist and Favorite Songs</b> and other favorites.<br></font>
+		 <font size="+2" color="#003300">Praise the LORD. Sing to the LORD a new song.<P></font><br>
+		 <!-- <a href="mp3/jukebox.html" onclick="NewWindow(this.href,'name','400','600','no');return false"><H2>Jukebox Player</H2></a>  -->
+         <iframe name="cwindow" style="border:2px groove purple" width=262 height=210 src="./mp3/mp3player/mp3player0.html"></iframe>
+	     <img src="graphics/jesus-insd.gif" width="72" height="68" alt="" border="0"><br><br>		 
+		  	<a href="http://www.3abn.org" target="_blank">3ABN Online Radio and Television</a> <br>
+			<a href="http://www.whiteestate.org" target="_blank">Ellen G. White Writings</a> <br>
+			<a href="http://www.iiw.org" target="_blank">It Is Written</a> <br>
+			<a href="http://www.vop.com" target="_blank">Voice of Prophecy</a> <br>
+			<a href="http://www.kidsbibleinfo.com" target="_blank">Kids Bible Info</a> <br>
+			Bible Study Course in <a href="laobiblelesson.html" target="_blank">Laotian</a> , People from Southeast Asia<br>
+			<a href="http://www.bibleuniverse.com/study-tools/bible-study-guides/english" target="_blank">Bible Study Course</a> in English, Farsi, French, Spanish, Tagalog, Chinese, Romanian, Spanish<br>
+			<a href="http://www.SabbathTruth.com" target="_blank">Sabbath Truth</a> <br><br><font size="+2" color="Red">EG White Online Books</font><br>
+			<a href="http://ellenwhiteaudio.org/" target="_blank">Listen Ellen G. White Books online in several languages</a> <br>
+			<a href="https://egwwritings.org/" target="_blank">Read Ellen G. White writings online in several languages</a> <br>
+			<font size="+1" color="Black">Online Resource</font><br>
+	<a href="http://www.hopetv.org" target="_blank">View Sabbath School University Online</a> <br>
+	<a href="http://www.pineknoll.org/adventist/lesson/index.html" target="_blank">Listen to Jonathan's Sabbath School Lesson</a> <br>
+	<a href="http://sspm.gc.adventist.org/ss/index.html" target="_blank">Read Sabbath School Quarterly Lesson</a> <br>
+	<a href="http://www.ssnet.org/qrtrly/qrtrly.html" target="_blank">Sabbath School Quarterly in several languages</a> <br><br>	
+	<strong>Watch Real time</strong> <a href="http://www.hopetv.org/article.php?id=3" target="_blank">Hope TV</a> <br>	
+	<strong>Listen to</strong> <a href="http://archives.adventistreview.org/article/8/ar-on-the-air" target="_blank"><B>Aventist Online Radio</b></a> <br>
+	<strong>Users behind firewall</strong>: <a href="http://www.sermonaudio.com/channel2_http.asx" target="_blank"><B>Sacred Music</b></a> <br>
+	<strong>Listen Christian Music with</strong> <a href=http://www.plr.org" target="_blank">Standard Real Player</a> <br>
+	<table border=0 cellspacing="0" cellpadding="0"><tr><td height="13" colspan=4  width=400><font size="+1" color="Black">Read these exquisite Online Magazines</font></td></tr>
+	<tr><td width="103"><a href="http://www.adventistreview.org/" target="_blank"><img border=0 width=75 height=100 src="graphics/review.jpg" align=center></a> </td>
+	<td width="99"><a href="http:http://www.adventistworld.org/" target="_blank"><img border=0 width=75 height=100 src="graphics/adworld.jpg" align=center></a> </td>
+	<td width="94"><a href="http://www.libertymagazine.org" target="_blank"><img border=0 width=75 height=100 src="graphics/liberty.jpg" align=center></a> </td>
+	<td width="111"><a href="http://www.messagemagazine.com/" target="_blank"><img border=0 width=75 height=100 src="graphics/message.jpg" align=center></a> </td></tr>
+	<tr><td height="5" colspan=4 width="400" align="left"><img src="./../images/bluerule2.gif" width=400 height="2"></p>
+	</td></tr></table><table><tr>
+<td valign="top"><font color="#006600" size="-1">If God has blessed you through our Music Ministry, <font color="#003300"><b>and interested to have a copy of this resource</b></font>, please consider supporting the web hosting and maintenance of our sites so that we can continue to be online and be a blessing to you and others.
+Thank you and God bless you.</font>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="D3766WSFDHEYL">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+If you wish to have your favorite Christian hymns and/or Gospel songs included here, please let us know by <script type="text/javascript">emailE=('bwin2net' + '@' + 'telus' + '.' + 'net'); document.write('<a href="mailto:' + emailE + '">contacting us</a> ')</script>. Thanks and God bless you. 
+<!-- Start of StatCounter Code -->
+<a href="http://www.statcounter.com/" target="_blank"><img src="http://c19.statcounter.com/counter.php?sc_project=1983156&amp;java=0&amp;invisible=1&amp;security=4789f542" alt="website tracking" border="0"></a> 
+<!-- End of StatCounter Code -->
+
+</td></tr></table></td>
+
+<!--  2nd Column ---------------------------------------------------------------------->
+
+	<TD vAlign=top><FONT face=Times size=5>
+
+	     Wonderful! You are Welcome! Please contact <script type="text/javascript">emailE=('bwin2net' + '@' + 'telus' + '.' + 'net'); document.write('<a href="mailto:' + emailE + '">webdesigner</a> ')</script> for errors found in this site</FONT><br><p>
+		  <FONT face="Times" size="3"><b>Select your favorite Hymns from: </b><br>
+		 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="kidsmidi/kidsongs1.html"><b>Bible Songs for Kids</b></a>
+		 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="hios/hymnindex-a.html"><b>He Is Our Song</b></a>
+		 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="oldhymns/oldhymns.html">Favorite English Hymns</a><br>
+		 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="bicol/bicol.html"><B>Bicol Index</B></a>
+		 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="cebuano/cebuano.html"><B>Cebuano/Visayan Index</B></a>
+		 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ilocano/ilocano.html"><B>Ilocano Index</B></a>
+		 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="tagalog/tagalog.html"><B>Tagalog Index</B></a>
+		 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A href="1-100ndx.html"><b>English Index</b></A>
+         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="french/frenchindex.html"><B>French 1 Index</B></a><img src="graphics/new.gif" width="35" height="15" border="0">
+         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="french/2nd/2ndindex.html"><B>French 2 Index</B></a>
+		 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="indonesian/indonesian.html"><B>Indonesian Index</B></a>
+		 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="japanese/japanese.html"><B>Japanese Index</B></a>
+		 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="korean/korean.html"><B>Korean Index</B></a>
+		 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="spanish/spanishindex.html"><B>Spanish</B></a>
+		 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="twi/twindex.html"><B>TWI - (Ghana)</B></a><br>
+		 <br><a href="readings/start.html">SDA Hymnal Scripture Readings</a>
+		 <br><a href="Story/storytitle.html">Hymn Stories</a>		 
+		 <br><br><a href="javascript:void(window.close())"><img border="0" src="close_red.gif" width="93" height="23"></a>  <br><br>
+		 <a href="http://www.christiannetcast.com/listen/player.asp?station=karm-fm" target="_blank">Listen Adventist Radio Online<br><img src="graphics/listenlive.gif" width="144" height="42" alt="Tune your Christian radio to 107.7 FM" border="0"></a> 		 
+		 <a href="http://quiz.christiansunite.com/" TARGET="BLANK"><img src="http://links.christiansunite.com/quiz/logo_link.gif"></a>  
+          <FORM METHOD="GET" ACTION="http://bible.christiansunite.com/search.cgi" target="_blank"><TABLE CELLSPACING=0 CELLPADDING=2 BORDER=0 bgcolor="#b0b080"><TR><TD> <TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0 bgcolor="beige"><TR><TD align=right rowspan=3> <IMG SRC="http://links.christiansunite.com/bible/search.cgi" width=42 height=51></td> <td align=center valign=middle colspan=2><font face="arial" size=2 color=darkgreen><B>Search the Bible</B></font></td></tr> <tr><td align=center>
+		  	 <INPUT NAME="terms" Type="text" MAXLENGTH="45" SIZE="12"></td> <td valign=middle align=left>
+		  	 <INPUT NAME="go" Type="image" src="http://links.christiansunite.com/bible/go.gif" width=16 height=16 border=0></td></tr> <tr><td colspan=2 align=center><font face="arial" size=1><B>Use the:</B></font></TD></TR> <tr><td colspan=3 align=center> 
+		  	 <SELECT NAME="select" size="1" STYLE="FONT:12px helvetica,Arial"> 
+			 	<OPTION VALUE="kjv">Authorized Version 
+				<OPTION VALUE="asv">American Standard 
+				<OPTION VALUE="bbe">Bible in Basic English 
+				<OPTION VALUE="dby">Darby Bible 
+				<OPTION VALUE="web">Webster Bible 
+				<OPTION VALUE="ylt">Young's Literal Trans. 
+				<OPTION VALUE="wor">World English Bible </SELECT>
+		  	 <input type=hidden name="web" value="T"></td></tr></table></td></tr></table>
+		  </FORM></CENTER><P>
+		  <center><a href="biblereading.html"><img src="graphics/calendar.jpg" width="54" height="82"  border="0"><strong>1 Year Bible Reading Plan</strong></center></a>  <br>
+			<table cellspacing="2" cellpadding="2" border="0"><tr><td><a href="KJVBible/genesis.html"><IMG SRC="bible.gif" ALT="home site" BORDER="0" WIDTH="70" HEIGHT="50" ALIGN="CENTER" HSPACE="5" VSPACE="5"></a>  </td>
+		    <td><a href="KJVBible/genesis.html"><b>KJV BIBLE</b></a> <br><a href="http://www.tagnet.org/bible/index.html?lookup=KJV+Genesis+1:1"><strong>Internet Bible</strong></a>  </td></tr></table>  
+		  <form><input type="button" value="Search SDA Church"
+			onclick="window.open('sdachurches.html', 'win1','width=200,height=500,scrollbars, resizable')">
+		  </form>
+          		 </td>
+
+<!--  3rd (right) Column ---------------------------------------------------------------------->
+ 
+<TD vAlign=top width=260>
+<TABLE bgColor=#aaffaa border=2 cellPadding=5  width="225">
+	<TR><TD align=middle bgColor=#ff0000><A href="1-100ndx.html"><FONT color=#ffffff face=Arial size=2><B>Indexed by Hymn Number</B></FONT></a> <BR><hr>
+		<A href="a-c.html"><FONT color="#ffffff" face="Arial" size="2"><B>Indexed by Hymn Title</B></a> </TD></TR>
+    <TR><TD align=middle bgColor=#ff0000><A href="christmas/xmasindex.html"><FONT color="#ffffff" face="Arial" size="2"><B>Christmas Carols</B>
+		<BR><hr><A href="favorite/favorite.html"><FONT color="#fffff"f face="Arial" size="2"><B>Classic Favorites</B>
+</TD></TR></TABLE><table width="225" border="1" bordercolor="#000000" cellspacing="1"> 
+<tr><td width=225 valign="middle" align="center" height="100"> 
+<font color="red" size="6"><a href="form.php" >DOWNLOAD Resources</a></font>
+</td></table>
+  			<br>GAMES <BR>
+		  	<a href="games/disciples1.html"><font size="+1" color="#0000FF">Bible Quiz</font></a>&nbsp;<br>
+			<a href="games/jeopardygame/jeopardy.htm"><font size="+1" color="#0000FF">Bible Jeopardy Game</font></a>&nbsp;<br>
+			<a href="games/familyfeuds/bibleshowdown.html"><font size="+2" color="#FF0000">Bible Showdown</font></a>&nbsp;<img src="graphics/new.gif" width="35" height="15" border="0"><br>
+            <a href="games/millionaire_game/game1.html"><font size="+1" color="#0000FF">Who Want to be a Millionaire</font></a>&nbsp;<br>
+			<a href="games/multichoice/MultiChoice0.htm"><font size="+1" color="#0000FF">Multiple Choice Bible Question</font></a>  <br>
+			<a href="games/puzzle/dropped1.htm"><font size="+1" color="#0000FF">Dropped Letter Puzzle</font></a>  <br>
+			<select name="URL" size="1" onChange="window.open(this.options[this.selectedIndex].value,'_top')">
+			<option selected > More Games Online  :</option>
+			<option>--------------------------------</option>
+			<option value="games/1wordgame/1wordsearch.html">Word Search</option>
+			<option value="games/seekaword/seekword.html">Seek-A-Word</option>
+			<option value="games/multichoice/matchtype0.html">Matching Type</option>
+			<option value="games/jeopardygame/jeopardy.html">Bible Jeopardy Game</option>
+			<option value="games/slider/slider.html">Number Slider</option>
+			<option value="games/Hex/hex.html">Hex 7</option>
+			<option value="games/fiver/fiver.html">Five'r</option>
+			<option value="games/english/english.html">English 16</option>
+			<option> </option></select><p>
+		          
+<br><div align="center">Please pass these on and brighten&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>someone's day!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>You will be glad you did!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><br>
+<a href="mailto:Friends Email Address here, separate by comman?subject=Cool Web site resource!&body=Dear Friends,  God has lead me to this website and I am really blest. Please visit http://www.hymnalaccompanist.com and mark them in your favorites. Please visit as soon as possible and don't forget to pass this onto all your family and friends..."><font color="#ff0099" size="2" face="Arial" style="cursor:hand; TEXT-DECORATION: none"><b><img src="graphics/email.gif" width="20" height="20" border="0"> Share it with a Friend</b></font></a> <br>
+<font color="#000000" size="2" face="Arial"><a href="javascript:addbookmark()"><font color="#000000"><strong><img src="graphics/bookmark.gif" width="20" height="20" alt="" border="0"> Bookmark this site!</strong></font></a> </font></center>
+<A HREF="" onClick="this.style.behavior='url(#default#homepage)'; this.setHomePage('http://www.hymnalaccompanist.com');"><img src="graphics/homepage.gif" width="110" height="32" alt="" border="0"></a> <br>
+<a href="thanks.html">Appreciation page</a> <br>
+<A HREF="creator.html">Meet the Creator</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="games/familyfeuds/gamelist.html" style="text-decoration:none"> . </a><br><br>
+<a href="#top"><img src="graphics/backtotop.gif" width="20" height="20" border="0"> Back to Top of Page</a> <br><br>
+
+Seventh-day Adventist hymnal, complete hymnbook for young and old<br><br><br>
+<center><img src="graphics/bookcover.jpg" width="145" width="215"><br />
+<h1 align="center" style=" color:#F00">Order your<br /> book copy today!</h1>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="Y7E7Y68PK2GNE">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form></center>
+<script language=JavaScript>
+<!--
+//Disable right mouse click Script
+
+var message="Function Disabled!";
+function clickIE() {if (document.all) {alert(message);return false;}}
+function clickNS(e) {if 
+(document.layers||(document.getElementById&&!document.all)) {
+if (e.which==2||e.which==3) {alert(message);return false;}}}
+if (document.layers) 
+{document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;}
+else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;}
+
+document.oncontextmenu=new Function("return false")
+// --> 
+</script>
+</BODY></HTML>
