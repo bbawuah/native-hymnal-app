@@ -48,16 +48,6 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
         setLoading(true)
         ;(async () => {
             try {
-                // const songs = await fetch('https://evening-hollows-34967.herokuapp.com/song', {
-                //     method: 'POST',
-                //     headers: {
-                //         Accept: 'application/json',
-                //         'Content-Type': 'application/json',
-                //     },
-                //     body: JSON.stringify({
-                //         number: route.params.number,
-                //     }),
-                // })
                 const songs: Song[] = data
                 const song = songs.filter(hymn => hymn.number === route.params.number)
                 setLoading(false)
@@ -70,6 +60,7 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
         })()
 
         setFontSize(state.getFontSize)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [route.params.number, state.getFontSize])
 
     return (

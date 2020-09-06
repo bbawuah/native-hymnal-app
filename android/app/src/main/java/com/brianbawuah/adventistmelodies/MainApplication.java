@@ -7,8 +7,6 @@ import com.facebook.react.ReactApplication;
 import cl.json.RNSharePackage;
 import com.reactnativecommunity.picker.RNCPickerPackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
-import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
-import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactInstanceManager;
