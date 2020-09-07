@@ -24,6 +24,8 @@ pod 'Firebase/Analytics'
   pod 'RNShare', :path => '../node_modules/react-native-share'
 
 
+  pod 'RNSound', :path => '../node_modules/react-native-sound'
+
   target 'AdventistMelodiesTests' do
     inherit! :complete
     # Pods for testing
