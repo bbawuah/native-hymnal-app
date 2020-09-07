@@ -38,12 +38,16 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
     const [fontSize, setFontSize] = useState<number>()
     const [soundError, setSoundError] = useState<boolean>(false)
 
-    const sound = new Sound(getAudioReferences(), encodeURIComponent(Sound.MAIN_BUNDLE), error => {
-        if (error) {
-            console.log(error)
-            setSoundError(true)
+    const sound = new Sound(
+        getAudioReferences(),
+        Platform.OS === 'ios' ? encodeURIComponent(Sound.MAIN_BUNDLE) : Sound.MAIN_BUNDLE,
+        error => {
+            if (error) {
+                console.log(error)
+                setSoundError(true)
+            }
         }
-    })
+    )
 
     React.useLayoutEffect(() => {
         navigation?.setOptions({
@@ -181,7 +185,7 @@ const styles = StyleSheet.create({
     },
     container: {
         marginTop: 10,
-        marginBottom: 35,
+        marginBottom: 25,
     },
     menu: {
         marginVertical: 10,
