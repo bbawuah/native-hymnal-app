@@ -151,7 +151,7 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
     )
 
     function getAudioReferences() {
-        return Platform.OS === 'ios' ? `audio/${route.params.number}.mp3` : `${route.params.number}.mp3`
+        return Platform.OS === 'ios' ? `audio/hymn${route.params.number}.mp3` : `hymn${route.params.number}.mp3`
     }
     function getSongLanguage(language: React.ReactText) {
         if (language === 'english') {
