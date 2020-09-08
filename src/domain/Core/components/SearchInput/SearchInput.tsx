@@ -102,7 +102,12 @@ export const SearchInput: React.FC<Props> = observer(({ navigation }) => {
 
             let matches: Song[] | undefined = songs.filter(hymn => {
                 const regex = new RegExp(searchTerm, 'gi')
-                return hymn.number.match(regex) || hymn.title.match(regex)
+                return (
+                    hymn.number.match(regex) ||
+                    hymn.title.match(regex) ||
+                    hymn.songTWI?.match(regex) ||
+                    hymn.songEN.match(regex)
+                )
             })
 
             if (matches.length === 0) {
