@@ -26,6 +26,8 @@ import data from '../../data/hymns.json'
 import Sound from 'react-native-sound'
 import { AudioButton } from '../Core/components/AudioMenu/AudioButton'
 
+Sound.setCategory('Playback')
+
 export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navigation }) => {
     // Need to fetch song here in useEffect
     const state = useContext(State)

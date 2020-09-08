@@ -8,7 +8,7 @@ import Share, { Options } from 'react-native-share'
 const url =
     Platform.OS !== 'ios'
         ? 'itms-apps://itunes.apple.com/in/app/apple-store/1530974313?mt=8'
-        : 'https://awesome.contents.com/'
+        : 'itms-apps://itunes.apple.com/in/app/apple-store/1530974313?mt=8'
 const title = 'Adventist Melodies'
 const message = 'I want to enlighten you with app..'
 const icon = 'data:<data_type>/<file_extension>;base64,<base64_data>'
