@@ -792,11 +792,12 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.adventistmelodies;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brianbawuah.adventistmelodies;
 				PRODUCT_NAME = "Adventist Melodies";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -818,10 +819,11 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.adventistmelodies;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brianbawuah.adventistmelodies;
 				PRODUCT_NAME = "Adventist Melodies";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
