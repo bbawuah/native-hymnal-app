@@ -5,7 +5,10 @@ import { Container } from '../Core/components/Container/Container'
 import { MenuNavProps } from './MenuParamList'
 import Share, { Options } from 'react-native-share'
 
-const url = Platform.OS !== 'ios' ? 'https://awesome.contents.com/' : 'https://awesome.contents.com/'
+const url =
+    Platform.OS !== 'ios'
+        ? 'itms-apps://itunes.apple.com/in/app/apple-store/1530974313?mt=8'
+        : 'https://awesome.contents.com/'
 const title = 'Adventist Melodies'
 const message = 'I want to enlighten you with app..'
 const icon = 'data:<data_type>/<file_extension>;base64,<base64_data>'
@@ -88,7 +91,9 @@ export const MenuPage: React.FC<MenuNavProps<'Menu'>> = ({ navigation }) => {
         } else {
             //To open the Apple App Store
             console.log('open ios app store')
-            // Linking.openURL(`itms://itunes.apple.com/in/app/apple-store`).catch(err => console.log(err))
+            Linking.openURL(`itms-apps://itunes.apple.com/in/app/apple-store/1530974313?mt=8`).catch(err =>
+                console.log(err)
+            )
         }
     }
 }
