@@ -121,12 +121,12 @@ export const SearchInput: React.FC<Props> = observer(({ navigation }) => {
     }
 
     function closeButtonStyles() {
-        const color = value === '' ? '#A9A9A9' : '#2F557F'
+        const color = value === '' ? '#A9A9A9' : '#757575'
         return { color }
     }
 
     function getSearchStyles() {
-        const color = value === '' ? '#A9A9A9' : '#555'
+        const color = value === '' ? '#A9A9A9' : '#757575'
         return { color }
     }
 
