@@ -18,7 +18,7 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* AdventistMelodiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AdventistMelodiesTests.m */; };
 		5EBB5A795ADAA7DD936CCC90 /* libPods-AdventistMelodies-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57041FD21339363AE3D3E71F /* libPods-AdventistMelodies-tvOS.a */; };
-		695A3F412506A51F0062BAF5 /* audio in Resources */ = {isa = PBXBuildFile; fileRef = 695A3F402506A51F0062BAF5 /* audio */; };
+		691D3A7425078B0900CEE2C2 /* audio in Resources */ = {isa = PBXBuildFile; fileRef = 691D3A7325078B0800CEE2C2 /* audio */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		BB9E94C877D75A591381B23C /* libPods-AdventistMelodies.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0A9DD0854619B5A5C93026 /* libPods-AdventistMelodies.a */; };
 /* End PBXBuildFile section */
@@ -67,7 +67,7 @@
 		4A796BB772164982BCFF513C /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		4DB319C894CD33FCE94E2DD3 /* Pods-AdventistMelodies-AdventistMelodiesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdventistMelodies-AdventistMelodiesTests.debug.xcconfig"; path = "Target Support Files/Pods-AdventistMelodies-AdventistMelodiesTests/Pods-AdventistMelodies-AdventistMelodiesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		57041FD21339363AE3D3E71F /* libPods-AdventistMelodies-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AdventistMelodies-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		695A3F402506A51F0062BAF5 /* audio */ = {isa = PBXFileReference; lastKnownFileType = folder; name = audio; path = ../src/data/audio; sourceTree = "<group>"; };
+		691D3A7325078B0800CEE2C2 /* audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = audio; sourceTree = "<group>"; };
 		708D20408CF531C3819BBB35 /* Pods-AdventistMelodies-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdventistMelodies-tvOS.release.xcconfig"; path = "Target Support Files/Pods-AdventistMelodies-tvOS/Pods-AdventistMelodies-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		783DE5BF7391442C859CCD21 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		7B0C139C04C3414E9D18165F /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
@@ -200,7 +200,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				695A3F402506A51F0062BAF5 /* audio */,
+				691D3A7325078B0800CEE2C2 /* audio */,
 				13B07FAE1A68108700A75B9A /* AdventistMelodies */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* AdventistMelodiesTests */,
@@ -388,7 +388,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				695A3F412506A51F0062BAF5 /* audio in Resources */,
+				691D3A7425078B0900CEE2C2 /* audio in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);

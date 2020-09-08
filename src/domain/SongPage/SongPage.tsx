@@ -24,9 +24,7 @@ import State from '../../store/store'
 import { observer } from 'mobx-react'
 import data from '../../data/hymns.json'
 import Sound from 'react-native-sound'
-import { AudioPlayButton } from '../Core/components/AudioMenu/AudioPlayButton/AudioPlayButton'
-import { AudioStopButton } from '../Core/components/AudioMenu/AudioStopButton/AudioStopButton'
-import { AudioPauseButton } from '../Core/components/AudioMenu/AudioPauseButton/AudioPauseButton'
+import { AudioButton } from '../Core/components/AudioMenu/AudioButton'
 
 export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navigation }) => {
     // Need to fetch song here in useEffect
@@ -43,7 +41,6 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
         Platform.OS === 'ios' ? encodeURIComponent(Sound.MAIN_BUNDLE) : Sound.MAIN_BUNDLE,
         error => {
             if (error) {
-                console.log(error)
                 setSoundError(true)
             }
         }
@@ -77,7 +74,6 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
             }
             return
         })()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [route.params.number, state.getFontSize])
 
     useEffect(() => {
@@ -99,18 +95,20 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
                         .replace(/\n/g, ' - ')}`}</Text>
                     <View style={styles.menu}>
                         <View>
-                            {!soundError && (
+                            {!soundError ? (
                                 <View style={styles.audioMenu}>
                                     <TouchableOpacity onPress={() => sound.play()} disabled={!sound ? true : false}>
-                                        <AudioPlayButton />
+                                        <AudioButton iconName="play" />
                                     </TouchableOpacity>
                                     <TouchableOpacity onPress={() => sound.pause()} disabled={!sound ? true : false}>
-                                        <AudioPauseButton />
+                                        <AudioButton iconName="pause" />
                                     </TouchableOpacity>
                                     <TouchableOpacity onPress={() => sound.stop()} disabled={!sound ? true : false}>
-                                        <AudioStopButton />
+                                        <AudioButton iconName="stop" />
                                     </TouchableOpacity>
                                 </View>
+                            ) : (
+                                <Text style={styles.errorMessage}>No sound available</Text>
                             )}
                         </View>
                         <TouchableWithoutFeedback onPress={() => setShowPicker(true)} disabled={!song ? true : false}>
@@ -208,6 +206,9 @@ const styles = StyleSheet.create({
     },
     song: {
         marginTop: 20,
+    },
+    errorMessage: {
+        color: '#757575',
     },
     picker: {
         width: '100%',

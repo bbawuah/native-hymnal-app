@@ -4,10 +4,11 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 
 interface Prop {
     style?: StyleProp<any>
+    iconName: string
 }
 
-export const AudioPauseButton: React.FC<Prop> = ({ style }) => {
-    return <Icon name="pause" size={25} style={getStyles()} />
+export const AudioButton: React.FC<Prop> = ({ style, iconName }) => {
+    return <Icon name={iconName} size={25} style={getStyles()} />
 
     function getStyles(): StyleProp<ViewStyle> {
         return [styles.icon, style]

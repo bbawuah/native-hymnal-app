@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { StyleSheet, SafeAreaView, FlatList, View, Text } from 'react-native'
+import { StyleSheet, SafeAreaView, FlatList, View, Text, RefreshControl, ActivityIndicator } from 'react-native'
 import { Container } from '../Core/components/Container/Container'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
 import { FavouriteNavProps } from './FavouritesParamList'
@@ -10,11 +10,22 @@ import data from '../../data/hymns.json'
 
 export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = observer(({ navigation }) => {
     const state = useContext(State)
-    const [songs, setSongs] = useState<Song[]>()
+    const [songs, setSongs] = useState<Song[] | undefined>([])
+    const [refreshing, setRefreshing] = useState<boolean>(false)
+
     useEffect(() => {
         setTimeout(() => {
             getSongs(state.favoriteList)
         }, 200)
+    }, [state.favoriteList])
+
+    const onRefresh = React.useCallback(() => {
+        setRefreshing(true)
+        setSongs([])
+        setTimeout(() => {
+            getSongs(state.favoriteList)
+        }, 200)
+        setRefreshing(false)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state.favoriteList])
 
@@ -22,7 +33,8 @@ export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = observe
         <SafeAreaView style={styles.root}>
             <LightStatusBar />
             <View style={styles.container}>
-                {songs?.length === 0 ? (
+                {songs?.length === 0 && <ActivityIndicator />}
+                {!songs ? (
                     <View style={styles.emptyState}>
                         <Text>Your favorites list is empty</Text>
                     </View>
@@ -30,6 +42,7 @@ export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = observe
                     <FlatList
                         keyExtractor={song => song.title}
                         data={songs}
+                        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
                         renderItem={({ item }) => {
                             return (
                                 <Container
@@ -55,7 +68,10 @@ export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = observe
         setSongs(undefined)
         try {
             const songs: Song[] = data
-            const matches = songs.filter(hymn => refs.includes(hymn.number))
+            let matches: Song[] | undefined = songs.filter(hymn => refs.includes(hymn.number))
+            if (matches.length === 0) {
+                matches = undefined
+            }
             setSongs(matches)
             return
         } catch (error) {

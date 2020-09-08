@@ -28,9 +28,8 @@ interface Props {
 export const SearchInput: React.FC<Props> = observer(({ navigation }) => {
     const state = useContext(State)
     const [value, setValue] = useState<string>('')
-    const [songs, setSongs] = useState<Song[]>()
+    const [songs, setSongs] = useState<Song[] | undefined>([])
     const [refreshing, setRefreshing] = useState<boolean>(false)
-    const [error, setError] = useState<boolean>(false)
 
     useEffect(() => {
         setState()
@@ -64,13 +63,12 @@ export const SearchInput: React.FC<Props> = observer(({ navigation }) => {
                     <CloseButton style={closeButtonStyles()} />
                 </TouchableOpacity>
             </View>
-            <View>
-                {error && <Text>No songs found..</Text>}
+            <View style={styles.test}>
+                {songs?.length === 0 && <ActivityIndicator />}
                 {!songs ? (
-                    <ActivityIndicator style={styles.activityIndicator} />
+                    <Text>No songs found..</Text>
                 ) : (
                     <FlatList
-                        style={styles.test}
                         keyExtractor={song => song.number}
                         data={songs}
                         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
@@ -99,17 +97,16 @@ export const SearchInput: React.FC<Props> = observer(({ navigation }) => {
         </View>
     )
     function searchHymnals(searchTerm: string) {
-        setError(false)
         try {
             const songs: Song[] = data
 
-            const matches = songs.filter(hymn => {
+            let matches: Song[] | undefined = songs.filter(hymn => {
                 const regex = new RegExp(searchTerm, 'gi')
                 return hymn.number.match(regex) || hymn.title.match(regex)
             })
 
             if (matches.length === 0) {
-                setError(true)
+                matches = undefined
             }
 
             setSongs(matches)
