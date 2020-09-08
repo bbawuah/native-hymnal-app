@@ -10,17 +10,21 @@ import {
     Modal,
     StyleProp,
     TextStyle,
+    TouchableOpacity,
+    Platform,
 } from 'react-native'
 import { HomeNavProps } from '../HomePage/HomeParamList'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
 import { Song } from '../../models/Song'
 import { Picker } from '@react-native-community/picker'
-import { PickerButton } from '../Core/PickerButton/PickerButton'
+import { PickerButton } from '../Core/components/PickerButton/PickerButton'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import { IconButton } from '../Core/components/IconButton/IconButton'
 import State from '../../store/store'
 import { observer } from 'mobx-react'
 import data from '../../data/hymns.json'
+import Sound from 'react-native-sound'
+import { AudioButton } from '../Core/components/AudioMenu/AudioButton'
 
 export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navigation }) => {
     // Need to fetch song here in useEffect
@@ -30,6 +34,17 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
     const [language, setLanguage] = useState<React.ReactText>('english')
     const [showPicker, setShowPicker] = useState<boolean>(false)
     const [fontSize, setFontSize] = useState<number>()
+    const [soundError, setSoundError] = useState<boolean>(false)
+
+    const sound = new Sound(
+        getAudioReferences(),
+        Platform.OS === 'ios' ? encodeURIComponent(Sound.MAIN_BUNDLE) : Sound.MAIN_BUNDLE,
+        error => {
+            if (error) {
+                setSoundError(true)
+            }
+        }
+    )
 
     React.useLayoutEffect(() => {
         navigation?.setOptions({
@@ -46,6 +61,7 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
 
     useEffect(() => {
         setLoading(true)
+        setFontSize(state.getFontSize)
         ;(async () => {
             try {
                 const songs: Song[] = data
@@ -58,10 +74,15 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
             }
             return
         })()
-
-        setFontSize(state.getFontSize)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [route.params.number, state.getFontSize])
+
+    useEffect(() => {
+        return () => {
+            if (sound.isPlaying()) {
+                sound.stop()
+            }
+        }
+    }, [sound])
 
     return (
         <SafeAreaView style={styles.root}>
@@ -72,9 +93,28 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
                         .replace(/q|Q/g, 'ε')
                         .replace(/x|X/g, 'ɔ')
                         .replace(/\n/g, ' - ')}`}</Text>
-                    <TouchableWithoutFeedback onPress={() => setShowPicker(true)} disabled={!song ? true : false}>
-                        <PickerButton style={getPickerStyles()} />
-                    </TouchableWithoutFeedback>
+                    <View style={styles.menu}>
+                        <View>
+                            {!soundError ? (
+                                <View style={styles.audioMenu}>
+                                    <TouchableOpacity onPress={() => sound.play()} disabled={!sound ? true : false}>
+                                        <AudioButton iconName="play" />
+                                    </TouchableOpacity>
+                                    <TouchableOpacity onPress={() => sound.pause()} disabled={!sound ? true : false}>
+                                        <AudioButton iconName="pause" />
+                                    </TouchableOpacity>
+                                    <TouchableOpacity onPress={() => sound.stop()} disabled={!sound ? true : false}>
+                                        <AudioButton iconName="stop" />
+                                    </TouchableOpacity>
+                                </View>
+                            ) : (
+                                <Text style={styles.errorMessage}>No sound available</Text>
+                            )}
+                        </View>
+                        <TouchableWithoutFeedback onPress={() => setShowPicker(true)} disabled={!song ? true : false}>
+                            <PickerButton style={getPickerStyles()} />
+                        </TouchableWithoutFeedback>
+                    </View>
                 </View>
                 {!song && loading ? (
                     <ActivityIndicator />
@@ -112,6 +152,9 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
         </SafeAreaView>
     )
 
+    function getAudioReferences() {
+        return Platform.OS === 'ios' ? `audio/hymn${route.params.number}.mp3` : `hymn${route.params.number}.mp3`
+    }
     function getSongLanguage(language: React.ReactText) {
         if (language === 'english') {
             return song?.songTWI?.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ')
@@ -140,7 +183,19 @@ const styles = StyleSheet.create({
     },
     container: {
         marginTop: 10,
-        marginBottom: 35,
+        marginBottom: 25,
+    },
+    menu: {
+        marginVertical: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    audioMenu: {
+        borderRadius: 3,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: 80,
     },
     filter: {
         alignSelf: 'flex-end',
@@ -151,6 +206,9 @@ const styles = StyleSheet.create({
     },
     song: {
         marginTop: 20,
+    },
+    errorMessage: {
+        color: '#757575',
     },
     picker: {
         width: '100%',
