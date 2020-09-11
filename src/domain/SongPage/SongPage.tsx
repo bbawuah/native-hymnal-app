@@ -37,16 +37,8 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
     const [showPicker, setShowPicker] = useState<boolean>(false)
     const [fontSize, setFontSize] = useState<number>()
     const [soundError, setSoundError] = useState<boolean>(false)
-
-    const sound = new Sound(
-        getAudioReferences(),
-        Platform.OS === 'ios' ? encodeURIComponent(Sound.MAIN_BUNDLE) : Sound.MAIN_BUNDLE,
-        error => {
-            if (error) {
-                setSoundError(true)
-            }
-        }
-    )
+    const [soundLoading, setSoundLoading] = useState<boolean>(false)
+    const [sound, setSound] = useState<Sound>()
 
     React.useLayoutEffect(() => {
         navigation?.setOptions({
@@ -64,6 +56,23 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
     useEffect(() => {
         setLoading(true)
         setFontSize(state.getFontSize)
+
+        setSound(() => {
+            setSoundLoading(true)
+            return new Sound(
+                `https://evening-hollows-34967.herokuapp.com/songs/hymn${route.params.number}`,
+                undefined,
+                error => {
+                    if (error) {
+                        console.log(error)
+                        setSoundError(true)
+                        setSoundLoading(false)
+                        return
+                    }
+                    setSoundLoading(false)
+                }
+            )
+        })
         ;(async () => {
             try {
                 const songs: Song[] = data
@@ -80,7 +89,7 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
 
     useEffect(() => {
         return () => {
-            if (sound.isPlaying()) {
+            if (sound?.isPlaying()) {
                 sound.stop()
             }
         }
@@ -97,20 +106,20 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
                         .replace(/\n/g, ' - ')}`}</Text>
                     <View style={styles.menu}>
                         <View>
-                            {!soundError ? (
+                            {soundError && <Text style={styles.errorMessage}>No sound available</Text>}
+                            {soundLoading && <Text style={styles.errorMessage}>Loading sound..</Text>}
+                            {!soundError && !soundLoading && (
                                 <View style={styles.audioMenu}>
-                                    <TouchableOpacity onPress={() => sound.play()} disabled={!sound ? true : false}>
+                                    <TouchableOpacity onPress={() => sound?.play()} disabled={!sound ? true : false}>
                                         <AudioButton iconName="play" />
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => sound.pause()} disabled={!sound ? true : false}>
+                                    <TouchableOpacity onPress={() => sound?.pause()} disabled={!sound ? true : false}>
                                         <AudioButton iconName="pause" />
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => sound.stop()} disabled={!sound ? true : false}>
+                                    <TouchableOpacity onPress={() => sound?.stop()} disabled={!sound ? true : false}>
                                         <AudioButton iconName="stop" />
                                     </TouchableOpacity>
                                 </View>
-                            ) : (
-                                <Text style={styles.errorMessage}>No sound available</Text>
                             )}
                         </View>
                         <TouchableWithoutFeedback onPress={() => setShowPicker(true)} disabled={!song ? true : false}>
@@ -153,10 +162,6 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
             )}
         </SafeAreaView>
     )
-
-    function getAudioReferences() {
-        return Platform.OS === 'ios' ? `audio/hymn${route.params.number}.mp3` : `hymn${route.params.number}.mp3`
-    }
     function getSongLanguage(language: React.ReactText) {
         if (language === 'english') {
             return song?.songTWI?.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ')
