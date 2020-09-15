@@ -21,7 +21,13 @@ export const MenuStackList: React.FC<MenuNavProps<'Menu'>> = () => {
         >
             <Stack.Screen name="Menu" component={MenuPage} />
             <Stack.Screen name="Settings" component={Settings} />
-            <Stack.Screen name="Privacy" component={PrivacyPolicy} />
+            <Stack.Screen
+                name="Privacy"
+                component={PrivacyPolicy}
+                options={{
+                    title: 'Privacy Policy',
+                }}
+            />
             <Stack.Screen name="About" component={AboutUs} />
         </Stack.Navigator>
     )

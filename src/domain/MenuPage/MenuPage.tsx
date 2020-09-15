@@ -7,8 +7,8 @@ import Share, { Options } from 'react-native-share'
 
 const url =
     Platform.OS !== 'ios'
-        ? 'itms-apps://itunes.apple.com/in/app/apple-store/1530974313?mt=8'
-        : 'itms-apps://itunes.apple.com/in/app/apple-store/1530974313?mt=8'
+        ? 'https://play.google.com/store/apps/details?id=com.brianbawuah.adventistmelodies'
+        : 'https://apps.apple.com/in/app/adventist-melodies/id1530974313?ls=1'
 const title = 'Adventist Melodies'
 const message = 'I want to enlighten you with app..'
 const icon = 'data:<data_type>/<file_extension>;base64,<base64_data>'
@@ -53,7 +53,7 @@ export const MenuPage: React.FC<MenuNavProps<'Menu'>> = ({ navigation }) => {
                     settingsIcon="gear"
                 />
                 <Container
-                    title="Privacy"
+                    title="Privacy Policy"
                     onPress={() => navigation?.navigate('Privacy')}
                     icon="angle-right"
                     settingsIcon="lock"
@@ -79,6 +79,14 @@ export const MenuPage: React.FC<MenuNavProps<'Menu'>> = ({ navigation }) => {
                     icon="angle-right"
                     settingsIcon="info-circle"
                 />
+                <Container
+                    title="Donate"
+                    onPress={() =>
+                        Linking.openURL('https://paypal.me/pools/c/8sCczet3Kl').catch(err => console.log(err))
+                    }
+                    icon="angle-right"
+                    settingsIcon="gift"
+                />
             </View>
         </SafeAreaView>
     )
@@ -87,11 +95,13 @@ export const MenuPage: React.FC<MenuNavProps<'Menu'>> = ({ navigation }) => {
         if (Platform.OS !== 'ios') {
             //To open the Google Play Store
             console.log('open google playstore')
-            // Linking.openURL(`market://details?`).catch(err => console.log(err))
+            Linking.openURL(
+                `https://play.google.com/store/apps/details?id=com.brianbawuah.adventistmelodies`
+            ).catch(err => console.log(err))
         } else {
             //To open the Apple App Store
             console.log('open ios app store')
-            Linking.openURL(`itms-apps://itunes.apple.com/in/app/apple-store/1530974313?mt=8`).catch(err =>
+            Linking.openURL(`https://apps.apple.com/in/app/adventist-melodies/id1530974313?ls=1`).catch(err =>
                 console.log(err)
             )
         }
