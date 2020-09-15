@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, View, StyleSheet, Platform, Linking } from 'react-native'
+import { SafeAreaView, StyleSheet, Platform, Linking, ScrollView } from 'react-native'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
 import { Container } from '../Core/components/Container/Container'
 import { MenuNavProps } from './MenuParamList'
@@ -45,7 +45,7 @@ export const MenuPage: React.FC<MenuNavProps<'Menu'>> = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.root}>
             <LightStatusBar />
-            <View style={styles.container}>
+            <ScrollView style={styles.container}>
                 <Container
                     title="Settings"
                     onPress={() => navigation?.navigate('Settings')}
@@ -87,7 +87,7 @@ export const MenuPage: React.FC<MenuNavProps<'Menu'>> = ({ navigation }) => {
                     icon="angle-right"
                     settingsIcon="gift"
                 />
-            </View>
+            </ScrollView>
         </SafeAreaView>
     )
 
@@ -114,8 +114,10 @@ const styles = StyleSheet.create({
     root: {
         height: '100%',
         backgroundColor: '#f8f8f8',
+        marginBottom: 10,
     },
     container: {
         marginTop: 10,
+        marginBottom: 10,
     },
 })
