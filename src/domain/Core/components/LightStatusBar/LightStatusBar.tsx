@@ -4,7 +4,7 @@ import React from 'react'
 export const LightStatusBar: React.FC = () => {
     return (
         <View style={styles.statusbar}>
-            <StatusBar translucent={true} barStyle="light-content" />
+            <StatusBar translucent={true} barStyle={Platform.OS === 'ios' ? 'light-content' : 'dark-content'} />
         </View>
     )
 }
