@@ -11,7 +11,6 @@ import {
     StyleProp,
     TextStyle,
     TouchableOpacity,
-    Platform,
 } from 'react-native'
 import { HomeNavProps } from '../HomePage/HomeParamList'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
@@ -19,12 +18,13 @@ import { Song } from '../../models/Song'
 import { Picker } from '@react-native-community/picker'
 import { PickerButton } from '../Core/components/PickerButton/PickerButton'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
-import { IconButton } from '../Core/components/IconButton/IconButton'
+import { FavoriteButton } from '../Core/components/IconButton/FavoriteButton'
 import State from '../../store/store'
 import { observer } from 'mobx-react'
 import data from '../../data/hymns.json'
 import Sound from 'react-native-sound'
 import { AudioButton } from '../Core/components/AudioMenu/AudioButton'
+import { FavoritedButton } from '../Core/components/IconButton/FavoritedButton'
 
 Sound.setCategory('Playback')
 
@@ -42,20 +42,20 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
 
     React.useLayoutEffect(() => {
         navigation?.setOptions({
-            headerRight: () => (
-                <IconButton
-                    icon={state.favoriteList.includes(route.params.number) ? 'heart' : 'heart-o'}
-                    number={song?.number}
-                    style={styles.headerButton}
-                />
-            ),
+            headerRight: () => {
+                if (state.favoriteList.includes(route.params.number)) {
+                    return <FavoritedButton number={song?.number} style={styles.headerButton} />
+                }
+                return <FavoriteButton number={song?.number} style={styles.headerButton} />
+            },
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [navigation, song])
+    }, [navigation, song, state.favoriteList])
 
     useEffect(() => {
         setLoading(true)
         setFontSize(state.getFontSize)
+        const canSetSong = true
 
         setSound(() => {
             setSoundLoading(true)
@@ -73,18 +73,20 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
                 }
             )
         })
-        ;(async () => {
-            try {
-                const songs: Song[] = data
-                const song = songs.filter(hymn => hymn.number === route.params.number)
-                setLoading(false)
-                setSong(song[0])
-                setLanguage(!song[0]?.songTWI ? 'twi' : 'english')
-            } catch (e) {
-                console.log(e)
-            }
-            return
-        })()
+        if (canSetSong) {
+            ;(async () => {
+                try {
+                    const songs: Song[] = data
+                    const song = songs.filter(hymn => hymn.number === route.params.number)
+                    setLoading(false)
+                    setSong(song[0])
+                    setLanguage(!song[0]?.songTWI ? 'twi' : 'english')
+                } catch (e) {
+                    console.log(e)
+                }
+            })()
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [route.params.number, state.getFontSize])
 
     useEffect(() => {
@@ -98,7 +100,7 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
     return (
         <SafeAreaView style={styles.root}>
             <LightStatusBar />
-            <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+            <View style={styles.container}>
                 <View>
                     <Text style={styles.title}>{`${route.params.number} - ${route.params.title
                         .replace(/q|Q/g, 'ε')
@@ -127,15 +129,17 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
                         </TouchableWithoutFeedback>
                     </View>
                 </View>
-                {!song && loading ? (
-                    <ActivityIndicator />
-                ) : (
-                    <Text style={getFontSize()}>{getSongLanguage(language)}</Text>
-                )}
-                {!song?.songTWI && language === 'english' && !loading && (
-                    <Text>This song is not available in English..</Text>
-                )}
-            </ScrollView>
+                <ScrollView style={styles.songContainer} showsVerticalScrollIndicator={false}>
+                    {!song && loading ? (
+                        <ActivityIndicator />
+                    ) : (
+                        <Text style={getFontSize()}>{getSongLanguage(language)}</Text>
+                    )}
+                    {!song?.songTWI && language === 'english' && !loading && (
+                        <Text>This song is not available in English..</Text>
+                    )}
+                </ScrollView>
+            </View>
             {showPicker && (
                 <Modal visible={showPicker} animationType="slide" transparent={false} presentationStyle="pageSheet">
                     <View>
@@ -191,6 +195,9 @@ const styles = StyleSheet.create({
     container: {
         marginTop: 10,
         marginBottom: 25,
+    },
+    songContainer: {
+        marginBottom: 110,
     },
     menu: {
         marginVertical: 10,
