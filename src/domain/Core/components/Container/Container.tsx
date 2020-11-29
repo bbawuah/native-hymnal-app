@@ -15,40 +15,49 @@ interface Container {
     onPress?: () => void
 }
 
-export const Container: React.FC<Container> = observer(({ number, settingsIcon = 'test', title, onPress, style }) => {
-    const state = useContext(State)
+export const Container: React.FC<Container> = observer(
+    ({ number, settingsIcon = 'test', icon, title, onPress, style }) => {
+        const state = useContext(State)
 
-    return (
-        <TouchableOpacity onPress={onPress}>
-            <View style={getStyles()}>
-                {number ? (
-                    <Text style={styles.text}>{number}</Text>
-                ) : (
-                    <Icon size={25} name={settingsIcon} color={getIconStyles(settingsIcon)} />
-                )}
-                <View style={styles.textContainer}>
-                    <Text style={styles.text}>{title}</Text>
+        return (
+            <TouchableOpacity onPress={onPress}>
+                <View style={getStyles()}>
+                    {number ? (
+                        <Text style={styles.text}>{number}</Text>
+                    ) : (
+                        <Icon size={25} name={settingsIcon} color={getIconStyles(settingsIcon)} />
+                    )}
+                    <View style={styles.textContainer}>
+                        <Text style={styles.text}>{title}</Text>
+                    </View>
+                    {getIcon(number)}
                 </View>
-                {number && state.favoriteList.includes(number) ? (
-                    <FavoritedButton number={number} />
-                ) : (
-                    <FavoriteButton number={number} />
-                )}
-            </View>
-        </TouchableOpacity>
-    )
+            </TouchableOpacity>
+        )
 
-    function getStyles() {
-        return [styles.container, style]
+        function getStyles() {
+            return [styles.container, style]
+        }
+
+        function getIconStyles(ref: string) {
+            console.log(settingsIcon)
+            const color = ref === 'heart' ? '#FC8181' : '#757575'
+
+            return color
+        }
+
+        function getIcon(songNumber: string | undefined) {
+            if (songNumber) {
+                if (state.favoriteList.includes(songNumber)) {
+                    return <FavoritedButton number={songNumber} />
+                }
+
+                return <FavoriteButton number={songNumber} />
+            }
+            return <Icon size={25} name={icon} color={getIconStyles(settingsIcon)} />
+        }
     }
-
-    function getIconStyles(ref: string) {
-        console.log(settingsIcon)
-        const color = ref === 'heart' ? '#FC8181' : '#757575'
-
-        return color
-    }
-})
+)
 
 const styles = StyleSheet.create({
     container: {

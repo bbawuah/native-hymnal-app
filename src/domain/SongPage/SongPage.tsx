@@ -36,6 +36,7 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
     const [fontSize, setFontSize] = useState<number>()
     const [soundError, setSoundError] = useState<boolean>(false)
     const [soundLoading, setSoundLoading] = useState<boolean>(false)
+    const [playing, setIsPlaying] = useState<boolean>(false)
 
     React.useLayoutEffect(() => {
         navigation?.setOptions({
@@ -115,20 +116,33 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
                             {soundLoading && <Text style={styles.errorMessage}>Loading sound..</Text>}
                             {!soundError && !soundLoading && (
                                 <View style={styles.audioMenu}>
+                                    {!playing ? (
+                                        <TouchableOpacity
+                                            onPress={() => {
+                                                setIsPlaying(true)
+                                                return state.getSong?.play()
+                                            }}
+                                            disabled={!state.getSong ? true : false}
+                                        >
+                                            <AudioButton iconName="play" />
+                                        </TouchableOpacity>
+                                    ) : (
+                                        <TouchableOpacity
+                                            onPress={() => {
+                                                setIsPlaying(false)
+                                                return state.getSong?.pause()
+                                            }}
+                                            disabled={!state.getSong ? true : false}
+                                        >
+                                            <AudioButton iconName="pause" />
+                                        </TouchableOpacity>
+                                    )}
+
                                     <TouchableOpacity
-                                        onPress={() => state.getSong?.play()}
-                                        disabled={!state.getSong ? true : false}
-                                    >
-                                        <AudioButton iconName="play" />
-                                    </TouchableOpacity>
-                                    <TouchableOpacity
-                                        onPress={() => state.getSong?.pause()}
-                                        disabled={!state.getSong ? true : false}
-                                    >
-                                        <AudioButton iconName="pause" />
-                                    </TouchableOpacity>
-                                    <TouchableOpacity
-                                        onPress={() => state.getSong?.stop()}
+                                        onPress={() => {
+                                            setIsPlaying(false)
+                                            return state.getSong?.stop()
+                                        }}
                                         disabled={!state.getSong ? true : false}
                                     >
                                         <AudioButton iconName="stop" />
@@ -221,7 +235,7 @@ const styles = StyleSheet.create({
         borderRadius: 3,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        width: 80,
+        width: 50,
     },
     filter: {
         alignSelf: 'flex-end',

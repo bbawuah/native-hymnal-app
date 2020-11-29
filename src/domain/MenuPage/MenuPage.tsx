@@ -79,14 +79,6 @@ export const MenuPage: React.FC<MenuNavProps<'Menu'>> = ({ navigation }) => {
                     icon="angle-right"
                     settingsIcon="info-circle"
                 />
-                <Container
-                    title="Donate"
-                    onPress={() =>
-                        Linking.openURL('https://paypal.me/pools/c/8sCczet3Kl').catch(err => console.log(err))
-                    }
-                    icon="angle-right"
-                    settingsIcon="gift"
-                />
             </ScrollView>
         </SafeAreaView>
     )
