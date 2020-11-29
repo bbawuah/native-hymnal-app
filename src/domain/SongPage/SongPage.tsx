@@ -11,6 +11,8 @@ import {
     StyleProp,
     TextStyle,
     TouchableOpacity,
+    PlatformColor,
+    useColorScheme,
 } from 'react-native'
 import { HomeNavProps } from '../HomePage/HomeParamList'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
@@ -25,6 +27,7 @@ import data from '../../data/hymns.json'
 import Sound from 'react-native-sound'
 import { AudioButton } from '../Core/components/AudioMenu/AudioButton'
 import { FavoritedButton } from '../Core/components/IconButton/FavoritedButton'
+import { colors } from '../utils/colors'
 
 export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navigation }) => {
     // Need to fetch song here in useEffect
@@ -37,6 +40,7 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
     const [soundError, setSoundError] = useState<boolean>(false)
     const [soundLoading, setSoundLoading] = useState<boolean>(false)
     const [playing, setIsPlaying] = useState<boolean>(false)
+    const isDarkMode = useColorScheme() === 'dark'
 
     React.useLayoutEffect(() => {
         navigation?.setOptions({
@@ -106,10 +110,9 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
             <LightStatusBar />
             <View style={styles.container}>
                 <View>
-                    <Text style={styles.title}>{`${route.params.number} - ${route.params.title
-                        .replace(/q|Q/g, 'ε')
-                        .replace(/x|X/g, 'ɔ')
-                        .replace(/\n/g, ' - ')}`}</Text>
+                    <Text style={[styles.title, getTextColor()]}>{`${
+                        route.params.number
+                    } - ${route.params.title.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ').replace(/\n/g, ' - ')}`}</Text>
                     <View style={styles.menu}>
                         <View>
                             {soundError && <Text style={styles.errorMessage}>No sound available</Text>}
@@ -206,24 +209,29 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
 
     function getFontSize(): StyleProp<TextStyle> {
         const style = { fontSize: fontSize }
-        return [styles.song, style]
+        const color = isDarkMode ? { color: colors.tint.white } : { color: colors.tint.black }
+        return [styles.song, style, color]
+    }
+
+    function getTextColor() {
+        const color = isDarkMode ? colors.tint.white : colors.tint.black
+        return { color }
     }
 })
 
 // styles
-
 const styles = StyleSheet.create({
     root: {
         height: '100%',
-        backgroundColor: '#f8f8f8',
+        backgroundColor: PlatformColor('systemBackground'),
         paddingHorizontal: 20,
     },
     container: {
         marginTop: 10,
-        marginBottom: 25,
+        marginBottom: 155,
     },
     songContainer: {
-        marginBottom: 110,
+        marginBottom: 10,
     },
     menu: {
         marginVertical: 10,
@@ -248,7 +256,7 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     errorMessage: {
-        color: '#757575',
+        color: colors.tint.grey,
     },
     picker: {
         width: '100%',

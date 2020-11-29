@@ -1,5 +1,15 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { StyleSheet, SafeAreaView, FlatList, View, Text, RefreshControl, ActivityIndicator } from 'react-native'
+import {
+    StyleSheet,
+    SafeAreaView,
+    FlatList,
+    View,
+    Text,
+    RefreshControl,
+    ActivityIndicator,
+    PlatformColor,
+    useColorScheme,
+} from 'react-native'
 import { Container } from '../Core/components/Container/Container'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
 import { FavouriteNavProps } from './FavouritesParamList'
@@ -7,11 +17,13 @@ import State from '../../store/store'
 import { observer } from 'mobx-react'
 import { Song } from '../../models/Song'
 import data from '../../data/hymns.json'
+import { colors } from '../utils/colors'
 
 export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = observer(({ navigation }) => {
     const state = useContext(State)
     const [songs, setSongs] = useState<Song[] | undefined>([])
     const [refreshing, setRefreshing] = useState<boolean>(false)
+    const isDarkMode = useColorScheme() === 'dark'
 
     useEffect(() => {
         setTimeout(() => {
@@ -36,7 +48,7 @@ export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = observe
                 {songs?.length === 0 && <ActivityIndicator />}
                 {!songs ? (
                     <View style={styles.emptyState}>
-                        <Text>Your favorites list is empty</Text>
+                        <Text style={getThemeStyle()}>Your favorites list is empty</Text>
                     </View>
                 ) : (
                     <FlatList
@@ -78,6 +90,11 @@ export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = observe
             console.log(error)
         }
     }
+
+    function getThemeStyle() {
+        const color = isDarkMode ? colors.tint.white : colors.tint.black
+        return { color }
+    }
 })
 
 // styles
@@ -85,7 +102,7 @@ export const FavouritesPage: React.FC<FavouriteNavProps<'Favourites'>> = observe
 const styles = StyleSheet.create({
     root: {
         height: '100%',
-        backgroundColor: '#f8f8f8',
+        backgroundColor: PlatformColor('systemBackground'),
     },
     container: {
         marginTop: 10,

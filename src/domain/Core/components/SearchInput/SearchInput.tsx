@@ -7,6 +7,7 @@ import {
     FlatList,
     RefreshControl,
     ActivityIndicator,
+    useColorScheme,
 } from 'react-native'
 import React, { useState, useEffect, useContext } from 'react'
 import { SearchButton } from '../SearchButton/SearchButton'
@@ -20,6 +21,7 @@ import State from '../../../../store/store'
 import AsyncStorage from '@react-native-community/async-storage'
 import { observer } from 'mobx-react'
 import data from '../../../../data/hymns.json'
+import { colors } from '../../../utils/colors'
 
 interface Props {
     navigation?: StackNavigationProp<HomeStackParamList, 'Home'>
@@ -30,6 +32,7 @@ export const SearchInput: React.FC<Props> = observer(({ navigation }) => {
     const [value, setValue] = useState<string>('')
     const [songs, setSongs] = useState<Song[] | undefined>([])
     const [refreshing, setRefreshing] = useState<boolean>(false)
+    const isDarkMode = useColorScheme() === 'dark'
 
     useEffect(() => {
         setState()
@@ -57,7 +60,7 @@ export const SearchInput: React.FC<Props> = observer(({ navigation }) => {
                 <TouchableOpacity style={styles.search} onPress={onRefresh}>
                     <SearchButton style={getSearchStyles()} />
                 </TouchableOpacity>
-                <TextInput onChangeText={text => setValue(text)} value={value} style={styles.input} />
+                <TextInput onChangeText={text => setValue(text)} value={value} style={getStyles()} />
 
                 <TouchableOpacity onPress={() => setValue('')} style={styles.close}>
                     <CloseButton style={closeButtonStyles()} />
@@ -121,12 +124,12 @@ export const SearchInput: React.FC<Props> = observer(({ navigation }) => {
     }
 
     function closeButtonStyles() {
-        const color = value === '' ? '#A9A9A9' : '#757575'
+        const color = value === '' ? '#A9A9A9' : colors.tint.grey
         return { color }
     }
 
     function getSearchStyles() {
-        const color = value === '' ? '#A9A9A9' : '#757575'
+        const color = value === '' ? '#A9A9A9' : colors.tint.grey
         return { color }
     }
 
@@ -149,6 +152,11 @@ export const SearchInput: React.FC<Props> = observer(({ navigation }) => {
             return
         }
     }
+
+    function getStyles() {
+        const backgroundColor = isDarkMode ? colors.tint.darkGrey : colors.tint.lightGrey
+        return [{ backgroundColor }, styles.input]
+    }
 })
 
 const styles = StyleSheet.create({
@@ -163,7 +171,6 @@ const styles = StyleSheet.create({
         height: 50,
         borderRadius: 10,
         width: '100%',
-        backgroundColor: '#ECECEC',
         borderWidth: 0,
         color: '#A9A9A9',
         fontSize: 17,

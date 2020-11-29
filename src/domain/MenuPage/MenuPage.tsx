@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet, Platform, Linking, ScrollView } from 'react-native'
+import { SafeAreaView, StyleSheet, Platform, Linking, ScrollView, PlatformColor } from 'react-native'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
 import { Container } from '../Core/components/Container/Container'
 import { MenuNavProps } from './MenuParamList'
@@ -105,7 +105,7 @@ export const MenuPage: React.FC<MenuNavProps<'Menu'>> = ({ navigation }) => {
 const styles = StyleSheet.create({
     root: {
         height: '100%',
-        backgroundColor: '#f8f8f8',
+        backgroundColor: PlatformColor('systemBackground'),
         marginBottom: 10,
     },
     container: {

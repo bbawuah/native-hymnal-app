@@ -4,6 +4,8 @@ import { Home } from '../HomePage/Home'
 import { Favourites } from '../Favourites/Favourites'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { MenuStackList } from '../MenuPage/MenuStackList'
+import { useColorScheme } from 'react-native'
+import { colors } from '../utils/colors'
 
 const Tab = createBottomTabNavigator()
 
@@ -14,12 +16,14 @@ export type RootStackParamList = {
 }
 
 export const MainNavigator: React.FC = () => {
+    const isDarkMode = useColorScheme() === 'dark'
+
     return (
         <Tab.Navigator
             initialRouteName="Home"
             tabBarOptions={{
                 style: {
-                    backgroundColor: '#f8f8f8',
+                    backgroundColor: getThemeStyle(),
                 },
                 tabStyle: {
                     width: 100,
@@ -54,4 +58,9 @@ export const MainNavigator: React.FC = () => {
             />
         </Tab.Navigator>
     )
+
+    function getThemeStyle(): string {
+        const color = isDarkMode ? colors.tint.black : colors.tint.white
+        return color
+    }
 }

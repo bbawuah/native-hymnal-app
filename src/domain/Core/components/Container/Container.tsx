@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, StyleProp } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, StyleProp, useColorScheme } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { FavoriteButton } from '../IconButton/FavoriteButton'
 import { FavoritedButton } from '../IconButton/FavoritedButton'
 import { observer } from 'mobx-react'
 import State from '../../../../store/store'
+import { colors } from '../../../utils/colors'
 
 interface Container {
     number?: string
@@ -18,17 +19,18 @@ interface Container {
 export const Container: React.FC<Container> = observer(
     ({ number, settingsIcon = 'test', icon, title, onPress, style }) => {
         const state = useContext(State)
+        const isDarkMode = useColorScheme() === 'dark'
 
         return (
             <TouchableOpacity onPress={onPress}>
                 <View style={getStyles()}>
                     {number ? (
-                        <Text style={styles.text}>{number}</Text>
+                        <Text style={getTextColor()}>{number}</Text>
                     ) : (
                         <Icon size={25} name={settingsIcon} color={getIconStyles(settingsIcon)} />
                     )}
                     <View style={styles.textContainer}>
-                        <Text style={styles.text}>{title}</Text>
+                        <Text style={getTextColor()}>{title}</Text>
                     </View>
                     {getIcon(number)}
                 </View>
@@ -36,12 +38,13 @@ export const Container: React.FC<Container> = observer(
         )
 
         function getStyles() {
-            return [styles.container, style]
+            const backgroundColor = isDarkMode ? colors.tint.darkGrey : colors.tint.lightGrey
+            const shadowColor = isDarkMode ? colors.tint.white : colors.tint.black
+            return [{ backgroundColor }, { shadowColor }, styles.container, style]
         }
 
         function getIconStyles(ref: string) {
-            console.log(settingsIcon)
-            const color = ref === 'heart' ? '#FC8181' : '#757575'
+            const color = ref === 'heart' ? '#FC8181' : colors.tint.grey
 
             return color
         }
@@ -56,6 +59,11 @@ export const Container: React.FC<Container> = observer(
             }
             return <Icon size={25} name={icon} color={getIconStyles(settingsIcon)} />
         }
+
+        function getTextColor() {
+            const color = isDarkMode ? colors.tint.white : colors.tint.black
+            return [styles.text, { color }]
+        }
     }
 )
 
@@ -64,7 +72,6 @@ const styles = StyleSheet.create({
         width: '90%',
         height: 85,
         borderRadius: 10,
-        backgroundColor: '#fff',
         marginTop: 15,
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -72,10 +79,9 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         paddingRight: 10,
         paddingLeft: 10,
-        shadowColor: '#000',
         shadowOffset: { width: 0, height: 0 },
         shadowOpacity: 0.05,
-        shadowRadius: 12,
+        shadowRadius: 3,
         elevation: 1,
         borderWidth: 0,
     },
@@ -83,7 +89,7 @@ const styles = StyleSheet.create({
         width: 250,
     },
     text: {
-        color: '#555',
+        color: colors.tint.darkText,
         fontSize: 17,
     },
     favoriteButton: {

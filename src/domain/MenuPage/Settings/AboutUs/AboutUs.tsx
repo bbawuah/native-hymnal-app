@@ -1,42 +1,63 @@
-import { SafeAreaView, Text, StyleSheet, ScrollView } from 'react-native'
+import {
+    SafeAreaView,
+    Text,
+    StyleSheet,
+    ScrollView,
+    PlatformColor,
+    useColorScheme,
+    Button,
+    Linking,
+} from 'react-native'
 import React from 'react'
 import { LightStatusBar } from '../../../Core/components/LightStatusBar/LightStatusBar'
 import { MenuNavProps } from '../../MenuParamList'
+import { colors } from '../../../utils/colors'
 
 export const AboutUs: React.FC<MenuNavProps<'About'>> = () => {
+    const isDarkMode = useColorScheme() === 'dark'
+
     return (
         <SafeAreaView style={styles.root}>
             <LightStatusBar />
             <ScrollView style={styles.container}>
-                <Text style={styles.textTitle}>About us</Text>
-                <Text style={styles.textContainer}>
+                <Text style={[styles.textTitle, getTextColor()]}>About us</Text>
+                <Text style={[styles.textContainer, getTextColor()]}>
                     This application is build by two young men who wanted to find a solution for a problem in their
                     community.
                 </Text>
-                <Text style={styles.textContainer}>
+                <Text style={[styles.textContainer, getTextColor()]}>
                     This hymnal features the Hymns 1 to 694, Nea Efi Ghana 1 to 55 and Nea Ghanafo 1 to 20. In the near
                     future we will add more features to this application.
                 </Text>
 
-                <Text style={styles.textContainer}>
+                <Text style={[styles.textContainer, getTextColor()]}>
                     We believe time spent in the home learning and singing hymns will reap eternal blessings for the
                     family.
                 </Text>
-                <Text style={styles.textTitle}>Request</Text>
-                <Text style={styles.textContainer}>
+                <Text style={[styles.textTitle, getTextColor()]}>Request</Text>
+                <Text style={[styles.textContainer, getTextColor()]}>
                     We are looking forward to working with people who can provide us with the melody of each lyric so
                     that we can incorporate them in the app to make it easy for people to learn almost every hymn in the
                     app easily.
                 </Text>
-                <Text style={styles.textTitle}>Contact</Text>
+                <Text style={[styles.textTitle, getTextColor()]}>Contact</Text>
 
-                <Text style={styles.textContainer}>
+                <Text style={[styles.textContainer, getTextColor()]}>
                     If you have any questions, feedback or if you desire that a particular app be developed for your
-                    church, please don't hesitate to contact us at: adventhymnal@gmail.com
+                    church, please don't hesitate to contact us.
                 </Text>
+                <Button
+                    onPress={() => Linking.openURL('mailto:adventhymnal@gmail.com')}
+                    title="adventhymnal@gmail.com"
+                />
             </ScrollView>
         </SafeAreaView>
     )
+
+    function getTextColor() {
+        const color = isDarkMode ? colors.tint.white : colors.tint.black
+        return { color }
+    }
 }
 
 // styles
@@ -44,7 +65,7 @@ export const AboutUs: React.FC<MenuNavProps<'About'>> = () => {
 const styles = StyleSheet.create({
     root: {
         height: '100%',
-        backgroundColor: '#f8f8f8',
+        backgroundColor: PlatformColor('systemBackground'),
         alignItems: 'center',
     },
     container: {

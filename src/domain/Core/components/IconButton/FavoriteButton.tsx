@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-community/async-storage'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { observer } from 'mobx-react'
 import State from '../../../../store/store'
+import { colors } from '../../../utils/colors'
 
 interface Prop {
     number?: string
@@ -23,7 +24,7 @@ export const FavoriteButton: React.FC<Prop> = observer(({ number, style }) => {
     )
 
     function getIconStyles(ref: string) {
-        const color = ref === 'heart' ? '#FC8181' : '#757575'
+        const color = ref === 'heart' ? '#FC8181' : colors.tint.grey
 
         return color
     }

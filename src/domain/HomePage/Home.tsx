@@ -1,25 +1,29 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { HomeScreen } from './HomeScreen'
+import { HomePage } from './HomePage'
 import { SongPage } from '../SongPage/SongPage'
 import { HomeStackParamList, HomeNavProps } from './HomeParamList'
+import { PlatformColor, useColorScheme } from 'react-native'
+import { colors } from '../utils/colors'
 
 const Stack = createStackNavigator<HomeStackParamList>()
 
 export const Home: React.FC<HomeNavProps<'Home'>> = () => {
+    const isDarkMode = useColorScheme() === 'dark'
+
     return (
         <Stack.Navigator
             screenOptions={{
                 headerStyle: {
-                    backgroundColor: '#2F557F',
+                    backgroundColor: PlatformColor('systemBackground'),
                 },
-                headerTintColor: '#fff',
+                headerTintColor: getThemeStyle(),
                 headerBackTitleVisible: false,
             }}
         >
             <Stack.Screen
                 name="Home"
-                component={HomeScreen}
+                component={HomePage}
                 options={{
                     title: 'Adventist Melodies',
                 }}
@@ -27,4 +31,9 @@ export const Home: React.FC<HomeNavProps<'Home'>> = () => {
             <Stack.Screen name="Song" component={SongPage} />
         </Stack.Navigator>
     )
+
+    function getThemeStyle(): string {
+        const color = isDarkMode ? colors.tint.white : colors.tint.black
+        return color
+    }
 }

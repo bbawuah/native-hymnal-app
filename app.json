@@ -1,4 +1,5 @@
 {
-  "name": "AdventistMelodies",
-  "displayName": "Adventist Melodies"
+    "name": "AdventistMelodies",
+    "displayName": "Adventist Melodies",
+    "userInterfaceStyle": "automatic"
 }
