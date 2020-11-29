@@ -15,41 +15,40 @@ interface Container {
     onPress?: () => void
 }
 
-export const Container: React.FC<Container> = observer(
-    ({ number = 'test', settingsIcon = 'test', title, onPress, style }) => {
-        const state = useContext(State)
+export const Container: React.FC<Container> = observer(({ number, settingsIcon = 'test', title, onPress, style }) => {
+    const state = useContext(State)
 
-        return (
-            <TouchableOpacity onPress={onPress}>
-                <View style={getStyles()}>
-                    {number ? (
-                        <Text style={styles.text}>{number}</Text>
-                    ) : (
-                        <Icon size={25} name={settingsIcon} color={getIconStyles(settingsIcon)} />
-                    )}
-                    <View style={styles.textContainer}>
-                        <Text style={styles.text}>{title}</Text>
-                    </View>
-                    {state.favoriteList.includes(number) ? (
-                        <FavoritedButton number={number} />
-                    ) : (
-                        <FavoriteButton number={number} />
-                    )}
+    return (
+        <TouchableOpacity onPress={onPress}>
+            <View style={getStyles()}>
+                {number ? (
+                    <Text style={styles.text}>{number}</Text>
+                ) : (
+                    <Icon size={25} name={settingsIcon} color={getIconStyles(settingsIcon)} />
+                )}
+                <View style={styles.textContainer}>
+                    <Text style={styles.text}>{title}</Text>
                 </View>
-            </TouchableOpacity>
-        )
+                {number && state.favoriteList.includes(number) ? (
+                    <FavoritedButton number={number} />
+                ) : (
+                    <FavoriteButton number={number} />
+                )}
+            </View>
+        </TouchableOpacity>
+    )
 
-        function getStyles() {
-            return [styles.container, style]
-        }
-
-        function getIconStyles(ref: string) {
-            const color = ref === 'heart' ? '#FC8181' : '#757575'
-
-            return color
-        }
+    function getStyles() {
+        return [styles.container, style]
     }
-)
+
+    function getIconStyles(ref: string) {
+        console.log(settingsIcon)
+        const color = ref === 'heart' ? '#FC8181' : '#757575'
+
+        return color
+    }
+})
 
 const styles = StyleSheet.create({
     container: {
