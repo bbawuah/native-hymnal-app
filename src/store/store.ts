@@ -1,9 +1,14 @@
 import { observable, action, computed, reaction } from 'mobx'
 import { createContext } from 'react'
+import Sound from 'react-native-sound'
 
+export type Audio = Sound | null
+
+Sound.setCategory('Playback')
 class AppState {
     @observable private list: string[] = []
     @observable private fontSize: number = 18
+    @observable private sound: Audio = null
 
     public constructor() {
         reaction(
@@ -18,6 +23,10 @@ class AppState {
 
     @computed public get getFontSize(): number {
         return this.fontSize
+    }
+
+    @computed public get getSong(): Audio {
+        return this.sound
     }
 
     @action public addSong(song: string): void {
@@ -37,6 +46,10 @@ class AppState {
 
     @action public editFontSize(fontSize: number): void {
         this.fontSize = fontSize
+    }
+
+    @action public setSong(audio: Audio): void {
+        this.sound = audio
     }
 }
 

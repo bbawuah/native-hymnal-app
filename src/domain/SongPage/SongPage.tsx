@@ -26,8 +26,6 @@ import Sound from 'react-native-sound'
 import { AudioButton } from '../Core/components/AudioMenu/AudioButton'
 import { FavoritedButton } from '../Core/components/IconButton/FavoritedButton'
 
-Sound.setCategory('Playback')
-
 export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navigation }) => {
     // Need to fetch song here in useEffect
     const state = useContext(State)
@@ -38,7 +36,6 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
     const [fontSize, setFontSize] = useState<number>()
     const [soundError, setSoundError] = useState<boolean>(false)
     const [soundLoading, setSoundLoading] = useState<boolean>(false)
-    const [sound, setSound] = useState<Sound>()
 
     React.useLayoutEffect(() => {
         navigation?.setOptions({
@@ -56,23 +53,29 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
         setLoading(true)
         setFontSize(state.getFontSize)
         const canSetSong = true
+        setSoundLoading(true)
 
-        setSound(() => {
-            setSoundLoading(true)
-            return new Sound(
-                `https://evening-hollows-34967.herokuapp.com/songs/hymn${route.params.number}`,
-                undefined,
-                error => {
-                    if (error) {
-                        console.log(error)
-                        setSoundError(true)
+        if (canSetSong) {
+            if (state?.getSong) {
+                state.getSong.stop()
+            }
+            state.setSong(
+                new Sound(
+                    `https://evening-hollows-34967.herokuapp.com/songs/hymn${route.params.number}`,
+                    undefined,
+                    error => {
+                        if (error) {
+                            console.log(error)
+                            setSoundLoading(false)
+                            setSoundError(true)
+                            return null
+                        }
                         setSoundLoading(false)
-                        return
                     }
-                    setSoundLoading(false)
-                }
+                )
             )
-        })
+        }
+
         if (canSetSong) {
             ;(async () => {
                 try {
@@ -91,11 +94,11 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
 
     useEffect(() => {
         return () => {
-            if (sound?.isPlaying()) {
-                sound.stop()
+            if (state.getSong?.isPlaying()) {
+                state.getSong.stop()
             }
         }
-    }, [sound])
+    }, [state.getSong])
 
     return (
         <SafeAreaView style={styles.root}>
@@ -112,13 +115,22 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
                             {soundLoading && <Text style={styles.errorMessage}>Loading sound..</Text>}
                             {!soundError && !soundLoading && (
                                 <View style={styles.audioMenu}>
-                                    <TouchableOpacity onPress={() => sound?.play()} disabled={!sound ? true : false}>
+                                    <TouchableOpacity
+                                        onPress={() => state.getSong?.play()}
+                                        disabled={!state.getSong ? true : false}
+                                    >
                                         <AudioButton iconName="play" />
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => sound?.pause()} disabled={!sound ? true : false}>
+                                    <TouchableOpacity
+                                        onPress={() => state.getSong?.pause()}
+                                        disabled={!state.getSong ? true : false}
+                                    >
                                         <AudioButton iconName="pause" />
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => sound?.stop()} disabled={!sound ? true : false}>
+                                    <TouchableOpacity
+                                        onPress={() => state.getSong?.stop()}
+                                        disabled={!state.getSong ? true : false}
+                                    >
                                         <AudioButton iconName="stop" />
                                     </TouchableOpacity>
                                 </View>
