@@ -111,7 +111,7 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
             <LightStatusBar />
             <View style={styles.container}>
                 <View>
-                    <Text style={[styles.title, getTextColor()]}>{`${
+                    <Text style={[styles.title, getTextColor()]} selectable={true}>{`${
                         route.params.number
                     } - ${route.params.title.replace(/q|Q/g, 'ε').replace(/x|X/g, 'ɔ').replace(/\n/g, ' - ')}`}</Text>
                     <View style={styles.menu}>
@@ -163,7 +163,9 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
                     {!song && loading ? (
                         <ActivityIndicator />
                     ) : (
-                        <Text style={getFontSize()}>{getSongLanguage(language)}</Text>
+                        <Text style={getFontSize()} selectable={true}>
+                            {getSongLanguage(language)}
+                        </Text>
                     )}
                     {!song?.songTWI && language === 'english' && !loading && (
                         <Text>This song is not available in English..</Text>
