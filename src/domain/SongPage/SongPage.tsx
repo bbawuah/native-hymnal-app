@@ -13,6 +13,7 @@ import {
     TouchableOpacity,
     PlatformColor,
     useColorScheme,
+    Platform,
 } from 'react-native'
 import { HomeNavProps } from '../HomePage/HomeParamList'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
@@ -79,6 +80,7 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
                     }
                 )
             )
+            console.log(state.getSong)
         }
 
         if (canSetSong) {
@@ -106,7 +108,7 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
     }, [state.getSong])
 
     return (
-        <SafeAreaView style={styles.root}>
+        <SafeAreaView style={[styles.root, { backgroundColor: getBackgroundColor() }]}>
             <LightStatusBar />
             <View style={styles.container}>
                 <View>
@@ -217,13 +219,24 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
         const color = isDarkMode ? colors.tint.white : colors.tint.black
         return { color }
     }
+
+    function getBackgroundColor() {
+        if (Platform.OS === 'ios') {
+            return PlatformColor('systemBackground')
+        }
+
+        if (isDarkMode) {
+            return colors.tint.black
+        }
+
+        return colors.tint.white
+    }
 })
 
 // styles
 const styles = StyleSheet.create({
     root: {
         height: '100%',
-        backgroundColor: PlatformColor('systemBackground'),
         paddingHorizontal: 20,
     },
     container: {

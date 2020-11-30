@@ -7,6 +7,7 @@ import {
     useColorScheme,
     Button,
     Linking,
+    Platform,
 } from 'react-native'
 import React from 'react'
 import { LightStatusBar } from '../../../Core/components/LightStatusBar/LightStatusBar'
@@ -17,7 +18,7 @@ export const AboutUs: React.FC<MenuNavProps<'About'>> = () => {
     const isDarkMode = useColorScheme() === 'dark'
 
     return (
-        <SafeAreaView style={styles.root}>
+        <SafeAreaView style={[styles.root, { backgroundColor: getBackgroundColor() }]}>
             <LightStatusBar />
             <ScrollView style={styles.container}>
                 <Text style={[styles.textTitle, getTextColor()]}>About us</Text>
@@ -58,6 +59,18 @@ export const AboutUs: React.FC<MenuNavProps<'About'>> = () => {
         const color = isDarkMode ? colors.tint.white : colors.tint.black
         return { color }
     }
+
+    function getBackgroundColor() {
+        if (Platform.OS === 'ios') {
+            return PlatformColor('systemBackground')
+        }
+
+        if (isDarkMode) {
+            return colors.tint.black
+        }
+
+        return colors.tint.white
+    }
 }
 
 // styles
@@ -65,7 +78,7 @@ export const AboutUs: React.FC<MenuNavProps<'About'>> = () => {
 const styles = StyleSheet.create({
     root: {
         height: '100%',
-        backgroundColor: PlatformColor('systemBackground'),
+
         alignItems: 'center',
     },
     container: {

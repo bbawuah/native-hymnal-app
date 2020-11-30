@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { HomePage } from './HomePage'
 import { SongPage } from '../SongPage/SongPage'
 import { HomeStackParamList, HomeNavProps } from './HomeParamList'
-import { PlatformColor, useColorScheme } from 'react-native'
+import { Platform, PlatformColor, useColorScheme } from 'react-native'
 import { colors } from '../utils/colors'
 
 const Stack = createStackNavigator<HomeStackParamList>()
@@ -15,7 +15,7 @@ export const Home: React.FC<HomeNavProps<'Home'>> = () => {
         <Stack.Navigator
             screenOptions={{
                 headerStyle: {
-                    backgroundColor: PlatformColor('systemBackground'),
+                    backgroundColor: getBackgroundColor(),
                 },
                 headerTintColor: getThemeStyle(),
                 headerBackTitleVisible: false,
@@ -35,5 +35,17 @@ export const Home: React.FC<HomeNavProps<'Home'>> = () => {
     function getThemeStyle(): string {
         const color = isDarkMode ? colors.tint.white : colors.tint.black
         return color
+    }
+
+    function getBackgroundColor() {
+        if (Platform.OS === 'ios') {
+            return PlatformColor('systemBackground')
+        }
+
+        if (isDarkMode) {
+            return colors.tint.black
+        }
+
+        return colors.tint.white
     }
 }

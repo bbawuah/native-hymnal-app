@@ -1,4 +1,4 @@
-import { SafeAreaView, View, Text, StyleSheet, PlatformColor, useColorScheme } from 'react-native'
+import { SafeAreaView, View, Text, StyleSheet, PlatformColor, useColorScheme, Platform } from 'react-native'
 import React, { useState, useContext } from 'react'
 import { LightStatusBar } from '../../../Core/components/LightStatusBar/LightStatusBar'
 import { MenuNavProps } from '../../MenuParamList'
@@ -14,7 +14,7 @@ export const Settings: React.FC<MenuNavProps<'Settings'>> = () => {
     const isDarkMode = useColorScheme() === 'dark'
 
     return (
-        <SafeAreaView style={styles.root}>
+        <SafeAreaView style={[styles.root, { backgroundColor: getBackgroundColor() }]}>
             <LightStatusBar />
             <View style={styles.container}>
                 <Text style={[styles.textTitle, getTextColor()]}>Font size</Text>
@@ -45,6 +45,18 @@ export const Settings: React.FC<MenuNavProps<'Settings'>> = () => {
     function getTextColor() {
         const color = isDarkMode ? colors.tint.white : colors.tint.black
         return { color }
+    }
+
+    function getBackgroundColor() {
+        if (Platform.OS === 'ios') {
+            return PlatformColor('systemBackground')
+        }
+
+        if (isDarkMode) {
+            return colors.tint.black
+        }
+
+        return colors.tint.white
     }
 }
 

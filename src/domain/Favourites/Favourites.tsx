@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { FavouritesPage } from './FavouritesPage'
 import { FavouritesParamList, FavouriteNavProps } from './FavouritesParamList'
 import { SongPage } from '../SongPage/SongPage'
-import { PlatformColor, useColorScheme } from 'react-native'
+import { Platform, PlatformColor, useColorScheme } from 'react-native'
 import { colors } from '../utils/colors'
 
 const Stack = createStackNavigator<FavouritesParamList>()
@@ -15,7 +15,7 @@ export const Favourites: React.FC<FavouriteNavProps<'Favourites'>> = () => {
         <Stack.Navigator
             screenOptions={{
                 headerStyle: {
-                    backgroundColor: PlatformColor('systemBackground'),
+                    backgroundColor: getBackgroundColor(),
                 },
                 headerTintColor: getThemeStyle(),
                 headerBackTitleVisible: false,
@@ -29,5 +29,17 @@ export const Favourites: React.FC<FavouriteNavProps<'Favourites'>> = () => {
     function getThemeStyle(): string {
         const color = isDarkMode ? colors.tint.white : colors.tint.black
         return color
+    }
+
+    function getBackgroundColor() {
+        if (Platform.OS === 'ios') {
+            return PlatformColor('systemBackground')
+        }
+
+        if (isDarkMode) {
+            return colors.tint.black
+        }
+
+        return colors.tint.white
     }
 }

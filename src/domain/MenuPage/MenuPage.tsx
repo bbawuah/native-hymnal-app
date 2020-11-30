@@ -1,9 +1,10 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet, Platform, Linking, ScrollView, PlatformColor } from 'react-native'
+import { SafeAreaView, StyleSheet, Platform, Linking, ScrollView, PlatformColor, useColorScheme } from 'react-native'
 import { LightStatusBar } from '../Core/components/LightStatusBar/LightStatusBar'
 import { Container } from '../Core/components/Container/Container'
 import { MenuNavProps } from './MenuParamList'
 import Share, { Options } from 'react-native-share'
+import { colors } from '../utils/colors'
 
 const url =
     Platform.OS !== 'ios'
@@ -42,8 +43,10 @@ const options: Options = Platform.select({
 })
 
 export const MenuPage: React.FC<MenuNavProps<'Menu'>> = ({ navigation }) => {
+    const isDarkMode = useColorScheme() === 'dark'
+
     return (
-        <SafeAreaView style={styles.root}>
+        <SafeAreaView style={[styles.root, { backgroundColor: getBackgroundColor() }]}>
             <LightStatusBar />
             <ScrollView style={styles.container}>
                 <Container
@@ -98,6 +101,18 @@ export const MenuPage: React.FC<MenuNavProps<'Menu'>> = ({ navigation }) => {
             )
         }
     }
+
+    function getBackgroundColor() {
+        if (Platform.OS === 'ios') {
+            return PlatformColor('systemBackground')
+        }
+
+        if (isDarkMode) {
+            return colors.tint.black
+        }
+
+        return colors.tint.white
+    }
 }
 
 // styles
@@ -105,7 +120,6 @@ export const MenuPage: React.FC<MenuNavProps<'Menu'>> = ({ navigation }) => {
 const styles = StyleSheet.create({
     root: {
         height: '100%',
-        backgroundColor: PlatformColor('systemBackground'),
         marginBottom: 10,
     },
     container: {

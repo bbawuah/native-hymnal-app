@@ -5,7 +5,7 @@ import { AboutUs } from './Settings/AboutUs/AboutUs'
 import { PrivacyPolicy } from './Settings/PrivacyPolicy/PrivacyPolicy'
 import { MenuPage } from './MenuPage'
 import { Settings } from './Settings/Settings/Settings'
-import { PlatformColor, useColorScheme } from 'react-native'
+import { Platform, PlatformColor, useColorScheme } from 'react-native'
 import { colors } from '../utils/colors'
 
 const Stack = createStackNavigator<MenuParamList>()
@@ -17,7 +17,7 @@ export const MenuStackList: React.FC<MenuNavProps<'Menu'>> = () => {
         <Stack.Navigator
             screenOptions={{
                 headerStyle: {
-                    backgroundColor: PlatformColor('systemBackground'),
+                    backgroundColor: getBackgroundColor(),
                 },
                 headerTintColor: getThemeStyle(),
                 headerBackTitleVisible: false,
@@ -39,5 +39,17 @@ export const MenuStackList: React.FC<MenuNavProps<'Menu'>> = () => {
     function getThemeStyle(): string {
         const color = isDarkMode ? colors.tint.white : colors.tint.black
         return color
+    }
+
+    function getBackgroundColor() {
+        if (Platform.OS === 'ios') {
+            return PlatformColor('systemBackground')
+        }
+
+        if (isDarkMode) {
+            return colors.tint.black
+        }
+
+        return colors.tint.white
     }
 }
