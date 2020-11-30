@@ -11,7 +11,7 @@ const url =
         ? 'https://play.google.com/store/apps/details?id=com.brianbawuah.adventistmelodies'
         : 'https://apps.apple.com/in/app/adventist-melodies/id1530974313?ls=1'
 const title = 'Adventist Melodies'
-const message = 'I want to enlighten you with app..'
+const message = 'I want to enlighten you with this hymmnal..'
 const icon = 'data:<data_type>/<file_extension>;base64,<base64_data>'
 const options: Options = Platform.select({
     ios: {

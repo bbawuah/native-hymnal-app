@@ -80,7 +80,6 @@ export const SongPage: React.FC<HomeNavProps<'Song'>> = observer(({ route, navig
                     }
                 )
             )
-            console.log(state.getSong)
         }
 
         if (canSetSong) {
